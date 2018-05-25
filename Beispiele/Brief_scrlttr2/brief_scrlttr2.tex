@@ -1,0 +1,104 @@
+\documentclass[
+	a4paper,
+	fromalign=left, % Absender im Briefkopf links setzen 
+	fromlogo=true,  % Logo im Briefkopf setzen
+	fromphone=true,
+	fromfax=true,
+	fromemail=true,
+	fromurl=true,
+	fromrule=false, % Unter den Absender eine Linie setzen
+	locfield=wide,
+	foldmarks=on,   % Faltmarken setzen oder ausblenden
+	parskip=full,   % Zwischen Absätzen eine freie Zeile einfügen
+	version=2.9t    % So ist der Abstand zwischen Fuß und Seitenrand besser
+]{scrlttr2}
+
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{lmodern}
+
+\renewcommand\familydefault{\sfdefault}         % Serifenlose Schrift verwenden
+\renewcommand*{\raggedsignature}{\raggedright}  % Linksbündige Unterschrift
+\renewcaptionname{ngerman}{\enclname}{Anlagen}  % Anstatt "Anlage(n)"...
+
+\begin{document}
+
+\setkomavar{fromname}{Max Mustermann}
+\setkomavar{fromaddress}{Musterstraße 1\\ 12345 Musterstadt}
+\setkomavar{fromphone}{+49-123-456789}
+\setkomavar{fromfax}{+49-123-987654}
+\setkomavar{fromemail}{\url{max@mustermann.de}}
+\setkomavar{fromurl}{\url{http://www.mustermann.com}}
+
+\setkomavar{fromlogo}{\includegraphics[width=.2\linewidth]{Tux.pdf}}
+
+\setkomavar{signature}{Max Mustermann} % Standardmäßig wird "fromname" verwendet
+
+\setkomavar{customer}{Kundennummer}
+\setkomavar{invoice}{Rechnungsnummer}
+\setkomavar{myref}{Mn/123}
+\setkomavar{place}{Musterstadt} 
+\setkomavar{yourmail}{9. Mai 2018}
+\setkomavar{yourref}{Mu/456}
+
+\setkomavar{date}{11. Mai 2018} 
+
+\setkomavar{frombank}{Musterbank Musterstadt\\ 
+                      IBAN DE12345678901234567890\\ 
+                      BIC 12345678901}
+
+\firstfoot{
+\footnotesize
+\begin{tabular}[t]{l}
+\textbf{Geschäftsführer:} \\
+Tom Mustermann \\
+Anika Mustermann
+\end{tabular}
+\hfill
+\begin{tabular}[t]{l}
+\textbf{Gerichtsstand:}\\
+Musterstadt\\
+\textbf{USt-ID:}\\
+DE-1234567890
+\end{tabular}
+\hfill
+\begin{tabular}[t]{l}
+\textbf{\usekomavar*{frombank}:}\\
+\usekomavar{frombank}
+\end{tabular}
+}
+
+\setkomavar{specialmail}{} % Einschreiben, Mahnung, etc.
+
+\setkomavar{title}{} % Einschreiben, Mahnung, etc.
+
+\setkomavar{subject}{Beispiel für einen Brief mit der Klasse \texttt{scrlttr2}}
+
+
+\begin{letter}{Erika Musterfrau\\
+               Musterstraße 2\\
+               12345 Musterstadt}
+
+\opening{Sehr geehrte Damen und Herren,}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+
+At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd 
+gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At 
+vero eos et accusam et justo duo dolores et ea rebum.
+
+\closing{Mit freundlichen Grüßen}
+
+\encl{Anhang\\Weiterer Anhang}
+
+% \cc{Verteiler} % Verteiler
+
+\end{letter}
+\end{document}
