@@ -9,7 +9,7 @@ THUMBPDF = thumbpdf --modes=ps2pdf
 PDLIN = pdlin -user passwort -perm acsp
 ACROBAT = acroread
 XPDF = xpdf
-DATEINAME = Ein_Einstieg_in_LaTeX_2017
+DATEINAME = Ein_Einstieg_in_LaTeX
 
 all:
 	$(PDFLATEX) $(DATEINAME).tex
