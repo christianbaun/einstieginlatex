@@ -5,8 +5,8 @@
 % author:       Dr. Christian Baun
 % url:          https://github.com/christianbaun/einstieginlatex
 % license:      CC-BY-SA-3.0
-% date:         May 17th 2018
-% version:      0.1
+% date:         Juni 11th 2018
+% version:      0.2
 % requires:     pdflatex, makeindex, bibtex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -183,6 +183,8 @@ literate=
 % writing file \jobname.bib
 \begin{filecontents*}{\jobname.bib}
 
+
+
 @misc{AuthoreaWebseite,
 	Author = {{Authorea}},
 	note = "\url{https://www.authorea.com}"
@@ -196,6 +198,27 @@ literate=
 @misc{ShareLaTeXWebseite,
 	Author = {{ShareLaTeX}},
 	note = "\url{https://www.sharelatex.com}"
+}
+
+
+@misc{BibtexStylesShareLaTeXWebseite,
+	Author = {{Bibtex bibliography styles}},
+	note = "\url{https://www.sharelatex.com/learn/Bibtex_bibliography_styles}"
+}
+
+@misc{DBLPWebseite,
+	Author = {{dblp computer science bibliography}},
+	note = "\url{https://dblp.uni-trier.de}"
+}
+
+@misc{GoogleScholarWebseite,
+	Author = {{Google Scholar}},
+	note = "\url{https://scholar.google.de}"
+}
+
+@misc{BeamerThemeMatrixWebseite,
+	Author = {{Beamer Theme Matrix}},
+	note = "\url{https://hartwork.org/beamer-theme-matrix}"
 }
 
 @misc{TeXstudioWebseite,
@@ -255,6 +278,16 @@ literate=
         note = "\url{https://golatex.de/wiki/minipage}"
 }
 
+@misc{Wikibooks_LaTeX_Woerterbuch,
+	Author = {{LaTeX-Wörterbuch: bibliographystyle}},
+	note = "\url{https://de.wikibooks.org/wiki/LaTeX-W%C3%B6rterbuch:_bibliographystyle}"
+}
+
+@misc{Wikibooks_LaTeX_Kompendium,
+	Author = {{LaTeX-Kompendium: Zitieren mit BibTeX}},
+	note = "\url{https://de.wikibooks.org/wiki/LaTeX-Kompendium:_Zitieren_mit_BibTeX}"
+	}
+
         
 @misc{goLaTeX_minipage_Webpage,
         Author = {{Geviert -- Typografie-Fachbegriffe-Wiki}},
@@ -277,6 +310,20 @@ literate=
         note = "\url{http://mirrors.ctan.org/macros/latex/contrib/koma-script/doc/scrguide.pdf}"
 }
 
+@book{voss2016einfuhrung,
+	title={Einführung in LaTeX: unter Berücksichtigung von pdfLaTeX, XLaTeX und LuaLaTeX},
+	author={Vo{\ss}, Herbert},
+	year={2016},
+	publisher={Lehmanns Media}
+}
+
+@book{voss2007referenz,
+	title={LaTeX Referenz},
+	author={Vo{\ss}, Herbert},
+	year={2007},
+	publisher={Lehmanns Media}
+}
+
 @misc{Calligra_Dokumentation,
         Author = {{The \texttt{calligra} package for use with \LaTeXe}},
         note = "\url{http://mirrors.ctan.org/macros/latex/contrib/fundus/calligra/calligra.pdf}"
@@ -287,9 +334,20 @@ literate=
         note = "\url{https://creativecommons.org/licenses/by-sa/3.0/de/}"
 }
 
+@misc{natbibDoku,
+	Author = {{Natural Sciences Citations and References}},
+	note = "\url{http://ftp.uni-erlangen.de/ctan/macros/latex/contrib/natbib/natbib.pdf}"
+}
+
 @misc{LeslieLamportWebpage,
         Author = {{Leslie Lamport's Home Page}},
         note = "\url{http://www.lamport.org}"
+}
+
+
+@misc{bibtexWikipediaWebseite,
+	title={{Wikipedia -- BibTeX}},
+	note = "\url{https://de.wikipedia.org/wiki/BibTeX}"
 }
 
 @misc{DonaldKnuthWebpage,
@@ -349,6 +407,8 @@ literate=
 	note = "\url{https://www.tortools.de/lib/exe/fetch.php/latex:richter_latex_tipps_1.2.pdf}"
 }
 
+
+
 @misc{MarxBueckerLink,
 	title={{Erstellung wissenschaftlicher Texte mit \LaTeX}},
 	author={Marx, Monika and Bücker, Oliver},
@@ -362,8 +422,13 @@ literate=
    	year={2018},
    	note = "\url{http://www.nagel-net.de/Latex/DOKU/Latexkurs_Skript.pdf}"
 }
-   
 
+@misc{GitterLink,
+	title={{\LaTeX}},
+	author={Gitter, Alfred},
+	year={2018},
+	note = "\url{http://web.eah-jena.de/~gitter/ahg_latex.pdf}"
+}
 
 @book{Schlosser2009,
 	author = {Schlossser, Joachim},
@@ -398,7 +463,19 @@ literate=
     publisher ={Addison-Wesley}
 }
   
+@book{mittelbach2004latex,
+	title={The LATEX companion},
+	author={Mittelbach, Frank and Goossens, Michel and Braams, Johannes and Carlisle, David and Rowley, Chris},
+	year={2004},
+	publisher={Addison-Wesley Professional}
+}
 
+@book{kopka2003guide,
+	title={Guide to LATEX},
+	author={Kopka, Helmut and Daly, Patrick W},
+	year={2003},
+	publisher={Pearson Education}
+}
 
 \end{filecontents*}
 
@@ -408,7 +485,7 @@ literate=
 \title{Ein Einstieg in \LaTeX}
 \author{Prof. Dr. Christian Baun\\ Frankfurt University of Applied Sciences \\ (1971-2014: Fachhochschule Frankfurt am Main)\\
 Nibelungenplatz 1 \\ 60318 Frankfurt am Main\\\url{christianbaun@fb2.fra-uas.de}\\[3em]}
-\date{Version 0.1\\[3em] 16.~Mai 2018}
+\date{Version 0.2\\[3em] 11.~Juni 2018}
 
 \publishers{
 
@@ -452,17 +529,17 @@ Dieses Werk ist lizenziert unter einer Creative Commons Namensnennung - Weiterga
 
 \chapter{Vorwort}
 
-Wer sich schon etwas mit dem Thema Textsatz mit \LaTeX\ beschäftigt, und zum ersten Mal auf dieses Werk stößt, der wird sich vermutlich folgende Frage stellen:
+Wer sich schon einige Zeit mit dem Textsatz und \LaTeX\ beschäftigt, und zum ersten Mal auf dieses Werk stößt, der wird sich vielleicht folgende berechtige Frage stellen:
 
 \begin{quote}
 \glqq Warum hat sich der Autor die Mühe gemacht dieses Werk zu schreiben?\grqq
 \end{quote}
 
-Die Frage ist berechtigt. Immerhin sind in den letzten Jahrzehnten zahlreiche Bücher in deutscher und englischer Sprache zu diesem Thema erschienen und wer in den gängigen Suchmaschinen nach einer freien Einführung zum Thema sucht, der wird an vielen Stellen~\cite{KrauseLink}\cite{JuergensFeuerstackLink}\cite{RichterTorstenLink}\cite{MarxBueckerLink}\cite{NagelLink} fündig.
+In der Tat sind in den letzten Jahrzehnten zahlreiche exzellente Bücher in deutscher~\cite{Kopka2000,GoossensMittelachSamarin2000,voss2016einfuhrung} und englischer~\cite{mittelbach2004latex,kopka2003guide} Sprache zu diesem Thema erschienen und wer in den gängigen Suchmaschinen nach einer guten und freien Einführung zum Thema sucht, der wird an vielen Stellen~\cite{KrauseLink,JuergensFeuerstackLink,RichterTorstenLink,MarxBueckerLink,NagelLink,GitterLink} fündig.
 
-Das Ziel bei der Erstellung war und ist es auch zu keiner Zeit, ein möglichst umfangreiches Werk zu schreiben, das andere in den Schatten stellt. 
+Es ist auch nicht das Ziel, das dieses Werk einmal eine möglichst umfangreiche Dokumentation zum Textsatz mit \LaTeX\ wird, das andere Werke bzgl. des Umfangs in den Schatten stellt. 
 
-Die primäre Motivation hinter der Entstehung dieses Werks ist das es nur wenige einführende Bücher zu \LaTeX\ gibt, deren Quelltext frei ist und deren Lizenz so viele Freiheiten bietet, wie die für dieses Werk verwendete Lizenz.
+Die Motivation hinter der Entstehung dieses Werks ergab sich in erster Linie daraus, das es nur wenige einführende Bücher zu \LaTeX\ gibt, deren Quelltext frei ist und deren Lizenz so viele Freiheiten bietet, wie die für dieses Werk verwendete Lizenz.
 
 Den Quellcode des vorliegenden Dokuments finden Sie unter dieser Webadresse:\\
 \url{https://github.com/christianbaun/einstieginlatex}
@@ -473,7 +550,7 @@ Wenn Sie Fehler oder Ungenauigkeiten in diesem Dokument finden oder Verbesserung
 
 \begin{flushright} 
 Frankfurt am Main\hfill Prof.~Dr.~Christian Baun\\
-Mai 2018
+Juni 2018
 \end{flushright}
 
 \mainmatter        %Arabische Seitenummerierung
@@ -727,7 +804,7 @@ in Geviert angegeben sind (meist \verb!1em! oder \verb!2em!). Auch die konkreten
 Während das relative Maß \verb!em! meist für horizontalen Maße verwendet wird, eignet sich \verb!ex! besonders für vertikale Maße. 
 
 In der Literatur zu \LaTeX\ findet sich auch immer wieder die Aussage, dass \verb!em! etwas der 
-Breite des Großbuchstabens \glqq M\grqq\ und \verb!ex! in etwa der Höhe des Buchstabens \glqq x\grqq\ im aktuellen Font entspricht.~\cite{Schwarz1988}\cite{Kopka2000}
+Breite des Großbuchstabens \glqq M\grqq\ und \verb!ex! in etwa der Höhe des Buchstabens \glqq x\grqq\ im aktuellen Font entspricht.~\cite{Schwarz1988,Kopka2000}
 
 
 % Quellen: Schwarz1988: S.22
@@ -4590,7 +4667,7 @@ x1y3 & x2y3 & x3y3 \\
 ...
 
 \begin{tabularx}{.8\textwidth}{|X|Y|Z|}
-\hline
+
 Spalte 1 & Spalte 2 & Spalte 3 \\
 \hline\hline
 x1y1 & x2y1 & x3y1 \\
@@ -5121,7 +5198,7 @@ Im Beispiel in Abbildung~\ref{Beispiel_includegraphics2} ist das Linux-Maskottch
 
 % !!! Hier noch den Abschnitt von Figure einfügen !!!
 
-Meist ist es sinnvoll, Abbildungen mit der Umgebung \verb!figure! (siehe Abschnitt~\ref{}) zu umschließen. Dadurch werden sie zu sogenannten Gleitobjekten. Vorteile von Gleitobjekten sind die automatisierte Positionierung sowie die Möglichkeit Bildunterschriften und Bezeichner zuweisen zu können. Ein mögliches Beispiel ist:
+Meist ist es sinnvoll, Abbildungen mit der Umgebung \verb!figure! zu umschließen. Dadurch werden sie zu sogenannten Gleitobjekten. Vorteile von Gleitobjekten sind die automatisierte Positionierung sowie die Möglichkeit Bildunterschriften und Bezeichner zuweisen zu können. Ein mögliches Beispiel ist:
 
 \begin{Verbatim}[frame=single]
 \begin{figure}[H]
@@ -7980,14 +8057,533 @@ dolores et ea rebum.}
 
 \chapter{Literaturverzeichnis}
 \label{Kapitel_Literaturverzeichnis}
+\index{Literaturverzeichnis}
 
-!!! Fehlt noch !!!
+Das Einbinden eines Literaturverzeichnisses in \LaTeX-Dokumente kann auf verschiedene Arten geschehen. Diese Unterscheiden sich in erster Linie hinsichtlich des Automatisierungsgrads. In diesem Dokument ist das Erstellen von Literaturverzeichnissen mit Hilfe des Abschnitts \verb!thebibliography! und mit Hilfe von Bib\TeX\ beschrieben.
+
+Ganz unabhängig von der Art und Weise, wie das Literaturverzeichnis realisiert wird, geschieht der Verweis auf Einträge im Literaturverzeichnis mit dem Befehl \verb|\cite|.\index[cmd]{\texttt{\textbackslash cite}}
+
+\begin{boxedminipage}{\textwidth}
+	\texttt{\textbackslash cite[\textsl{Text}]\{\textsl{Schlüssel}\}} 
+\end{boxedminipage}
+
+Der zwingend nötige Parameter \textsl{Schlüssel} verweist auf einen oder mehrere Einträge im Literaturverzeichnis. Der Inhalt des optionalen Parameters  \textsl{Text} wird zusätzlich Ausgegeben und kann eine weiterführende Information für den Leser enthalten wie zum Beispiel \glqq S.\,42-46\grqq\ oder \glqq Kapitel 5\grqq.
+
+Soll auf mehrere Einträge im Literaturverzeichnis gleichzeitig referenziert werden, müssen die Angaben im Parameter \textsl{Schlüssel} durch Kommata voneinander getrennt sein.
+
+
+\section{Manueller Satz des Literaturverzeichnisses}
+\label{Abschnitt_thebibliography}
+
+Das Einfügen des Inhalts des Literaturverzeichnisses geschieht in einer Umgebung \verb!thebibliography! am Ende der Datei mit dem \LaTeX-Quelltext.
+\index[cmd]{\texttt{thebibliography}}
+
+\begin{boxedminipage}{\textwidth}
+	\texttt{\textbackslash begin\{thebibliography\}\{\textsl{Markierungsbreite}\}} \enskip \dots\ \enskip \texttt{\textbackslash end\{thebibliography\}} 
+\end{boxedminipage}
+
+Die Breite (Anzahl der Zeichen) der einzelnen Labels (Markierungen) im Literaturverzeichniss definiert der Inhalt des Parameters \textsl{Markierungsbreite}. Dieser kann eine beliebige Zeichenkette enthalten (z.B. \verb|999|)~\cite{voss2007referenz}.
+
+Die einzelnen Einträge im Literaturverzeichnis realisiert der Befehl \verb|\bibitem| innerhalb der Umgebung \verb!thebibliography!. 
+\index[cmd]{\texttt{\textbackslash bibitem}}
+
+\begin{boxedminipage}{\textwidth}
+	\texttt{\textbackslash bibitem[\textsl{Markierung}]\{\textsl{Schlüssel}\} \textsl{Text}} 
+\end{boxedminipage}
+
+Ein Beispiel für einen \verb!thebibliography!-Umgebung mit drei Einträgen enthält Listing~\ref{listing_thebibliography_beispiel} und  Abbildung~\ref{fig_thebibliography_beispiel} das resultierende Literaturverzeichnis.
+
+\begin{lstlisting}[caption={Das allererste Beispiel},label=listing_thebibliography_beispiel, style=customlatex]
+\begin{thebibliography}{9}
+\bibitem[Go93]{GoMiSa93} 
+Michel Goossens, Frank Mittelbach and Alexander Samarin. 
+\emph{The \LaTeX\ Companion}. 
+Addison-Wesley, Reading, Massachusetts, 1993.
+\bibitem[La94]{Lamport94}
+Leslie Lamport,	\emph{\LaTeX: A Document Preparation System},	
+Addison Wesley, Massachusetts, 2nd edition, 1994.
+\bibitem[Kn86]{Knuth96} 
+Donald E. Knuth, \emph{Computers and Typesetting -- Volume A: 
+The \TeX book}, Addison Wesley, 1986.
+\end{thebibliography}
+\end{lstlisting}
+
+\begin{figure}[H]
+	%     \centering
+	% Abschneiden mit trim = liks unten rechts oben
+	\fbox{\includegraphics[page=1, clip, trim=2cm 22cm 2cm 2cm, width=.98\textwidth]{Beispiele/thebibliography/thebibliography_beispiel.pdf}}
+	\caption{Resultat von Listing~\ref{listing_thebibliography_beispiel}}
+	\label{fig_thebibliography_beispiel}
+\end{figure}
+
+Ein Unterschied zum Satz des Literaturverzeichnisses mit Bib\TeX\ ist das Literaturverzeichnis im fertig gesetzten Dokument alle im Quelltext aufgeführten Einträge enthält. Es spielt keine Rolle, ob auf einzelne Einträge referenziert ist.
+
+
+
+
+
+
+\section{Autmoatisierter Satz des Literaturverzeichnisses}
+\label{Abschnitt_bibtex}
+\index{Bib\TeX}
+
+Vielfältige Möglichkeiten ein Literaturverzeichniss einzufügen und dessen Formatierung zu beeinflussen bietet \LaTeX\ in Zusammenarbeit mit dem Programm Bib\TeX\ und den Befehlen \verb|\bibliography| und \verb|\bibliographystyle|. Die Kombination aus diesen Programmen und Befehlen ermöglicht es, Quellen aus einer oder mehreren Literaturdatenbanken herauszusuchen und beispielsweise nach dem Nachnamen des ersten Autors oder gemäß der Reihenfolge der Referenzierung im Dokument zu sortieren. 
+
+Die Einbindung einer Literaturdatenbank (\verb|.bib|-Datei) geschieht mit dem Befehl \verb|\bibliography|\index[cmd]{\texttt{\textbackslash bibliography}}. Der Dateiname wird ohne Dateiendung angegeben.
+
+\begin{boxedminipage}{\textwidth}
+	\texttt{\textbackslash bibliography\{\textsl{Dateiname}\}} 
+\end{boxedminipage}
+
+Sollen mehrere Literaturdatenbanken eingebunden werden, müssen die entsprechenden \verb|.bib|-Dateien durch Kommata voneinander abgetrennt sein.
+
+\begin{boxedminipage}{\textwidth}
+	\texttt{\textbackslash bibliography\{\textsl{Dateiname1},\textsl{Dateiname2},\textsl{Dateiname3},...\}} 
+\end{boxedminipage}
+
+
+Die Definition des Stils des Literaturverzeichnisses geschieht mit dem Befehl \verb|\bibliographystyle|\index[cmd]{\texttt{\textbackslash bibliographystyle}}.
+
+\begin{boxedminipage}{\textwidth}
+	\texttt{\textbackslash bibliographystyle\{\textsl{Stil}\}} 
+\end{boxedminipage}
+
+
+Der Befehl darf an (fast) beliebiger Stelle in der \verb!.tex!-Quelldatei stehen.
+
+
+Es existiert eine sehr große Anzahl an Stilen. Umfangreiche Übersichten enthalten~\cite{voss2007referenz,BibtexStylesShareLaTeXWebseite} Eine Auswahl an häufig verwendeten Stilen enthält Tabelle~\ref{Tabelle_Stile_Literaturverzeichnisse}. 
+
+
+
+\begin{table}[h!tb]
+	\centering
+	\caption[Auswahl an Stilen für Literaturverzeichnisse]{Auswahl an Stilen für Literaturverzeichnisse~\cite{Wikibooks_LaTeX_Woerterbuch}}
+	\label{Tabelle_Stile_Literaturverzeichnisse}       % Give a unique label
+	\begin{tabularx}{\textwidth}{lp{3cm}p{7.5cm}}
+		\hline
+		Stilname & Sortierung & Referenzierung  \\
+		\hline
+		\texttt{abbrv} & Erstautor & [IdNr] (Vornamen nur als Initialen) \\
+		\texttt{alpha} & Erstautor & bis zu drei Anfangsbuchstaben der Autorennamen, evtl. ein hochgestelltes Pluszeichen, bei mehr als drei Autoren, Jahresangabe zweistellig \\			
+		\texttt{apalike} & Erstautor & [Autorenname(n), Jahr] \\
+		\texttt{plain}   & Erstautor & [IdNr] (Vornamen werden ausgeschrieben) \\
+        \texttt{plainyr} & Referenzart, Jahr   & [IdNr] (Vornamen werden ausgeschrieben) \\
+        \texttt{unsrt}   & Reihenfolge der Referenzierung & [IdNr] \\
+		\hline
+	\end{tabularx}
+\end{table}
+
+Für jeden Stil muss eine so Datei gleichen Namens mit der Dateiendung \verb!.bst! existieren. Dort ist das Layout des Stils definiert.
+Bei \TeX~Live befinden sich die \verb!.bst!-Dateien im Unterverzeichnis \verb|texlive/texmf-dist/bibtex/bst/|.
+
+
+Bei der Arbeit mit Bib\TeX\ müssen die einzelnen Literatureinträge in einer oder mehreren Dateien mit der Dateiendung
+\verb|.bib| vorliegen. Je nach Art des jeweiligen Eintrags (zum Beispiel Bücher, Artikel, technische Dokumentationen, etc.) sind bestimmte Angaben (\glqq Felder\grqq) zum Eintrag zwingend nötig oder optional möglich. Häufig verwendete Typen von Einträgen in Literaturdatenbanken sind \texttt{article}, \texttt{book}, \texttt{booklet}, \texttt{conference}, \texttt{inbook}, \texttt{incollection}, \texttt{inproceedings}, \texttt{manual}, \texttt{mastersthesis}, \texttt{misc}, \texttt{phdthesis}, \texttt{proceedings}, \texttt{techreport} und \texttt{unpublished}.
+
+Jedem Eintrag ist ein Klammeraffe\index{Klammeraffe} (\verb!@!) vorangestellt. Zudem ist es egal, ob das Schlüsselwort eines
+Eintrags mit Klein- oder Großbuchstaben 
+geschrieben ist. Jede der folgenden Schreibweisen ist somit korrekt: \verb!@book!, \verb!@BOOK!, 
+\verb!@bOOk!, \verb!@BoOk!, etc.
+
+Auf den Typ eines Eintrags folgt immer ein Klammernpaar 
+aus geschweiften Klammern, und
+zwischen diesen Klammern befinden sich ein Schlüsselwort\index{Schlüsselwort} und 
+die einzelnen Felder.
+Das Schlüsselwort kann aus einer fast beliebigen
+Folge und Anordnung von Buchstaben, 
+Zahlen und Zeichen jeder Art bestehen. 
+Kommata sind im Schlüsselwort tabu. 
+Idealerweise ist das Schlüsselwort eindeutig 
+und nachvollziehbar.
+
+Die einzelnen Felder bestehen 
+aus jeweils einem Feldnamen
+und einer Information (Feldtext).
+Mögliche Felder sind u.a. \texttt{address}, \texttt{author}, \texttt{booktitle}, \texttt{chapter}, \texttt{edition}, \texttt{editor}, \texttt{isbn}, \texttt{journal}, \texttt{volume}, \texttt{month}, \texttt{note}, \texttt{number}, \texttt{organization}, \texttt{pages}, \texttt{series}, \texttt{school}, \texttt{title} und \texttt{year}. Es werden allerdings nicht alle Felder bei allen Arten von Einträgen berücksichtigt und bei allen Arten von Einträgen sind bestimmten Felder zwingend erforderlich. Eine Übrsicht über diese Typen von Einträgen in Literaturdatenbanken und deren zwingende sowie optionale Felder enthält \ref{Abschnitt_Eintraege_Bibtex_Felder}
+
+Zwischen Feldname und Feldtext befindet sich ein \verb!=!. Der Feldtext ist von geschweiften Klammern oder alternativ mit Anführungsstrichen (\verb!" ... "!) umschlossen. Besteht der Feldtext nur aus Ziffern, sind die geschweiften Klammern bzw. Anführungsstriche nicht nötig.
+Die einzelnen Felder sind durch Kommata voneinander getrennt.
+
+Syntaktisch korrekt sehen Einträge in Literaturdatenbanken folgendermaßen aus: 
+
+
+\begin{boxedminipage}{\textwidth}
+\verb!@!\textsl{Typ}\verb!{!\textsl{Schlüsselwort}\verb!,!\newline
+\verb!    !\textsl{Feldname}\verb! = {!\textsl{Feldtext}\verb!},! \newline
+\verb!    !\textsl{Feldname}\verb! = {!\textsl{Feldtext}\verb!},! \newline
+\verb!    !\textsl{Feldname}\verb! = {!\textsl{Feldtext}\verb!},! \newline
+\verb!    !\verb!...! \newline
+\verb!    !\textsl{Feldname}\verb! = {!\textsl{Feldtext}\verb!}! \newline
+\verb!}!
+\end{boxedminipage}
+
+
+
+
+
+Ein paar Beispiele für Bib\TeX-Einträge enthält Listing~\ref{Bibtext_beispiele_listing}.
+
+
+\begin{lstlisting}[caption={Einige Beispeile für Bib\TeX-Einträge},label=Bibtext_beispiele_listing, style=customlatex]
+@article{InformatikSpektrum2018,
+author    = {Christian Baun and
+             Henry-Norbert Cocos and
+             Rosa-Maria Spanou},
+title     = {Erfahrungen beim Aufbau von großen Clustern aus
+             Einplatinencomputern für Forschung und Lehre},
+journal   = {Informatik Spektrum},
+volume    = {41},
+number    = {3},
+pages     = {189--199},
+year      = {2018},
+doi       = {10.1007/s00287-017-1083-9}
+}
+
+@book{ComputernetzeKompaktBuch2018,
+author    = {Christian Baun},
+title     = {Computernetze kompakt},
+publisher = {Springer Vieweg},
+edition   = {4},
+year      = {2018},
+isbn      = {978-3-662-57468-3}
+}
+\end{lstlisting}
+
+
+In den meisten Fällen ist die effizienteste Vorgehensweise fertige Bib\TeX-Einträge zu den gewünschten Quellen von Online-Angeboten wie Google Scholar~\cite{GoogleScholarWebseite} oder dblp~\cite{DBLPWebseite} zu beziehen.
+
+Weitere Möglichkeiten, um das Aussehen des Literaturverzeichnisses und der Referenzen zu definieren, bietet das Erweiterungpaket \verb|natbib|~\cite{natbibDoku}\index[cmd]{\texttt{natbib}}. Diese bietet auch weitere Felder wie zum Beispiel \texttt{doi}, \texttt{issn} und \texttt{url}.
+
+
+\section{Funktionsweise von Bib\TeX}
+\label{Abschnitt_Funktionsweise_Bibtex}
+
+Beim Durchlauf des \LaTeX-Compilers erzeugt dieser eine Textdatei mit der Endung \verb|.aux|. Ein nachfolgender Durchlauf von Bib\TeX\ erzeugt aus der \verb|.aux|-Datei mit Hilfe der \verb|.bib|-Datei(en) und der \verb|.bst|-Datei) eine weitere Textdatei mit der Endung \verb|.bbl|. Diese letzte Datei enthält das mit \verb|thebibliography|\index[cmd]{\texttt{thebibliography}} realisierte Literaturverzeichnis mit den im Dokument angeforderten Einträgen. Beim nächsten Durchlauf des \LaTeX-Compilers fügt dieser das Literaturverzeichnis in das fertige Dokument ein.
+
+
+
+
+\section{Einträgen in Literaturdatenbanken und deren Felder}
+\label{Abschnitt_Eintraege_Bibtex_Felder}
+
+Dieser Abschnitt enthält eine Übersicht über einige gängige Typen von Einträgen in Literaturdatenbanken und deren zwingende sowie optionale Felder~\cite{bibtexWikipediaWebseite,Wikibooks_LaTeX_Kompendium}.
+
+\verb!@article! Literaturangabe für einen Artikel aus einer Zeitschrift, oder Zeitung.
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & \texttt{author}, \texttt{title}, \texttt{journal}, \texttt{year}\\
+	 \textsl{optionale Felder} & \texttt{volume}, \texttt{number}, \texttt{month}, \texttt{note}, \texttt{pages}\\
+\end{tabular}
+
+\verb!@book! Literaturangabe für ein Buch aus einem Verlag.
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & \texttt{author} oder \texttt{editor}, \texttt{title}, \texttt{publisher}, \texttt{year}\\
+	 \textsl{optionale Felder} & \texttt{volume} oder \texttt{number}, \texttt{series}, \texttt{address}, \texttt{edition}, \texttt{month}, \texttt{note}, \texttt{isbn} \\
+\end{tabular}
+
+\verb!@booklet! Literaturangabe für ein Buch (gebundenes Druckwerk) ohne Verlag.
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & \texttt{title}\\
+	 \textsl{optionale Felder} & \texttt{author}, \texttt{howpublished}, \texttt{address}, \texttt{month}, \texttt{year}, \texttt{note}\\
+\end{tabular}
+
+\verb!@conference! identisch mit \verb!@inproceedings!.
+
+\verb!@inbook! Literaturangabe für einen Buchauszug, z.~B. 
+ein Kapitel oder ein paar Seiten.
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & \texttt{author} oder \texttt{editor}, \texttt{title}, \texttt{chapter} und/oder \texttt{pages}, \texttt{publisher}, \texttt{year}\\
+	 \textsl{optionale Felder} & \texttt{volume} oder \texttt{number}, \texttt{series}, \texttt{type}, \texttt{address}, \texttt{edition}, \texttt{month}, \texttt{note}\\
+\end{tabular}
+
+\verb!@incollection! Literaturangabe für einen 
+Buchauszug mit einem eigenen Titel, z.~B. einen Aufsatz in einem Sammelband.
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & \texttt{author}, \texttt{title}, \texttt{booktitle}, \texttt{publisher}, \texttt{year}\\
+	 \textsl{optionale Felder} & \texttt{editor}, \texttt{volume} oder \texttt{number}, \texttt{type}, \texttt{series}, \texttt{edition}, \texttt{chapter}, \texttt{pages}, \texttt{address}, \texttt{month}, \texttt{note}\\
+\end{tabular}
+
+\verb!@inproceedings! Literaturangabe für einen 
+Artikel aus einem Konferenzbericht.
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & \texttt{author}, \texttt{title}, \texttt{booktitle}, \texttt{year}\\
+	 \textsl{optionale Felder} & \texttt{editor}, \texttt{volume} oder \texttt{number}, \texttt{organisation}, \texttt{series}, \texttt{pages}, \texttt{publisher}, \texttt{address}, \texttt{month}, \texttt{note}\\
+\end{tabular}
+
+\verb!@manual! Literaturangabe für eine technische Dokumentation.
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & \texttt{title}, \texttt{address}, \texttt{year} \\
+	 \textsl{optionale Felder} & \texttt{author}, \texttt{organisation}, \texttt{edition}, \texttt{month}, \texttt{note}\\
+\end{tabular}
+
+\verb!@mastersthesis! Literaturangabe für eine Diplomarbeit oder Masterthesis.
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & \texttt{author}, \texttt{title}, \texttt{school}, \texttt{year}\\
+	 \textsl{optionale Felder} & \texttt{address}, \texttt{month}, \texttt{note}, \texttt{type}\\
+\end{tabular}
+
+\verb!@misc! Literaturangabe die zu keiner dieser Eingabetypen passt (z.~B. eine Web-Seite).
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & mindestes eines der \textsl{optionalen Felder}\\
+	 \textsl{optionale Felder} & \texttt{author}, \texttt{title}, \texttt{howpublished}, \texttt{month}, \texttt{year}, \texttt{note}\\
+\end{tabular}
+
+\verb!@phdthesis! Literaturangabe für eine Doktorarbeit (Promotion).
+
+\begin{tabular}{p{3cm}p{9cm}}
+	 \textsl{zwingende Felder} & \texttt{author}, \texttt{title}, \texttt{school}, \texttt{year}\\
+	 \textsl{optionale Felder} & \texttt{address}, \texttt{month}, \texttt{note}, \texttt{type}\\
+\end{tabular}
+
+\verb!@proceedings! Literaturangabe für einen Konferenzbericht.
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & \texttt{title}, \texttt{year}\\
+	 \textsl{optionale Felder} & \texttt{editor}, \texttt{publisher}, \texttt{volume} oder \texttt{number}, \texttt{organisation}, \texttt{series}, \texttt{address}, \texttt{month}, \texttt{note} \\
+\end{tabular}
+
+\verb!@techreport! Literaturangabe für einen Bericht einer Hochschule oder eines Instituts.
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & \texttt{author}, \texttt{title}, \texttt{institution}, \texttt{year}\\
+	 \textsl{optionale Felder} & \texttt{type}, \texttt{number}, \texttt{address}, \texttt{month}, \texttt{note} \\
+\end{tabular}
+
+\verb!@unpublished! Literaturangabe für eine unveröffentlichte Arbeit mit einem Autor und einem Titel.
+
+\begin{tabular}{p{2.8cm}p{10cm}}
+	 \textsl{zwingende Felder} & \texttt{author}, \texttt{title}, \texttt{note}\\
+	 \textsl{optionale Felder} & \texttt{month}, \texttt{year} \\
+\end{tabular}
+
+
+
+
+
+
+\section{Das Aussehen des Literaturverzeichnisses anpassen}
+\label{Abschnitt_Literaturverzeichnis_anpassen}
+
+Die Änderung der Überschrift eines Literaturverzeichnisses geschieht mit folgendem Befehl:
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash renewcommand\{\textbackslash refname\}\{Literaturverzeichnis\}}
+\end{boxedminipage}
+
+Einige Autoren bevorzugen anstatt \glqq Literaturverzeichnis\grqq\ beispielsweise die Überschrift \glqq Quelle\grqq\ oder einfach \grqq Literatur\grqq.
+
+Das Hinzufügen eines Eintrags in das Inhaltsverzeichnis realisiert der folgende Befehl:
+
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash addcontentsline\{toc\}\{chapter\}\{Literaturverzeichnis\}}
+\end{boxedminipage}
+
+
+
+
+\section{Die Literaturdatenbank mit der \LaTeX-Quelldatei erzeugen}
+\label{Abschnitt_Literaturdatenbank_Quelldatei_erzeugen}
+
+Mit dem Erweiterungspaket \verb|filecontents|\index[cmd]{\texttt{filecontents}} ist es möglich aus einer \LaTeX-Quelldatei eine andere Datei zu erstellen und mit Inhalt zu befüllen bzw. deren Inhalt zu überschreiben. Sobald das Paket mit dem Befehl \verb!\usepackage{textcomp}! in der Präambel eines \LaTeX-Quelltextes eingebunden wurde, ist die gleichnamige Umgebung \verb|filecontents| verfügbar.
+
+Damit ist es z.~B. möglich eine Bib\TeX-Literaturdatenbank aus der \LaTeX-Quelldatei heraus zu erzeugen.
+Listing~\ref{bibtex_eingebettet_beispiel} zeigt exemplarisch die Vorgehensweise. Das Ergebnis des
+Beispiels zeigt Abbildung~\ref{fig_bibtex_eingebettet_beispiel}.
+
+Beim Start der Umgebung \verb|filecontents| wird in geschweiften Klammern als Parameter der Dateiname der zu erzeugenden bzw. zu überschreibenden Datei definiert. Der in Listing~\ref{bibtex_eingebettet_beispiel} verwendete Befehl \verb|\jobname|\index[cmd]{\texttt{\textbackslash jobname}} fügt an der Stelle seines Aufrufs den Namen der \LaTeX-Quelldatei ohne die Dateiendung ein. Auf diese Art und Weise wird eine \verb|.bib|-Datei mit dem gleichen Dateinamen wie die \LaTeX-Quelldatei erzeugt.
+
+\lstinputlisting[caption={Eine Bib\TeX-Literaturdatenbank aus der \LaTeX-Quelldatei heraus erzeugen},label=bibtex_eingebettet_beispiel, style=customlatex]{Beispiele/Bibtex_eingebettet/bibtex_eingebettet_beispiel.tex}
+
+\begin{figure}[H]
+	%     \centering
+	% Abschneiden mit trim = liks unten rechts oben
+	\fbox{\includegraphics[page=1, clip, trim=2cm 22.5cm 2cm 2cm, width=.98\textwidth]{Beispiele/Bibtex_eingebettet/bibtex_eingebettet_beispiel.pdf}}
+	\caption{Resultat von Listing~\ref{bibtex_eingebettet_beispiel}}
+	\label{fig_bibtex_eingebettet_beispiel}
+\end{figure}
 
 
 \chapter{Präsentationsfolien}
 \label{Kapitel_Praesentationsfolien}
 
-!!! Fehlt noch !!!
+Die Verwendung der Dokumentklasse \verb!beamer! ermöglicht auf komfortable Art und Weise die Erstellung optisch ansprechender Präsentationsfolien mit \LaTeX. 
+
+
+Ein einfaches Beispiel für ein Grundgerüst einer \LaTeX-Quelldatei mit \verb|beamer| zeigt Listing~\ref{erstesbeispielbeamer}. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_erstesbeispielbeamer}.
+
+\lstinputlisting[caption={Einfaches Grundgerüst einer \LaTeX-Quelldatei mit \texttt{beamer}},label=erstesbeispielbeamer, style=customlatex]{Beispiele/Folien_beamer_einfaches_Beispiel/beamer_einfaches_beispiel.tex}
+
+
+
+\begin{figure}[H]
+	%     \centering
+	% Abschneiden mit trim = liks unten rechts oben
+	\fbox{\includegraphics[page=1, clip, width=.98\textwidth]{Beispiele/Folien_beamer_einfaches_Beispiel/beamer_einfaches_beispiel.pdf}}
+	\caption{Resultat von Listing~\ref{erstesbeispielbeamer}}
+	\label{fig_erstesbeispielbeamer}
+\end{figure}
+
+
+
+Das grundlegende Layout der Präsentationsfolien definieren sogenannte Themen\footnote{Die (Layout-)Themen von \texttt{beamer} sind immer nach Städten benannt.}. In jedem Foliensatz muss exakt ein Thema definiert sein. 
+Die farbliche Gestaltung kann mit Hilfe von Farbthemen\footnote{Die Farbthemen von \texttt{beamer} sind immer nach Tieren benannt.} beeinflusst werden. Eine hilfreiche Übersicht über die verschiedenen Kombinationen aus standardmäßig enthaltenen (Layout-)Themen und Farbthemen bietet~\cite{BeamerThemeMatrixWebseite}. 
+
+Jede Folie, die mit \verb|beamer| erstellt wird, besteht aus einer Umgebung \verb!frame!. Innerhalb der Umgebung kann Folientitel mit dem Befehl \verb|frametitle| definiert sein, indem er dem Befehl in geschweiften Klammern als Argument übergeben wird.
+
+
+\begin{boxedminipage}{\textwidth}
+\verb!\begin{frame}!\newline
+\verb!  \frametitle{!\textsl{Folientitel}\verb!}! \newline
+\verb!  !\textsl{\dots\ Inhalt der Folie\ \dots} \newline
+\verb!\end{frame}!
+\end{boxedminipage}
+
+
+\section{Titelfolie}
+
+
+Der automatische Satz einer Titelfolie geschieht mit dem Befehl \verb!\titlepage!\index[cmd]{\texttt{\textbackslash titlepage}}
+
+\begin{boxedminipage}{\textwidth}
+\verb!\begin{frame}!\newline
+\verb!  \titlepage! \newline
+\verb!\end{frame}!
+\end{boxedminipage}
+
+Der Befehl \verb!\titlepage! greift zum Satz der Titelfolie auf die 
+Argumente zurück, die den Befehlen
+\verb|\title|\index[cmd]{\texttt{\textbackslash title}}, 
+\verb|\subtitle|\index[cmd]{\texttt{\textbackslash subtitle}}, 
+\verb|\author|\index[cmd]{\texttt{\textbackslash author}}, 
+\verb|\date|\index[cmd]{\texttt{\textbackslash date}} und
+\verb|\institute|\index[cmd]{\texttt{\textbackslash institute}} mit geschweiften Klammern übergeben werden.
+
+
+
+Ein Beispiel für das automatische Erzeugen der Titelfolie mit \verb|beamer| zeigt Listing~\ref{Titelfoliebeamer}. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_Titelfoliebeamer}.
+
+\lstinputlisting[caption={Automatisches Erzeugen der Titelfolie},label=Titelfoliebeamer, style=customlatex]{Beispiele/Folien_beamer_Titelseite/Folien_beamer_beispiel_titel.tex}
+
+
+
+\begin{figure}[H]
+	%     \centering
+	% Abschneiden mit trim = liks unten rechts oben
+	\fbox{\includegraphics[page=1, clip, width=.98\textwidth]{Beispiele/Folien_beamer_Titelseite/Folien_beamer_beispiel_titel.pdf}}
+	\caption{Resultat von Listing~\ref{Titelfoliebeamer}}
+	\label{fig_Titelfoliebeamer}
+\end{figure}
+
+Das Beispiel in Listing~\ref{Titelfoliebeamer} zeigt auch eine mögliche Verwendung der Kopf- und Fußzeilen. Im Beispiel wird mit Hilfe des Befehls \verb!\insertnavigation!\index[cmd]{\texttt{\textbackslash insertnavigation}} die Gliederugsstruktur des Foliensatzes in der Kopfzeile ausgegeben. Abschnitte (\verb|section|) sind mit ihren Abschnittsnamen aufgeführt. Jeder Unterabschnitt (\verb!subsection!) und jede Folie sind durch Punkte unter den Abschnittsnamen repräsentiert.  
+
+Im Beispiel ist auch die Ausgabe der 
+kleinen Navigationsleiste am unteren Rand 
+durch den Befehl \verb!\beamertemplatenavigationsymbolsempty!\index[cmd]{\texttt{\textbackslash beamertemplatenavigationsymbolsempty}}
+abgeschaltet 
+
+
+\section{Automatischer Satz eines Inhaltsverzeichnisses}
+
+Wie bei anderen Dokumentklassen auch, ist es bei \verb|beamer| üblich, Dokumente mit den Gliederungsbefehlen 
+\verb|\section|\index[cmd]{\texttt{\textbackslash section}},
+\verb|\subsection|\index[cmd]{\texttt{\textbackslash subsection}} und
+\verb|\subsubsection|\index[cmd]{\texttt{\textbackslash subsubsection}} zu gliedern. 
+
+Der automatische Satz einer Folie mit der Agenda der Präsentation, also mit dem Inhalt des Foliensatzes, kann mit dem Befehl 
+\verb|\tableofcontents|\index[cmd]{\texttt{\textbackslash tableofcontents}} geschehen.
+
+\begin{boxedminipage}{\textwidth}
+	\verb!\begin{frame}!\newline
+	\verb!  \frametitle{Agenda}! \newline
+	\verb!	\tableofcontents[!\textsl{Argument(e)}\verb|]| \newline
+	\verb!\end{frame}!
+\end{boxedminipage}
+
+Das Verhalten des Befehls kann durch Argumente beeinflusst werden, die in eckigen Klammern übergeben werden.
+Sollen beispielsweise nur die Namen der Abschnitte (\verb|sections|) im Inhaltsverzeichnis erscheinen, so realisiert dieses 
+der Befehl 
+
+\verb|\tableofcontents[current,hideallsubsections]|
+
+Soll nur die Gliederung des aktuellen Abschnitts (\verb|section|) inklusive seiner Unterabschnitte berücksichtigt werden, 
+legt dieses der folgende Befehl fest.
+
+\verb|\tableofcontents[currentsection]|
+
+\section{Inhalte auf Präsentationsfolien setzen}
+
+Klassischerweise werden Inhalte auf Präsentationsfolien mit 
+Aufzählungen (siehe Abschnitt~\ref{Abschnitt_Aufzaehlungen}), also mit den Umgebungen \verb!itemize! und \verb!enumerate! gesetzt. 
+
+Sinnvoll kann auch der Gebrauch von farbigen Blöcken sein.
+\verb|beamer| stellt standardmäßig Umgebungen für drei verschiedene Blöcke zur Verfügung. Diese sind
+\verb|block|\index[cmd]{\texttt{\textbackslash block}}, 
+\verb|exampleblock|\index[cmd]{\texttt{\textbackslash exampleblock}} und 
+\verb|alertblock|\index[cmd]{\texttt{\textbackslash alertblock}}. Der Titel eines Blocks 
+wird der Umgebung als Argument in geschweiften Klammern übergeben.
+
+
+\begin{boxedminipage}{\textwidth}
+	\verb!\begin{block}{!\textsl{Blocktitel}\verb!}! \newline
+	\verb!  !\textsl{Blocktext} \newline
+	\verb!\end{block}! \\\enskip
+	
+	\verb!\begin{exampleblock}{!\textsl{Blocktitel}\verb!}! \newline
+    \verb!  !\textsl{Blocktext} \newline
+    \verb!\end{exampleblock}! \\\enskip
+
+	\verb!\begin{alertblock}{!\textsl{Blocktitel}\verb!}! \newline
+    \verb!  !\textsl{Blocktext} \newline
+    \verb!\end{alertblock}!
+\end{boxedminipage}
+
+
+Ein Beispiel die Verwendung der genannten Umgebungen für Aufzählungen und Blöcke zeigt Listing~\ref{Titelbeamerbloecke}. Der Quellcode zeigt nur den relevanten Ausschnitt aus der \LaTeX-Quelldatei. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_Titelbeamerbloecke}.
+
+\lstinputlisting[caption={Aufzählungen und farbige Blöcke auf Präsentationsfolien},label=Titelbeamerbloecke, style=customlatex, firstline=56, lastline=78,firstnumber=56]{Beispiele/Folien_beamer/Folien_beamer_beispiel.tex}
+
+
+
+
+\begin{figure}[H]
+	%     \centering
+	% Abschneiden mit trim = liks unten rechts oben
+	\fbox{\includegraphics[page=2, clip, width=.98\textwidth]{Beispiele/Folien_beamer/Folien_beamer_beispiel.pdf}}
+	\caption{Resultat von Listing~\ref{Titelbeamerbloecke}}
+	\label{fig_Titelbeamerbloecke}
+\end{figure}
+
+\section{Mehrspaltige Präsentationsfolien setzen}
+
+Ein hilfreiches Werkzeug, um das Layout von Präsentationsfolien zu definiert, ist die Umgebung \verb!columns!\index[cmd]{\texttt{columns}} zum Satz mehrspaltiger Folien.
+
+Die Innerhalb einer Umgebung \verb|columns| definiert jede Umgebung \verb|column| eine neue Spalte und umschließt deren Inhalt. 
+Die breite einer Spalte wird als Argument nach dem \verb!\begin{column}!| in leeren geschweiften Klammern als absolute oder relative Maßeinheit oder alternativ mit Hilfe eines Längenbefehls wie zum Beispiel \verb|\textsidth|) definiert. Zusätzlich ist es auch möglich, die vertikale Ausrichtung innerhalb jeder Spalte als Option in eckigen Klammern zu definieren. Der Buchstabe \verb|T| steht dabei für \emph{top}, also für eine Ausrichtung am oberen Rand der Spalte. Der Buchstabe \verb|c| steht für \emph{center}, also für eine vertikal zentrierte Ausrichtung des Inhalts. 
+
+Ein Beispiel für eine zweispaltige Folie, bei der beide Spalten gleich groß sind (jeweils die halbe Breite des Textfeldes) und sich in der rechten Spalte eine Abbildung befindet, zeigt Listing~\ref{beamercolumns}. Der Quelltext zeigt nur den relevanten Ausschnitt aus der \LaTeX-Quelldatei. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_beamercolumns}. 
+
+\lstinputlisting[caption={Aufzählungen und farbige Blöcke auf Präsentationsfolien},label=beamercolumns, style=customlatex, firstline=83, lastline=106,firstnumber=83]{Beispiele/Folien_beamer/Folien_beamer_beispiel.tex}
+
+
+
+
+\begin{figure}[H]
+	%     \centering
+	% Abschneiden mit trim = liks unten rechts oben
+	\fbox{\includegraphics[page=3, clip, width=.98\textwidth]{Beispiele/Folien_beamer/Folien_beamer_beispiel.pdf}}
+	\caption{Resultat von Listing~\ref{beamercolumns}}
+	\label{fig_beamercolumns}
+\end{figure}
 
 
 
