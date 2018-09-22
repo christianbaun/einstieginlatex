@@ -485,7 +485,7 @@ literate=
 \title{Ein Einstieg in \LaTeX}
 \author{Prof. Dr. Christian Baun\\ Frankfurt University of Applied Sciences \\ (1971-2014: Fachhochschule Frankfurt am Main)\\
 Nibelungenplatz 1 \\ 60318 Frankfurt am Main\\\url{christianbaun@fb2.fra-uas.de}\\[3em]}
-\date{Version 0.3\\[3em] 21.~September 2018}
+\date{Version 0.4\\[3em] 22.~September 2018}
 
 \publishers{
 
@@ -3128,7 +3128,7 @@ Beispiels zeigt Abbildung~\ref{fig_formularbeispiel}.
 
 
 
-\subsection{Einhaltung der Grenzen des Textfeldes}
+\subsection{Grenzen des Textfeldes einhalten}
 \index{Textfeld}
 
 Je nach dem Layout des Dokuments und dem zu setzenden Text kann es passieren, das der \LaTeX-Compiler einzelne Wörter über das Textfeld herausragen lässt oder Wortabstände sehr groß erscheinen. In diesem Zusammenhang sind auch Warnungen des \LaTeX-Compilers wie \verb!Overfull \hbox...! und \verb!Underfull \hbox! zu verstehen.
@@ -3362,7 +3362,7 @@ Vestibulum quis pellentesque diam. Aliquam erat volutpat.
 \begin{minipage}[t]{0.48\textwidth}
 \setlength{\parskip}{1em}
 \frenchspacing
-Der nebenstehende beidseitig gleich weit eingerürückt gesetzte Text wurde mit der Umgebung \verb!quotation! erzeugt.
+Der nebenstehende beidseitig gleich weit eingerückt gesetzte Text wurde mit der Umgebung \verb!quotation! erzeugt.
 
 
 Die Umgebung \verb!quotation! rückt die erste Zeile eines jeden Absatzes ein und verzichtet dafür auf den vertikalen Abstand zwischen Absätzen. 
@@ -3391,8 +3391,8 @@ Vestibulum quis pellentesque diam. Aliquam erat volutpat.
 
 Ein Zeilenumbruch 
 kann an beliebiger Stelle im Text dem
-Befehl \verb!\\!\index[cmd]{\texttt{\textbackslash\textbackslash}}   realisiert werden. Zudem ist es möglich, mit dem 
-optionalen Paramter \textsl{Abstand} den vertikalen Zwischenraum zur nächsten Zeile anzugeben. Wenn durch
+Befehl \verb!\\!\index[cmd]{\texttt{\textbackslash\textbackslash}} realisiert werden. Zudem ist es möglich, mit dem 
+optionalen Parameter \textsl{Abstand} den vertikalen Zwischenraum zur nächsten Zeile anzugeben. Wenn durch
 den Parameter \textsl{Abstand} ein Seitenumbruch zustande kommt, dann wird 
 der Inhalt von \textsl{Abstand} von \LaTeX\ ignoriert und die nächste Seite 
 beginnt mit der nächsten Textzeile. 
@@ -3513,7 +3513,7 @@ klassische \underline{Unterstreichen} mit dem Befehl \verb!\underline!.\index[cm
 Ein Nachteil des Befehls \verb!\underline! ist, das er keinen Zeilenumbruch zulässt, weil er den kompletten Inhalt des Arguments \textsl{Text} in einer horizontale Box unterbringt. Darum eignet sich \verb!\underline! in erster Linie zur Hervorhebung einzelner Zeichen oder Wörter.
 
 Weitere Befehle, um Text hervorzuheben, enthält das Erweiterungspaket \verb!ulem.sty!. 
-Wird dieses in der Präambel eines Dokuments mit dem Befehk \verb!\usepackage{ulem}! eingebunden, steht eine Reihe 
+Wird dieses in der Präambel eines Dokuments mit dem Befehl \verb!\usepackage{ulem}! eingebunden, steht eine Reihe 
 weiterer Befehle zur Verfügung.
 
 Dieses sind die Befehle \verb!\uline!\index[cmd]{\texttt{\textbackslash uline}}  
@@ -3655,8 +3655,7 @@ Befehl & Umgebung & Beispiel \\
 Die Befehle in Tabelle~\ref{Tabelle_SchriftfamilieSchriftschnittOhneArgument} schalten die Schrift an der Stelle 
 ihres Auftretens im \LaTeX-Quelltext um. 
 Die Wirkung dieser Befehle durch die aktuelle Gruppe
-begrenzt. Ein Aufruf eines dieser Befehle 
-in der Präambel eines Dokuments,
+begrenzt. Ein Aufruf eines dieser Befehle in der Präambel eines Dokuments,
 beeinflusst das gesamte Dokument. 
 
 Nach eine Änderung der Schrift kann mit dem Befehl \verb!\textnormal!\index[cmd]{\texttt{\textbackslash textnormal}} 
@@ -3689,7 +3688,7 @@ Elemente durch. \verb!description! hingegen hebt einen von Ihnen festzulegenden
 Text am Anfang des Elements hervor.
 
 Bei allen diesen drei Umgebungen wird jeder neue Element der Aufzählung durch
-den Befehl \verb!\item!\index[cmd]{\texttt{\textbackslash item}} gekennzeichnet. Der Text jedes Elements -- man könnte auch Aufzählungspunktes sages -- darf beliebig lang sein, und kann auch aus
+den Befehl \verb!\item!\index[cmd]{\texttt{\textbackslash item}} gekennzeichnet. Der Text jedes Elements -- man könnte auch Aufzählungspunktes sagen -- darf beliebig lang sein, und kann auch aus
 mehreren Absätzen bestehen. 
 
 
@@ -3743,8 +3742,8 @@ ist es ein...
 % \end{figure}
 
 
-Aufzählungen realisiert die Umgebung \verb!enumerate!. Auch bei \verb!enumerate! ist für jede Ebene eine andere Art von Markierungszeichen voreingestellt und die Numerierung der
-Aufzählungspunkte  startet in jeder Ebene neu beim Wert \verb!1!
+Aufzählungen realisiert die Umgebung \verb!enumerate!. Auch bei \verb!enumerate! ist für jede Ebene eine andere Art von Markierungszeichen voreingestellt und die Nummerierung der
+Aufzählungspunkte startet in jeder Ebene neu beim Wert \verb!1!
 
 
 
@@ -3796,8 +3795,7 @@ Aufzählungspunkte  startet in jeder Ebene neu beim Wert \verb!1!
 \end{minipage}
 % \end{figure}
 
-Die Umgebung \verb!description! ist besonders gut geeignet um Begriffe (Schlagwort) zu beschreiben oder Teilnehmerlisten zu realisieren. 
-Diese Umgebung unterscheidet sich in einigen Punkten von \verb!itemize! und \verb!enumerate!.
+Die Umgebung \verb!description! ist besonders gut geeignet um Begriffe (Schlagwort) zu beschreiben oder Teilnehmerlisten zu realisieren. Diese Umgebung unterscheidet sich in einigen Punkten von \verb!itemize! und \verb!enumerate!.
 
 
 Bei \verb!description! wird zwischen dem Befehl \verb!\item! und der Beschreibung das Schlagwort in eckigen Klammern angegeben. Die Ausgabe des Schlagworts erfolgt im Fettdruck. 
@@ -4234,7 +4232,7 @@ Inhalt \\
 
 Die Argumente der Umgebung \verb!boxedminipage! orientieren sich an denen der Umgebung \verb!minipage!.
 
-Dem erste optionalen Argument \verb!Ausrichtung!, definiert die Ausrichtung der Umgebung anhand der aktuellen Zeil. Es richtet die Minipage relativ zur aktuellen Grundlinie aus. Mögliche Werte sind \verb!t! (top=oben), wobei die Minipage relativ zur aktuellen Grundlinie ausgerichtet wird, \verb!c! (center=zentriert), wobei die Mitte der Minipage eine Linie mit der aktuellen Grundlinie bildet und \verb!b! (bottom=unten), wobei die unterste Grundlinie innerhalb der Minipage eine Linie mit der aktuellen Grundlinie bildet.~\cite{goLaTeX_minipage_Webpage} Der Standardwert ist \verb!c!.
+Dem erste optionalen Argument \verb!Ausrichtung!, definiert die Ausrichtung der Umgebung anhand der aktuellen Zeile. Es richtet die Minipage relativ zur aktuellen Grundlinie aus. Mögliche Werte sind \verb!t! (top=oben), wobei die Minipage relativ zur aktuellen Grundlinie ausgerichtet wird, \verb!c! (center=zentriert), wobei die Mitte der Minipage eine Linie mit der aktuellen Grundlinie bildet und \verb!b! (bottom=unten), wobei die unterste Grundlinie innerhalb der Minipage eine Linie mit der aktuellen Grundlinie bildet.~\cite{goLaTeX_minipage_Webpage} Der Standardwert ist \verb!c!.
 
 
 Das optionale Argument \verb!Höhe! definiert die Höhe als Absolutwert inklusive einer Maßeinheit (z.B. \verb!5cm!) als relativer Wert (z.B. \verb!.5\textheight!). Wird der Wert dieses Arguments definiert, spielt die tatsächliche Höhe des Inhalts der Minipage für deren Dimensionierung keine Rolle. 
@@ -4481,8 +4479,7 @@ x1y3 & x2y3 & x3y3 \\
 \end{tabular}
 \end{lstlisting}
 
-In der Spaltendeklaration in der Tabellenpräambel
-sind nun die vertikalen Linien definiert.
+In der Spaltendeklaration in der Tabellenpräambel sind nun die vertikalen Linien definiert.
 Horizontalen Linien werden mit Hilfe des Befehls \verb!\hline! erzeugt.
 
 Optisch eleganter ist es in vielen Fällen, auf vertikale Trennlinien zu verzichten und
@@ -4738,7 +4735,7 @@ Das zwingend erforderliche Argument \verb!Farbe! definiert eine Farbe innerhalb 
 \hline
 Farbmodell & Bedeutung\\
 \hline
-\texttt{cmyk}\index{CMYK} & Bei diesem Farbmodell besteht jede Farbe aus vier Werten, stellvertretend für Zyan, Magenta, Gelb und Schwarz. Die vier Werte liegen im Zahlenraum zwischen 0 und 1 und sind durch Kommas voneinander abgetrennt. \\
+\texttt{cmyk}\index{CMYK} & Bei diesem Farbmodell besteht jede Farbe aus vier Werten, stellvertretend für Cyan, Magenta, Gelb und Schwarz. Die vier Werte liegen im Zahlenraum zwischen 0 und 1 und sind durch Kommas voneinander abgetrennt. \\
 \hline
 \texttt{gray} & Die Farbangabe bei diesem Farbmodell besteht nur aus einem Wert zwischen
 0 für schwarz und 1 für weiß.\\
@@ -4930,7 +4927,7 @@ Das Zusammenfassen von Feldern über die Grenzen von Spalten hinweg, geschieht m
 
 Um diesen Befehl zu verwenden, muss das gleichnamige Erweiterungspaket mit dem Befehl \verb!\usepackage{multicol}! in der Präambel der \verb!.tex!-Quelldatei eingebunden sein.
 
-Der Parameter \textsl{Anzahl} definiert wie viele Felder zusammengefasst werden sollen und im Parameter \textsl{Format} wird mit den bekannten Positionierungszeichen \verb!l!, \verb!r! oder \verb!c! definiert, ob der Inhalt des neuen Felds linksbündig, rechtsbündig oder zentriert gesetzt wird. Auch vertikale Linien können hier mit \verb!|! oder \verb!||! angegeben werden.
+Der Parameter \textsl{Anzahl} definiert wie viele Felder zusammengefasst werden sollen und im Parameter \textsl{Format} wird mit den bekannten Positionszeichen \verb!l!, \verb!r! oder \verb!c! definiert, ob der Inhalt des neuen Felds linksbündig, rechtsbündig oder zentriert gesetzt wird. Auch vertikale Linien können hier mit \verb!|! oder \verb!||! angegeben werden.
 
 Ein Beispiel zum Befehl \verb!\multicolumn! enthält Tabelle~\ref{Tabelle_Multicolumn1} und der zugehörige Quelltext in Listing~\ref{tabularmulticolumn1}.
 
@@ -4968,7 +4965,7 @@ sechs & \multicolumn{2}{r|}{sieben} \\
 \end{lstlisting}
 
 Hilfreich ist der Befehl \verb!\multicolumn! auch dann, wenn nur die Ausrichtung des Inhalts eines Felds in einer Tabelle geändert werden soll. In
-diesem Fall erhält der Parameter \textsl{Anzahl} den Wert \verb!1! und der Parameter \textsl{Format} das gewünschte Positionierungszeichen. 
+diesem Fall erhält der Parameter \textsl{Anzahl} den Wert \verb!1! und der Parameter \textsl{Format} das gewünschte Positionszeichen. 
 Ein Beispiel zu diesem Vorgehen enthält Tabelle~\ref{Tabelle_Multicolumn2}. Der zugehörige Quelltext ist Listing~\ref{tabularmulticolumn2}.
 
 
@@ -5750,7 +5747,7 @@ Satz mit dem Befehl \verb!\sum!\index[cmd]{\texttt{\textbackslash sum}} geschieh
 \fbox{\texttt{\textbackslash sum\textunderscore\{}\textsl{unter dem Zeichen}\texttt{\}\textasciicircum\{}\textsl{über dem Zeichen}\}}
 
 Die eingebettete Formel \(\sum_{n=0}^{x}\) wurde mit folgenden 
-\LaTeX-Quelltext gesetzt: \verb!\(\sum{n=0}{x}\)!. Als abgesetzte Formel, zum Beuspiel mit der Umgebung
+\LaTeX-Quelltext gesetzt: \verb!\(\sum{n=0}{x}\)!. Als abgesetzte Formel, zum Beispiel mit der Umgebung
 \verb!displaymath! oder unter Verwendung von (\verb!\[...\]!), sieht der Satz deutlich anders aus. 
 das dann schon ein wenig anders aus:
 
@@ -5886,7 +5883,7 @@ in der Präambel der \LaTeX-Quelldatei mit dem Befehl \verb!\usepackage{amsmath}
 \end{minipage}
 
 
-Bei der Summation oder zur Indizierung ist 
+Bei der Bildung einer Summe oder zur Indizierung ist 
 es manchmal notwendig, mehrzeilige Angaben 
 zu machen. Das Erweiterungspaket \verb!amsmath! enthält für diesen Zweck
 den Befehl \verb!\substack!.\index[cmd]{\texttt{\textbackslash substack}}  
@@ -7124,8 +7121,7 @@ bei geschachtelten Tabellen.
 \index{Mengensymbol}
 
 
-Der Satz der 
-Mengensymbole geschieht mit dem Befehl \verb!\mathbb!\index[cmd]{\texttt{\textbackslash mathbb}}
+Der Satz der Mengensymbole geschieht mit dem Befehl \verb!\mathbb!\index[cmd]{\texttt{\textbackslash mathbb}}
 (siehe Tabelle~\ref{Tabelle_Mengensymbole}).
 
 
@@ -7503,7 +7499,6 @@ Art und Weise möglich.
 Eine hilfreiche Übersicht über freie Schriften und Beschreibungen, wie diese mit \LaTeX\ verwendet
 werden können, bietet der \LaTeX\ Font Catalogue~\cite{LaTeXFontCatalogue}.
 
-http://www.tug.dk/FontCatalogue/
 
 
 \section{Altdeutsche Schriften}
@@ -8484,7 +8479,7 @@ Ein Beispiel für das automatische Erzeugen der Titelfolie mit \verb|beamer| zei
 	\label{fig_Titelfoliebeamer}
 \end{figure}
 
-Das Beispiel in Listing~\ref{Titelfoliebeamer} zeigt auch eine mögliche Verwendung der Kopf- und Fußzeilen. Im Beispiel wird mit Hilfe des Befehls \verb!\insertnavigation!\index[cmd]{\texttt{\textbackslash insertnavigation}} die Gliederugsstruktur des Foliensatzes in der Kopfzeile ausgegeben. Abschnitte (\verb|section|) sind mit ihren Abschnittsnamen aufgeführt. Jeder Unterabschnitt (\verb!subsection!) und jede Folie sind durch Punkte unter den Abschnittsnamen repräsentiert.  
+Das Beispiel in Listing~\ref{Titelfoliebeamer} zeigt auch eine mögliche Verwendung der Kopf- und Fußzeilen. Im Beispiel wird mit Hilfe des Befehls \verb!\insertnavigation!\index[cmd]{\texttt{\textbackslash insertnavigation}} die Gliederungsstruktur des Foliensatzes in der Kopfzeile ausgegeben. Abschnitte (\verb|section|) sind mit ihren Abschnittsnamen aufgeführt. Jeder Unterabschnitt (\verb!subsection!) und jede Folie sind durch Punkte unter den Abschnittsnamen repräsentiert.  
 
 Im Beispiel ist auch die Ausgabe der 
 kleinen Navigationsleiste am unteren Rand 
