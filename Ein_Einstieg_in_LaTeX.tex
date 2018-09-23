@@ -782,23 +782,24 @@ und enden mit dem Befehl \verb!\end{!\textsl{Umgebung}\verb!}!.
 
 Zwischen dem Anfang und dem Ende einer Umgebung können Texte und auch
 Befehle stehen. Allerdings sind nicht alle Befehle innerhalb aller
-Umgebungen möglich. Ein Beispiel dafür ist der \verb!\verb!-Befehl (für das 
-Setzen von unformatiertem Text mit fester Zeichenbreite). Dieser ist bei zahlreichen Umgebungen nicht zulässig.
+Umgebungen zulässig. Ein Beispiel dafür ist der Befehl \verb!\verb! zum
+Satz unformatierter Texte mit fester Zeichenbreite. Dessen Verwendung ist bei zahlreichen Umgebungen nicht zulässig.
 
 Es ist auch möglich, Umgebungen miteinander zu verschalten. Das ist beispielsweise nötig, um Aufzählungen mit mehreren Ebenen (siehe Abschnitt~\ref{Abschnitt_Aufzaehlungen}) zu realisieren.
 
 
 
 \section{Maßangaben mit absoluten und relativen Maßeinheiten}
-\label{Massangaben}
+\index{Massangaben}
+\index{Maßeinheit}
 
-Maßeinheiten und feste sowie elastische Maße ermöglichen das Layout von Dokumenten zu definieren. 
+Maßeinheiten und feste\index{Maßeinheit!fest} sowie elastische\index{Maßeinheit!fest} Maße ermöglichen es, das Layout von Dokumenten zu definieren. 
 
-Maßangaben bestehen aus mindestens einer Dezimalzahl (mit oder ohne Vorzeichen) und aus einer 
-Maßeinheit, die direkt (ohne Leerzeichen) auf die Zahl folgt. Eine Übersicht über die von \LaTeX\ unterstützten Maßeinheiten zeigt Tabelle~\ref{Tabelle_Masseinheiten}. Dezimalzahlen dürfen übrigens bei \LaTeX\ mit einem Komma oder alternativ mit einem Dezimalpunkt geschrieben werden, um die Nachkommastellen kenntlich zu machen. Somit sind beispielsweise \verb!3.5cm! und 
-\verb!3,5cm!, sowie \verb!3cm! erlaubt angaben.
+Maßangaben bestehen aus mindestens einer Dezimalzahl\index{Dezimalzahl} (mit oder ohne Vorzeichen) und aus einer 
+Maßeinheit, die direkt (ohne Leerzeichen) auf die Zahl folgt. Eine Übersicht über die unterstützten Maßeinheiten zeigt Tabelle~\ref{Tabelle_Masseinheiten}. Dezimalzahlen dürfen bei \LaTeX\ mit einem Komma oder alternativ mit einem Dezimalpunkt\index{Dezimalpunkt} geschrieben werden, um die Nachkommastellen kenntlich zu machen. Somit sind beispielsweise \verb!3.5cm! und 
+\verb!3,5cm!, sowie \verb!3cm! erlaubte Angaben.
 
-\LaTeX\ kennt neun absolute zwei relative Maßeinheiten. Die relativen Maßeinheiten \verb!em! und \verb!ex! orientieren sich an der aktuell verwendeten Schriftart. 
+\LaTeX\ kennt neun absolute und zwei relative Maßeinheiten. Die relativen Maßeinheiten \verb!em! und \verb!ex! orientieren sich an der aktuell verwendeten Schriftart. 
 
 
 
@@ -828,15 +829,15 @@ Abkürzung & Bedeutung & \multicolumn{2}{c}{Umrechnungen}  \\
 
 
 Das \emph{Geviert}\index{Geviert} und ist eine typografische Maßeinheit 
-aus der Zeit des Bleisatzes mit beweglichen Lettern. Ein Geviert bezeichnet die dabei die  Schriftgröße (Kegelhöhe). Bei einer Schriftgröße von 12\,Punkten hat ein Geviert dementsprechend eine Länge von 12\,Punkten~\cite{LeerraumGevierte_Webpage}. 
+aus der Zeit des Bleisatzes mit beweglichen Lettern. Ein Geviert bezeichnet dabei die Schriftgröße (Kegelhöhe)\index{Kegelhöhe}. Bei einer Schriftgröße von 12\,Punkten hat ein Geviert dementsprechend eine Länge von 12\,Punkten~\cite{LeerraumGevierte_Webpage}. 
 
 Bei der Arbeit mit \LaTeX\ kommt es häufig vor, dass Absatzeinzüge\index{Absatzeinzüge} 
-in Geviert angegeben sind (meist \verb!1em! oder \verb!2em!). Auch die konkreten Längen der unterschiedlichen horizontalen Striche im Text -- Geviertstrich, Halbgeviertstrich (Gedankenstrich) und Viertelgeviertstrich (Bindestrich) hängen von der Seitenlänge des Gevierts und damit von der Schriftgröße ab~\cite{Geviert_Wiki_Webpage}.
+in Geviert angegeben sind (meist \verb!1em! oder \verb!2em!). Auch die konkreten Längen der unterschiedlichen horizontalen Striche im Text -- Geviertstrich\index{Geviertstrich}, Halbgeviertstrich\index{Halbgeviertstrich} (Gedankenstrich)\index{Gedankenstrich} und Viertelgeviertstrich\index{Viertelgeviertstrich} (Bindestrich)\index{Bindestrich} hängen von der Seitenlänge des Gevierts und damit von der Schriftgröße ab~\cite{Geviert_Wiki_Webpage}.
 
-Während das relative Maß \verb!em! meist für horizontalen Maße verwendet wird, eignet sich \verb!ex! besonders für vertikale Maße. 
+Während das relative Maß \verb!em! meist für horizontalen Maße verwendet\index{Maß!horizontal} wird, eignet sich \verb!ex! besonders für vertikale Maße\index{Maß!vertikal}. 
 
 In der Literatur zu \LaTeX\ findet sich auch immer wieder die Aussage, dass \verb!em! etwas der 
-Breite des Großbuchstabens \glqq M\grqq\ und \verb!ex! in etwa der Höhe des Buchstabens \glqq x\grqq\ im aktuellen Font entspricht.~\cite{Schwarz1988,Kopka2000}
+Breite des Großbuchstabens \glqq M\grqq\ und \verb!ex! in etwa der Höhe des Buchstabens \glqq x\grqq\ im aktuellen Font entspricht.~\cite{Kopka2000,Schwarz1988}
 
 
 % Quellen: Schwarz1988: S.22
@@ -846,17 +847,16 @@ Breite des Großbuchstabens \glqq M\grqq\ und \verb!ex! in etwa der Höhe des Bu
 \subsection{Anwendungsbeispiele}
 
 Mit den in diesem Abschnitt beschriebenen Maßeinheiten werden unter anderem 
-Längenbefehlen\index{Längenbefehle}, die das Layout der Dokumente definieren, Werte zugewiesen
+Längenbefehlen\index{Längenbefehle}, die das Dokumentenlayout definieren, Werte zugewiesen
 
-Um beispielsweise die Höhe und Breite des Textes festzulegen, müssen den Längenbefehlen \verb!\textheight! und \verb!\textwidth! mit dem Befehl \verb!\setlength!.
-die gewünschten Werte zugewiesen werden.
+Um beispielsweise die Höhe und Breite des Textes festzulegen, müssen den Längenbefehlen \verb!\textheight! und \verb!\textwidth! mit dem Befehl \verb!\setlength! die gewünschten Werte zugewiesen werden.
 
 
 \fbox{\texttt{\textbackslash setlength\{\textbackslash \textsl{Längenbefehl}\}\{\textsl{Maßangabe}\}}}
 
 
-Soll beispielsweise ein Dokuments eine Texthöhe\index{Texthöhe} von 18\,cm und eine
-Textbreite\index{Textbreite} von 13,5\,cm haben, muss dieses nur mit den folgenden beiden Zeilen in der Präambel der \verb!.tex!-Quelldatei definiert werden.
+Soll beispielsweise ein Dokument eine Texthöhe\index{Texthöhe} von 18\,cm und eine
+Textbreite\index{Textbreite} von 13,5\,cm haben, muss dieses mit den folgenden beiden Zeilen in der Präambel der \verb!.tex!-Quelldatei definiert werden.
 
 
 \begin{Verbatim}[frame=single]
@@ -870,7 +870,7 @@ Weitere häufige Anwendungsbeispiele, wo die Maßangaben eine Rolle spielen, sin
 \label{Elastische_Masse}
 
 Der Unterschied zwischen festen und elastischen 
-Maßen ist, dass elastische Maße um einen festzulegenden Betrag gestreckt und gestaucht werden
+Maßen ist, das elastische Maße um festzulegende Werte gestreckt und gestaucht werden
 können. Die Definition eines elastischen Maßes erfolgt mit drei Werten~\cite{Kopka2000}: 
 
 \begin{itemize}
@@ -890,7 +890,7 @@ Das folgende Beispiel zeigt ein Anwendungsbeispiel. Dieses definiert den Zeilena
 \setlength{\parskip}{2ex plus 0.3ex minus 0.5ex}
 \end{Verbatim}
 
-Konkret ist hierbei definiert, dass der Abstand zwischen zwei 
+Konkret ist hier definiert, das der Abstand zwischen zwei 
 Absätzen zweimal so hoch sein soll, wie der Buchstabe \glqq x\grqq\ im aktuellen Zeichensatz hoch ist. Der Abstand darf bei Bedarf bis auf den 2,3-fachen Abstand gedehnt oder auf den 1,5-fachen Abstand gestaucht werden.
 
 
@@ -987,7 +987,7 @@ Symbol & Bezeichnung & Befehl \\
 \hline
 \TeX & Schriftzug von \TeX & \texttt{\textbackslash TeX} \\
 \LaTeX & Schriftzug von \LaTeX & \texttt{\textbackslash LaTeX} \\
-\LaTeXe & Schriftzug von seit 1994 aktuellen Version von \LaTeX & \texttt{\textbackslash LaTeXe} \\
+\LaTeXe & Schriftzug der seit 1994 aktuellen Version von \LaTeX & \texttt{\textbackslash LaTeXe} \\
 \hline
 \end{tabular}
 \end{table}
@@ -1126,7 +1126,7 @@ Befehl  & Zeichen &  Befehl & Zeichen  \\
 
 \subsection{Punkte und Striche}
 
-\LaTeX\ enthält Befehle, um unterschiedliche Arten von horizontalen Strichen zu setzen (siehe Tabelle~\ref{Tabelle_Horizontale_Striche}). 
+Tabelle~\ref{Tabelle_Horizontale_Striche} zeigt eine Übersicht über die Befehle von \LaTeX, um unterschiedliche Arten von horizontalen Strichen zu setzen. 
 
 \begin{table}[h!tb]
 	\centering
@@ -1143,12 +1143,12 @@ Befehl  & Zeichen &  Befehl & Zeichen  \\
 	\end{tabular}
 \end{table}
 
-Der Trennstich (-), der auch Viertelgeviertstrich heißt, wird als Trennzeichen beim Trennen von Wörtern, oder als \textsl{Bindestrich} in zusammengesetzten Begriffen benutzt. Er wird wie ein ganz gewöhnlicher horizontaler Strich (\texttt{-}) geschrieben.
+Der Trennstich\index{Trennstich} (-), der auch Viertelgeviertstrich\index{Viertelgeviertstrich} heißt, wird als Trennzeichen beim Trennen von Wörtern, oder als \textsl{Bindestrich}\index{Bindestrich} in zusammengesetzten Begriffen benutzt. Er wird wie ein ganz gewöhnlicher horizontaler Strich (\texttt{-}) geschrieben.
 
-Der Gedankenstrich (--), der auch Halbgeviertstrich heißt, wird oft bei Strecken- oder Zeitangaben benutzt. Er wird mit zwei Strichen erzeugt (\texttt{-{}-}) oder alternativ mit dem Befehl \verb!\textendash! erzeugt.
+Der Gedankenstrich\index{Gedankenstrich} (--), der auch Halbgeviertstrich\index{Halbgeviertstrich} heißt, wird oft bei Strecken- oder Zeitangaben benutzt. Er wird mit zwei Strichen (\texttt{-{}-}) oder alternativ mit dem Befehl \verb!\textendash! erzeugt.
 
 Primär im englischen Sprachraum wird in Dokumenten ein längerer 
-Gedankenstrich (---), der sogenannte Geviertstrich, verwendet. Dieser wird mit drei Strichen (\texttt{-{}-{}-}) oder den Befehl \verb!\textemdash! erzeugt. 
+Gedankenstrich (---), der sogenannte Geviertstrich\index{Geviertstrich}, verwendet. Dieser wird mit drei Strichen (\texttt{-{}-{}-}) oder dem Befehl \verb!\textemdash! erzeugt. 
 
 \begin{table}[h!tb]
 	\centering
@@ -1166,13 +1166,13 @@ Gedankenstrich (---), der sogenannte Geviertstrich, verwendet. Dieser wird mit d
 \end{table}
 
 
-Auf den ersten Blick kurios erscheint es, das \LaTeX\ mit \verb!\dots! einen Befehl vorhält, um drei aufeinander folgende Punkte, so genannte Fortsetzungspunkte, zu erzeugen. Der Grund, warum dieser Befehl sehr sinnvoll ist, ist der Abstand zwischen den Fortsetzungspunkten. Schreibt ein Autor einfach drei Punkte hintereinander, ist der Abstand zwischen den Punkten recht klein. Der Befehl \verb!\dots! erzeugt ein optisch besseres Ergebnis. Tabelle~\ref{Tabelle_Horizontale_Punkte} zeigt den Unterschied. 
+Auf den ersten Blick erscheint es kurios, das \LaTeX\ mit \verb!\dots! einen Befehl bietet, um drei aufeinander folgende Punkte, so genannte Fortsetzungspunkte\index{Fortsetzungspunkte}, zu setzen. Der Grund, warum dieser Befehl sehr sinnvoll ist, ist der Abstand zwischen den Fortsetzungspunkten. Schreibt ein Autor einfach drei Punkte hintereinander, ist der Abstand zwischen den Punkten recht klein. Der Befehl \verb!\dots! erzeugt ein optisch besseres Ergebnis. Tabelle~\ref{Tabelle_Horizontale_Punkte} zeigt den Unterschied. 
 
 
 
 \subsection{Anführungszeichen}
 
-\LaTeX\ ermöglicht den Satz verschiedener Anführungszeichen. Eine Übersicht enthält  Tabelle~\ref{Tabelle_Anfuehrungszeichen}. 
+\LaTeX\ ermöglicht den Satz verschiedener Anführungszeichen. Eine Übersicht präsentiert Tabelle~\ref{Tabelle_Anfuehrungszeichen}. 
 
 \begin{table}[h!tb]
 \centering
@@ -1281,12 +1281,12 @@ Buchstabenkombination & Ligatur & unterdrückte Ligatur \\
 \end{table}
 
 Wenn \LaTeX\ eine der vorgestellten 
-Buchstabenkombinationen nicht automatisch als Ligatur setzen soll, muss der Autor dieses im Dokument unterdrücken. Anwendungsbeispiele, wo es sinnvoll sein kann, eine Ligatur zu unterdrücken, ist denn Wörter falsch getrennt werden. 
+Buchstabenkombinationen nicht automatisch als Ligatur setzen soll, muss der Autor dieses im Dokument unterdrücken. Anwendungsbeispiele, wo es sinnvoll sein kann, eine Ligatur zu unterdrücken, ist wenn Wörter falsch getrennt werden. 
 
-Eine Ligatur kann unterdrückt werden, indem zwischen jedes Buchstabenpaar, das zur möglichen Ligatur gehören, ein Paar geschweifte Klammern gesetzt wird. So wird aus 
+Eine Ligatur kann unterdrückt werden, indem zwischen jedes Buchstabenpaar, das zur möglichen Ligatur gehören, ein Paar geschweifter Klammern gesetzt wird. So wird aus 
 \verb!f{}f{}l! dann f{}f{}l und nicht ffl.  
 Eine alternative Möglichkeit ist, zwischen jedes Buchstabenpaar, das zur möglichen
-Ligatur gehören, einen Backslash und einen Slash zu setzen \verb!\/!.
+Ligatur gehört, einen Backslash und einen Slash zu setzen \verb!\/!.
 
 \chapter{Dokumentklassen und Seitenstile}
 \label{KapitelDokumentklassenSeitenstile}
