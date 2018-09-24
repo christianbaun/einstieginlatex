@@ -1,0 +1,170 @@
+\chapter{Einleitung}
+
+\LaTeX\ ist ein sehr flexibles und von Rechnerarchitekturen
+und Betriebssystemen unabhängiges 
+Textsatzsystem. Es ist nicht zu vergleichen mit einem WYSIWYG-Textverarbeitungsprogramm, wie beispielsweise OpenOffice Writer oder MS\,Word. Die Abkürzung WYSIWYG\index{WYSIWYG} steht für \glqq What You See Is What You Get\grqq. Das bedeutet, das das gedruckte Dokument der Darstellung auf dem Bildschirm entspricht. 
+
+Im Gegensatz zu einem Textverarbeitungsprogramm schreibt ein Autor der \LaTeX\ verwendet, entweder mit einem beliebigen Editor oder mit einer speziellen für das Erstellen von \LaTeX-Dokumenten konzipierten Anwendung
+den Text zusammen mit Formatanweisungen in eine Textdatei. 
+Das Textsatzsystem \LaTeX\ setzt diese Dokumente dann automatisch. Der Autor definiert also den Inhalt (den
+Text) und die Eckpunkte des Layouts (den Satz). Die Fähigkeiten 
+von \LaTeX\ gehen deutlich über die eines 
+gewöhnlichen Textverarbeitungsprogramms hinaus. \LaTeX\ realisiert also kein WYSIWYG, sondern folgt dem Prinzip WYSIWYM\index{WYSIWYM}. Dieses steht für \glqq What You See Is What You Mean\grqq\ -- der Benutzer umschreibt also das im Ausdruck gewünschte Ergebnis.
+
+Mit \LaTeX\ ist es möglich, Dokumente aller Art in Buchdruckqualität zu erstellen.
+Dabei kann es sich unter anderem um Artikel, (wissenschaftliche)
+Ausarbeitungen, Briefe, Bücher, Dokumentationen, Präsentationsfolien oder
+Zeitschriften handeln. 
+
+Dieses Dokument wurde mit dem Ziel erstellt, Sie dabei zu Unterstützten, einen möglichst einfachen Einstieg in das Textsatzsystem \LaTeX\ zu bekommen.
+
+\section{Aufbau dieses Dokuments}
+
+Dieses Kapitel enthält Informationen zum technischen Hintergrund und zur Arbeitsweise von \LaTeX. Zudem erfahren Sie hier anhand erster Beispiele, wie eine \LaTeX-Quelldatei aufgebaut ist und wie Sie von der Quelldatei zum fertigen Dokument kommen. 
+
+In Kapitel~\ref{BefehleGruppenUmgebungenZeichenKapitel} lernen Sie grundlegendes Wissen über Befehle und Gruppen, sowie Maßangaben und Sonderzeichen unter \LaTeX\ kennen. 
+
+
+Die Themen zur Grundlegenden Definition des Layouts von Dokumenten behandelt Kapitel~\ref{KapitelDokumentklassenSeitenstile}. Zu den in diesem Kapitel relevanten Themen gehören Dokumentklassen und Seitenstile, Kopfzeilen und Seitennummern, Mehrspaltenlayout, Titelei und Gliederungsbefehle, Inhaltsverzeichnis und Stichwortverzeichnis sowie Querverweise.
+
+
+Grundlegende Formatierungshilfen enthält Kapitel~\ref{KapitelFormatierungshilfen}. Dabei handelt es sich um Befehle und Umgebungen um Abstände einzufügen, um die Inhalte von Absätzen auszurichten, sowie um Zeilen- und Seitenumbrüche anzuweisen.
+
+Kapitel~\ref{KapitelTexthervorhebungen} stellt Befehle und Umgebungen vor, die in der Lage sind Texthervorhebungen zu realisieren. Dieses Themengebiet umfasst die Definition der Schriftart und -größe sowie Aufzählungen, Fußnoten, Marginalien und Boxen um Text und Bilder. 
+
+Mit dem Satz von Tabellen beschäftigt sich Kapitel~\ref{Kapitel_Tabellen}.
+
+Das Einfügen von Bildern in Dokumenten beschreibt Kapitel~\ref{KapitelBilder}.
+
+Kapitel~\ref{KapitelMathematik} thematisiert den mathematischen Formelsatz, der eine der großen Stärken von \LaTeX\ ist.
+
+Eine Einführung in das Schreiben von Briefen enthält Kapitel~\ref{Kapitel_Briefe}.
+
+Verschiedene Möglichkeiten, ein Literaturverzeichnis zu realisieren, stellt Kapitel~\ref{Kapitel_Literaturverzeichnis} vor.
+
+Eine komfortable Möglichkeit, um optisch ansprechende Präsentationsfolien zu erstellen, ist die Verwendung der Dokumentklasse \verb!beamer!, die Kapitel~\ref{Kapitel_Praesentationsfolien} vorstellt.
+
+
+\section{Zusammenhang von \TeX/\LaTeX\ und historischer Hintergrund}
+
+
+
+
+
+
+Der Urvater des Textsatzsystems \TeX\ ist der amerikanische Mathematiker und Informatiker 
+Donald E. Knuth~\cite{DonaldKnuthWebpage}. Dieser erlebte den im Laufe der 1970er Jahre, wie immer mehr Druckereien ihre Arbeit vom traditionellen Hand- auf digitalen Computersatz umstellten. Die Ergebnisse des neuen Verfahrens hatten in den ersten Jahren nichts mehr mit der Schönheit und Eleganz des traditionellen Buchdrucks zu tun. Knuth wollte für seine mehrbändige Abhandlung \textsl{The Art of Computer Programming} aber einen optisch einwandfreien Drucksatz und begann ein Programm schreiben, das einen menschlichen Setzer, der mit Bleilettern arbeitet, simuliert. 
+
+\begin{figure}[H]
+	\begin{minipage}[t]{0.45\textwidth}
+% Dank diesem \vspace{0pt}-Befehl fängt der Text in der zweiten Minipage am oberen Rand der
+% Minipage an und wird nicht am unteren Ende des Bildes ausgerichtet. 
+% Quelle: https://latex.org/forum/viewtopic.php?t=1059
+%\vspace{0pt}  
+\vspace{-2mm}  
+\includegraphics[width=\textwidth]{Knuth_alla_Open_Content_Alliance.pdf}
+\caption[Donald Knuth]{Donald Knuth\footnotemark}
+\label{fig:DonaldKnuth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.5\textwidth}
+% erste Zeile eines Absatzes nicht einrücken
+\setlength{\parindent}{0pt}
+% Absatzabstand
+\setlength{\parskip}{1.5ex plus 0.5ex minus 0.5ex}
+Dieses Projekt namens TeX schloss Knuth 1986 ab -- also noch lange vor der ersten Version von Linux im Jahre 1992. Das X steht dabei für den im lateinischen Alphabet nicht vorhandenen griechischen Buchstaben Chi.
+
+Da die Auszeichnungssprache von \TeX\ an manchen Stellen nicht sehr intuitiv ist und einen recht eingeschränkten Funktionsumfang bietet, entwickelte der Mathematiker Leslie Lamport~\cite{LeslieLamportWebpage} ab 1982 \LaTeX. Dieses enthält neben \TeX\ selbst auch unzählige Makropakete, die dazu da sind, den Autoren die Arbeit an Ihren Dokumenten zu vereinfachen und im Gegensatz zu \TeX, dessen Entwicklung abgeschlossen ist, wird \LaTeX\ stetig weiterentwickelt.
+	\end{minipage}
+
+\end{figure}
+\footnotetext{Bildquelle: Wikimedia (CC-BY-SA 2.0)}
+
+
+% Bildquelle: https://commons.wikimedia.org/wiki/File:Knuth_alla_Open_Content_Alliance.jpg
+
+
+
+
+
+\section{Installation von \LaTeX\ und Möglichkeiten damit zu arbeiten}
+\label{AbschnittInstallation}
+
+\LaTeX\ besteht aus dem eigentlichen \LaTeX-Compiler und einer Vielzahl an Kommandozeilenwerkzeugen, Erweiterungspaketen, Schriften und Dokumentation. Die manuelle Installation dieser Komponenten wäre ein aufwändiges Unterfangen. Aus diesem Grund existieren sogenannte \LaTeX-Distributionen, die die Installation von \LaTeX\ zu erleichtern. 
+
+Die bekanntesten aktiv gepflegten \LaTeX-Distributionen sind \TeX\,Live~\cite{TeXLive_Webpage} MiK\TeX~\cite{MiKTeX_Webpage} und Mac\TeX~\cite{MacTeX_Webpage}. 
+Praktisch alle Linux-Distributionen enthalten Pakete einer \LaTeX-Distributionen von Haus aus. Während \TeX\,Live für alle gängigen UNIX-Betriebssysteme und Windows verfügbar ist, liegt der Fokus von MiK\TeX\ auf Windows und der Fokus von Mac\TeX\ auf Mac~OS~X.
+
+Wenn eine Linux-Distribution \LaTeX\ bei der Installation des Betriebssystems nicht schon automatisch mitinstalliert hat, ist das über deren Paketverwaltung möglich. Andere Betriebssystemen wie Windows und Mac~OS erfordern einen manuellen Bezug der Installationspakete und deren Installation.
+
+Die Arbeit mit \LaTeX kann auf unterschiedliche Art und Weise erfolgen.
+
+\begin{itemize}
+	\item Eine Möglichkeit ist die Eingabe der Quelldateien mit einem beliebigen Texteditor. Handelt es sich um ein sehr einfaches Programm -- im Extremfall könnte es auch Notepad unter MS Windows oder etwas vergleichbares sein -- sind noch eine Shell zum Start des \LaTeX-Compilers und ein PDF-Anzeigeprogramm zur Ergebniskontrolle nötig. Wer diese Form der Arbeit mit \LaTeX\ mit drei Fenstern bevorzugt, der greift idealerweise auf einen Editor mit Komfortmerkmalen wie Syntaxhervorhebung zurück.
+	Einige Texteditor wie zum Beispiel Kate~\cite{Katewebpage} bieten die Möglichkeit, eine Shell in die Oberfläche einzubinden. Das kann die Organisation des Desktop erleichtern.
+    
+    \item Eine weitere Möglichkeit der Arbeit mit \LaTeX\ ist die Nutzung einer grafischen integrierten Entwicklungsumgebung (IDE = \textsl{Integrated Development Environment}) wie zum Beispiel \TeX studio~\cite{TeXstudioWebseite}, Texmaker~\cite{TeXmakerWebseite}, TeXworks~\cite{TeXworksWebseite} oder Eclipse~\cite{EclipseWebseite} zusammen mit der Erweiterung TeXlipse~\cite{TeXlipseWebseite}. Diese Werkzeuge bieten eingebettete Anzeigeprogramme und Schaltflächen, um die gängigen Interaktionen mit dem \LaTeX-Compiler und den beteiligten Werkzeugen mit der Maus anzuweisen. Zudem bieten integrierte Entwicklungsumgebung Schaltflächen um \LaTeX-Befehle und Sonderzeichen mit der Maus auszuwählen und in den Quelltext einzufügen.
+
+    \item Eine weitere Gruppe von Werkzeugen, die besonders hinsichtlich Portabilität und Zusammenarbeit mit anderen Autoren exzellente Möglichkeiten bietet, sind die sogenannten Online-\LaTeX-Editoren, die eigentlich Online-IDEs sind. Beispiele für solche Lösungen sind Authorea~\cite{AuthoreaWebseite}, Overleaf~\cite{OverleafWebseite} und ShareLaTeX~\cite{ShareLaTeXWebseite}. Alle diese Dienste bieten deren Nutzung innerhalb gewisser Ressourcenkontingente kostenfrei an. Weitere Speicherressourcen und einzelne Funktionen erfordern in der Regel einen kostenpflichtigen Zugang. Weitere Nachteile solcher Werkzeuge sind die Tatsachen, das die Software dieser Dienste üblicherweise nicht quelloffen ist und die eignen Dokumente liegen auf fremden Servern, was je nach Inhalt der Dokumente datenschutzrechtlich problematisch sein kann.
+\end{itemize}
+
+
+
+
+
+
+
+\section{Das allererste Beispiel}
+
+Listing~\ref{erstesbeispiel} enthält ein einfaches Beispiel für ein mit \LaTeX\ gesetztes Dokument mit einigen typischen Befehlen. Wenn Sie das Beispiel nicht aus dem Github-Verzeichnis, das auch die aktuellste Version dieses Dokuments enthält, kopieren können oder möchten, dann schreiben Sie Quellcode von Listing~\ref{erstesbeispiel} mit einem Texteditor Ihrer Wahl in eine neue Textdatei mit der Dateiendung \verb!.tex!. Der Vorspann, auch Präambel genannt, bestimmt den Aufbau des Dokuments und dort werden Erweiterungspakete importiert. In der Präambel\index{Präambel} sind neben der Dokumentklasse auch die Standardschriftgröße, das Seitenformat (einseitige oder doppelseitige Ausgabe), die Papiergröße sowie die Textbreite und -höhe definiert.
+
+
+
+\lstinputlisting[caption={Das allererste Beispiel},label=erstesbeispiel, style=customlatex]{Beispiele/Listing_01/listing1.tex}
+
+
+
+
+LaTeX-Befehle\label{Seite_Befehl} beginnen stets mit einem Backslash (\verb!\!) und können je nach Befehl mehrere Argumente haben. Bei den meisten Befehlen sind verschiedene Argumente zwingend nötig und weitere optional möglich. Die obligatorischen Argumente\index{Argument!obligatorisch} stehen in der Regel zwischen geschweiften\index{Klammern!geschweift} oder in einigen Fällen zwischen runden Klammern\index{Klammern!rund}, optionale\index{Argument!optinal} Argumente sind immer in eckigen Klammern\index{Klammern!eckig}.
+
+Der Befehl \verb!\documentclass! in Zeile~1 definiert die verwendete Dokumentklasse und gehört zwingend zu jedem LaTeX-Dokument. Das Beispiel in Listing~\ref{erstesbeispiel} verwendet die Dokumentklasse \verb!article!, das Papierformat DIN-A4 und eine Schriftgröße von 12\,Punkten.
+
+Das Kommando \verb!\usepackage! bindet Erweiterungspakete ein. In Listing~\ref{erstesbeispiel} ist  in Zeile~2 das Paket \verb!ngerman! eingebunden, das die Silbentrennung nach den neuen deutschen Rechtschreibregeln festlegt und Kapitel- und Abschnittsüberschriften übersetzt. Sind alternativ die alten Rechtschreibregeln gewünscht, muss alternativ das Erweiterungspaket \verb!german! eingebunden sein.
+
+In Zeile~3 wird die T1-Zeichensatzkodierung aus dem Erweiterungspaket \verb!fontenc! in das Dokument eingebunden. Diese Zeichensatzkodierung trennt Worte mit Umlauten und \verb!ß! korrekt. In Zeile~4 ist festgelegt, das das Dokument die Zeichensatzkodierung UTF-8 (Unicode) verwendet und nicht mehr das zuvor gebräuchliche ISO 8859-1 (Latin-1) oder ISO 8859-15 (Latin-9). 
+
+In den Zeilen 7, 9 und 11 befinden sich Befehle, um einzelne Aspekte des Layouts des fertigen Dokuments zu definierten, wie beispielsweise den Absatzabstand und die Toleranz bei Wortabständen. 
+
+Kommentare beginnen mit einem Prozentzeichen (\verb!%!) und bewirken, dass der LaTeX-Compiler alle Inhalte bis zum Zeilenende ignoriert.
+
+Das Inhalt des Dokuments befindet sich innerhalb der Umgebung \verb!document!. Diese beginnt mit \verb!\begin{document}! in Zeile 13 und endet mit \verb!\end{document}! in der letzten Zeile. Sollten sich nach diesem Befehl noch weitere Zeilen in einer Quelldatei befinden, ignoriert der \LaTeX-Compiler diese. Die Schriftart und Schriftgröße des Textes in den Zeilen 14 bis 19 wird mit diversen Formatierungsbefehlen beeinflusst. 
+
+Zeilenumbrüche kann ein Autor mit \verb!\\! (siehe Zeile~17) oder alternativ mit dem Befehl \verb!\newline! erzwingen. Mit solchen manuellen Eingriffen in das Layout solle man nach Möglichkeit sehr sparsam umgehen, da sie dem Prinzip der Trennung von Layout und Inhalt widersprechen. 
+
+Um mit Hilfe von \LaTeX\ und der Quelldatei von Listing~\ref{erstesbeispiel} eine PDF-Datei zu erzeugen, rufen Sie auf der Kommandozeile den \LaTeX-Compiler mit dem Dateinamen der Quelldatei als Kommandozeilenargument auf:
+
+\begin{Verbatim}[frame=single]
+$ pdflatex listing1.tex
+\end{Verbatim}
+
+Die Ausgabe des Kommandos liefert einen detaillierten Bericht über die Dokumenterzeugung. Enthält die Quelldatei Fehler, benennt der \LaTeX-Compiler die entsprechenden Stellen mittels Fehlermeldungen und Warnungen. Im Erfolgsfall erzeugt der Aufruf des Compilers drei Dateien im aktuellen Verzeichnis:
+
+\begin{itemize}
+\item \verb!listing1.aux!\index{\texttt{aux}-Datei} -- Eine Hilfsdatei, die Querverweise enthält, so dass beispielsweise Fußnoten und Referenzen korrekt nummeriert werden
+\item \verb!\listing1.log!\index{\texttt{log}-Datei} -- Das Protokoll des letzten \LaTeX-Aufrufs
+\item \verb!\listing1.pdf! -- Die Ausgabe des \LaTeX-Dokuments im Portable Document Format (\verb!pdf!)
+\end{itemize}
+
+Das erzeugte Dokument (siehe Abbildung~\ref{fig_Listing1}) in der \verb!pdf!-Datei lässt sich mit entsprechenden Betrachtern, wie sie alle aktuellen Betriebssysteme enthalten, anzeigen und ausdrucken.
+
+% \begin{center}
+% \includegraphics[width=\textwidth]{Screenshot_Listing_01.pdf}
+% \end{center}
+
+\begin{figure}[H]
+%     \centering
+         % Abschneiden mit trim = liks unten rechts oben
+         \fbox{\includegraphics[page=1, clip, trim=3cm 22.5cm 3cm 4cm,  width=.98\textwidth]{Beispiele/Listing_01/listing1.pdf}}
+    \caption{Resultat von Listing~\ref{erstesbeispiel}}
+    \label{fig_Listing1}
+\end{figure}

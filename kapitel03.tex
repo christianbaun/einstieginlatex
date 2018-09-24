@@ -1,0 +1,1496 @@
+\chapter{Dokumentklassen und Seitenstile}
+\label{KapitelDokumentklassenSeitenstile}
+
+Die in diesem Kapitel beschriebenen Dokumentklassen und Seitenstile definieren die grundlegenden Parameter des Layouts eines Dokuments. Zudem präsentiert dieses Kapitel die benötigten Befehle und Umgebungen, um Dokumente sinnvoll zu gliedern. 
+
+\section{Dokumentklassen}
+\label{AbschnittDokumentklassen}
+\index{Dokumentklasse}
+
+Der erste Befehl, der in der Präambel einer \LaTeX-Quelldatei (\verb!.tex!-Datei) steht, ist der Befehl \verb!\documentclass!
+\index[cmd]{\texttt{\textbackslash documentclass}}. Dieser definiert im Parameter \verb!Dokumentklasse!
+die Dokumentklasse für das gesamte Dokument. 
+
+\fbox{\texttt{\textbackslash documentclass[}\textsl{Optionen}\texttt{]\{}\textsl{Dokumentklasse}\texttt{\}}}
+
+Mehr als eine Dokumentklasse pro Dokument ist unzulässig. Moderne \LaTeX-Distributionen bringen eine große Anzahl an Dokumentklassen mit. Weil dieses Dokument aus Platzgründen nicht alle beschreiben kann, liegt an dieser Stelle der Fokus auf denjenigen Dokumentklassen, die seit Jahrzehnten sehr populär sind, und die in der Literatur und in der Praxis häufig eingesetzt werden. Zusätzlich berücksichtigt diese Dokumentation einige der neueren KOMA-Klassen~\cite{KOMAScript_Dokumentation}, die sich speziell den Gepflogenheiten des deutschen Sprachraums widmen. 
+
+Im Detail handelt es sich bei den hier vorgestellten traditionellen Dokumentklassen um 
+\verb!article!\index[cmd]{\texttt{article}}, 
+\verb!book!\index[cmd]{\texttt{book}}, 
+\verb!proc!\index[cmd]{\texttt{proc}}, 
+\verb!report!\index[cmd]{\texttt{report}}, 
+\verb!letter!\index[cmd]{\texttt{letter}}
+und \verb!slides!\index[cmd]{\texttt{slides}}. 
+
+
+
+Die Dokumentklasse 
+\verb!article! eignet sich gut für kleinere bis mittelgroße Dokumente. Texte, die mit dieser Dokumentklasse realisiert werden, können in
+Abschnitte (\textsl{Sections}), Unterabschnitte (\textsl{Subsections}) usw. untergliedert werden. Kapitel (\textsl{Chapter}) kennt diese Klasse aber leider nicht.
+
+Für längere Texte, die in Kapitel, Abschnitte, Unterabschnitte usw. unterteilen werden sollen, eignet sich u.a. die Dokumentklasse \verb!report!.
+Für Bücher oder sonstige umfangreiche Dokumente, die in Kapitel,
+Abschnitte und Unterabschnitte untergliedert sein sollen, eignet sich die Dokumentklasse \verb!book!. Bei den Dokumentklassen \verb!book! und \verb!report! beginnen Kapitel auch immer mit einer neuen Seite.
+
+Speziell zur Erstellung von Sitzungsprotokollen eignet sich die Dokumentklasse \verb!proc!.
+
+Die Dokumentklasse \verb!letter! ist eine auf US-amerikanische 
+Briefe zugeschnittene Klasse. Für Briefe nach deutschem Standard sind 
+andere Klassen wie \verb!dinbrief!\index[cmd]{\texttt{dinbrief}},
+\verb!g-brief! oder das modernere \verb!g-brief2!\index[cmd]{\texttt{g-brief2}} besser geeignet (siehe Kapitel~\ref{Kapitel_Briefe}). 
+
+
+Die Dokumentklasse \verb!slides! eignet sich für Präsentationsfolien. Eine modernere Alternative ist \verb!beamer!\index[cmd]{\texttt{beamer}} (siehe Kapitel~\ref{Kapitel_Praesentationsfolien}).
+
+
+Bei den moderneren KOMA-Dokumentklassen handelt es sich 
+um \verb!scrartcl!\index[cmd]{\texttt{scrartcl}} (als Ersatz für \verb!article!),  
+\verb!scrreprt!\index[cmd]{\texttt{scrreprt}} (als Ersatz für \verb!report!), 
+\verb!scrbook!\index[cmd]{\texttt{scrbook}} (als Ersatz für \verb!book!) und 
+\verb!scrlttr2!\index[cmd]{\texttt{scrlttr2}} (als Ersatz für \verb!letter!).
+
+
+
+
+
+
+\subsection{Klassenoptionen}
+\index{Klassenoptionen}
+
+Der Befehl \verb!\documentclass! bietet die 
+Möglichkeit, Optionen in 
+eckigen Klammern anzugeben. 
+Mit diesen wird das grundlegende Layout eines Dokuments 
+angepasst. 
+
+In den Optionen ist es unter anderem möglich, die Schriftgröße\index{Schriftgröße} der Basisschrift\index{Basisschrift} anzupassen, die Anzahl der Textspalten pro Seite und die Papiergröße sowie die Ausrichtung zu definieren.
+
+Von den in diesem Abschnitt beschrieben Optionen muss keine zwingend angegeben werden. Sie sind optional. Sind mehrere Optionen angegeben, müssen diese mit Kommas voneinander getrennt sein, wie im folgenden Beispiel zu sehen ist:
+
+\begin{Verbatim}[frame=single]
+\documentclass[12pt,twoside,a4paper]{report}
+\end{Verbatim}
+
+\subsubsection{\texttt{10pt}, \texttt{11pt} oder \texttt{12pt}}
+\index[cmd]{\texttt{10pt}}
+\index[cmd]{\texttt{11pt}}
+\index[cmd]{\texttt{12pt}}
+
+Diese drei Dokumentklassenoptionen definieren die Schriftgröße\index{Schriftgröße} fest.
+Ist keine der drei Alternativen angeben, wird \LaTeX\ standardmäßig die Schriftgröße \verb!10pt! wählen.
+
+\subsubsection{\texttt{onecolumn} oder \texttt{twocolumn}}
+\index[cmd]{\texttt{onecolumn}}
+\index[cmd]{\texttt{twocolumn}}
+\index{Seitenlayout!einspaltig}\index{Einspaltig}
+\index{Seitenlayout!zweispaltig}\index{Zweispaltig}
+
+Diese beiden Optionen ermöglichen die Definition der Seitenformatierung. 
+Zur Auswahl stehen einspaltiges und zweispaltiges Seitenlayout. 
+Standardmäßig verwendet \LaTeX\ ein einspaltiges Seitenlayout.
+
+\subsubsection{\texttt{oneside} oder \texttt{twoside}}
+\index[cmd]{\texttt{oneside}}
+\index[cmd]{\texttt{twoside}}
+
+Hiermit kann die Seitenformatierung auf ein- oder doppelseitige Ausgabe festgelegt werden. 
+
+Bei doppelseitiger Ausgabe sind die linken Seitenränder von geraden und ungeraden Seiten unterschiedlich groß, so dass beim doppelseitigen Ausdruck die Textfelder 
+übereinstimmen. Bei einseitiger Ausgabe sind die Seitenränder von geraden und ungeraden Seiten gleich groß.
+
+Standardmäßig ist bei den Dokumentklassen \verb!article!, \verb!report! und \verb!letter! die einseitige Ausgabe voreingestellt. Bei der Dokumentklasse \verb!book! hingegen ist doppelseitige Ausgabe voreingestellt.
+
+\subsubsection{\texttt{titlepage} oder \texttt{notitlepage}}
+\index[cmd]{\texttt{titlepage}}
+\index[cmd]{\texttt{notitlepage}}
+\index{Titelseite} 
+
+Ob eine eigene Titelseite generiert wird oder ob der Titel horizontal oben zentriert auf der ersten Dokumentseite gesetzt ist, hängt von der verwendeten Dokumentklasse ab.
+
+Bei den Dokumentklassen \verb!book! und  \verb!report! wird eine separate Titelseite erzeugt. Bei der Dokumentklasse \verb!article! ist das nicht der Fall. Mit den Optionen \verb!titlepage! und \verb!notitlepage! können Autoren dieses Verhalten ändern. 
+
+
+\subsubsection{\texttt{draft} oder \texttt{final}}
+\index[cmd]{\texttt{draft}}
+\index[cmd]{\texttt{final}}
+\index{Zeilenumbruch} 
+
+Bei der Option \verb!draft! werden Zeilen,
+bei denen \LaTeX\ den Zeilenumbruch nicht
+korrekt realisieren konnte, das heißt Zeilen, die ein wenig über den Rand des 
+Textfeldes hinausragen, mit einem fetten
+schwarzen Balken am Rand gekennzeichnet.
+Dieser Randbalken entfällt bei der
+Option \verb!final!, die die Standardeinstellung ist.
+
+
+\subsubsection{\texttt{leqno}}
+\index[cmd]{\texttt{leqno}}
+
+Ist diese Dokumentklassenoption
+angeben, werden die Nummern 
+von mathematischen Formeln nicht 
+rechtsbündig, wie sonst automatisch 
+üblich, sondern linksbündig gesetzt.
+
+\subsubsection{\texttt{fleqn}}
+\index[cmd]{\texttt{fleqn}}
+
+Mit dieser Option werden abgesetzte mathematische Formeln nicht zentriert, sondern linksbündig gesetzt.
+
+
+
+
+\subsubsection{\texttt{a4paper}, \texttt{a5paper}, \texttt{b5paper}, \texttt{letterpaper}, \texttt{legalpaper} und \texttt{executivepaper}}
+\index[cmd]{\texttt{a4paper}}\index{DIN-A4}
+\index[cmd]{\texttt{a5paper}}\index{DIN-A5}
+\index[cmd]{\texttt{b5paper}}
+\index[cmd]{\texttt{letterpaper}}
+\index[cmd]{\texttt{legalpaper}}
+\index[cmd]{\texttt{executivepaper}}
+
+
+Diese Dokumentklassenoptionen definieren die Papiergröße\index{Papiergröße}.
+Standardmäßig verwendet \LaTeX\ die Option \verb!letterpaper! als 
+Standard-Papierformat. Da dieses US-amerikanische Papierformat in Mitteleuropa sehr unüblich ist, sollten Autoren im europäischen Raum mit der Option \verb!a4paper! auf DIN-A4 umzustellen. Eine Übersicht über die Dimensionen der unterschiedlichen Papierformate enthält Tabelle~\ref{Tabelle_Papierformate}.
+
+\begin{table}[h!tb]
+\centering
+\caption{Papierformate}
+\label{Tabelle_Papierformate}       % Give a unique label
+\begin{tabular}{lrclrcl}
+\hline
+Dokumentklassenoption & \multicolumn{3}{c}{Größe [mm]} & \multicolumn{3}{c}{Größe [Zoll]} \\
+\hline
+\texttt{a4paper}        & 297   & x & 210   & 11,7 & x & 8,3  \\ 
+\texttt{a5paper}        & 210   & x & 148   & 8,3  & x & 5,8  \\
+\texttt{b5paper}        & 250   & x & 176   & 9,8  & x & 6,9  \\ 
+\texttt{letterpaper}    & 279,4 & x & 215,9 & 11   & x & 8,5  \\
+\texttt{legalpaper}     & 355,6 & x & 215,9 & 14   & x & 8,5  \\
+\texttt{executivepaper} & 266,7 & x & 184,1 & 10,5 & x & 7,25 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsubsection{\texttt{landscape}}
+\index[cmd]{\texttt{landscape}}
+
+Mit der Option \verb!landscape! wird das Dokument im Querformat gesetzt.
+
+\subsubsection{\texttt{openright} oder \texttt{openany}}
+\index[cmd]{\texttt{openright}}
+\index[cmd]{\texttt{openany}}
+
+Bei der Dokumentklasse \verb!book!
+beginnt ein neues Kapitel immer 
+auf einer rechten (ungeraden) Seite. Wenn ein
+vorhergegangenes Kapitel auf einer 
+ungeraden Seite endet, dann wird eine leere,
+gerade Seite eingefügt. Mit der 
+Option \verb!openany! wird dieses Verhalten
+von \LaTeX\ unterdrückt. Dann kann 
+ein neues Kapitel auch auf einer geraden
+Seite beginnen.
+
+Bei der Dokumentklasse \verb!report! kann ein Kapitel
+standardmäßig auf jeder Seite beginnen. 
+Mit der Option \verb!openright! können Autoren
+festlegen, dass Kapitel (genau wie bei 
+der Klasse \verb!book!) nur auf ungeraden,
+rechten Seiten beginnen dürfen.
+
+\section{Seitenstile}
+\index{Seitenstil}
+
+Der grundsätzliche Aufbau einer Seite heißt
+Seitenstil. Das Festlegen des Seitenstils geschieht mit dem Befehl
+\verb!\pagestyle!\index[cmd]{\texttt{\textbackslash pagestyle}} in der Präambel der \verb!.tex!-Quelldatei. 
+Der gewählte Seitenstil gilt dann für das gesamte Dokument.
+
+
+\fbox{\texttt{\textbackslash pagestyle\{}\textsl{Seitenstil}\texttt{\}}}
+
+\LaTeX\ bietet
+einige vorgefertigte Seitenstile (siehe Tabelle~\ref{Tabelle_Seitenstile}).
+Der
+Seitenstil \texttt{plain} ist die Standardauswahl von
+\LaTeX, wenn kein anderer
+Seitenstil mit \texttt{\textbackslash pagestyle} ausgewählt ist.
+
+\begin{table}[h!tb]
+\centering
+\caption{Seitenstile}
+\label{Tabelle_Seitenstile}       % Give a unique label
+\begin{tabular}{lp{10.2cm}}
+\hline
+Seitenstil & Aussehen \\
+\hline
+\texttt{empty} & Die Kopf- und Fußzeilen 
+bleiben leer und es wird keine
+Seitennummer gesetzt. Nur das Textfeld ist zu sehen.\\
+\texttt{plain} & Die Kopfzeile bleibt 
+leer. In der Fußzeile wird die
+Seitennummer zentriert ausgegeben.  \\
+\texttt{headings} & Die Kopfzeile
+jeder Seite enthält 
+die aktuelle Seitenzahl und eine Überschrift. Welche Überschrift
+das genau ist, hängt von der verwendeten
+Dokumentklasse ab.
+Für gewöhnlich handelt es sich dabei
+um die aktuelle Kapitel- oder Abschnittsüberschrift. 
+Die Fußzeile bleibt leer
+Die einzige Ausnahme ist die jeweils 
+erste Seite eines neuen Kapitels. \\
+\texttt{myheadings} & Der einzige
+Unterschied zum Seitenstil \texttt{headings} ist, dass die Kopfzeile nicht automatisch 
+gefüllt wird, sondern das der Autor den Inhalt der Kopfzeile mit den
+Befehlen \texttt{\textbackslash markright} oder
+\texttt{\textbackslash markboth} festlegen muss. \\
+\hline
+\end{tabular}
+\end{table}
+
+Es ist auch möglich, den Seitenstil einer einzelnen Seite festzulegen. Dieses geschieht nicht in der Präambel der \verb!.tex!-Quelldatei, sondern im Text des Dokuments. Der Befehl
+\verb!\thispagestyle! legt den Seitenstil der
+aktuellen Seite fest -- an der Stelle im 
+Quelltext, an der der Befehl auftritt.
+
+
+\fbox{\texttt{\textbackslash thispagestyle\{}\textsl{Seitenstil}\texttt{\}}}
+
+
+\section{Definition der Kopfzeile mit \texttt{markright} und \texttt{markboth}}
+\label{markright}
+\index{Kopfzeile}
+\index[cmd]{\texttt{\textbackslash markright}}
+\index[cmd]{\texttt{\textbackslash markboth}}
+
+Ist ein Dokument mit den Seitenstilen \verb!headings! oder \verb!myheadings! gesetzt, können Autoren mit Hilfe der 
+Befehle \verb!\markright! und \verb!markboth! die Inhalte der Kopfzeilen im Dokument definieren und damit die Standardeinstellung (siehe Tabelle~\ref{Tabelle_Standardeinstellung_Kopfzeile}) von \LaTeX\ zu überschreiben. Die
+Wirkung der beiden 
+Befehle \texttt{\textbackslash markright} und \texttt{\textbackslash markboth} setzt erst aber der    
+zweiten Seite des Dokuments ein.
+
+Der Befehl \verb!\markright! eignet sich besonders dann, wenn das Dokument einseitig gesetzt wird (Dokumentklassenoption \verb!oneside!). Jede bedruckte Seite gilt dann als rechte Seite.
+
+\fbox{\texttt{\textbackslash markright\{}\textsl{rechter Kopf}\texttt{\}}}
+
+Für doppelseitig gesetzte Dokumente (Dokumentklassenoption \verb!twoside!) eignet sich \verb!\markboth!. Hier können Autoren die
+Kopfzeilen für linke und rechte Seiten unterschiedlich definieren.
+
+\fbox{\texttt{\textbackslash markboth\{}\textsl{linker Kopf}\texttt{\}\{}\textsl{rechter Kopf}\texttt{\}}}
+
+Seiten mit \textsl{gerader} Seitennummer sind in diesem Fall \textsl{linke} Seiten und Seiten mit 
+\textsl{ungerader} Seitennummer sind \textsl{rechte} Seiten. 
+
+Zudem wird beim Befehl 
+\verb!\markboth! die Seitennummer 
+jeder Seite \textsl{linksbündig} auf jede 
+Seite mit \textsl{gerader} Seitennummer 
+gesetzt und \textsl{rechtsbündig} 
+auf jede Seite mit \textsl{ungerader} Seitennummer.
+
+Was bei \verb!\markboth! und \verb!\markright!
+voreingestellt ist, also welche
+Informationen die Kopfzeilen enthalten,
+hängt von der verwendeten Dokumentklasse ab (siehe Tabelle~\ref{Tabelle_Standardeinstellung_Kopfzeile}). 
+
+Bei doppelseitigem Druckstil und den 
+Bearbeitungsklassen \verb!book! oder
+\verb!report! wird von \verb!\markboth! 
+automatisch die Überschrift des
+aktuellen Kapitels (\texttt{\textbackslash chapter}) 
+in die Kopfzeilen der linken 
+Seiten gesetzt, und die
+Kopfzeilen der
+rechten Seiten enthalten 
+die Überschriften der Abschnitte (\texttt{\textbackslash section}).
+
+\begin{Verbatim}[frame=single]
+\markboth{\chapter}{\section}
+\end{Verbatim}
+
+Bei einseitigem Druckstil und den Bearbeitungsklassen \verb!book! oder
+\verb!article! wird von \verb!\markright! standardmäßig die 
+Überschrift des aktuellen Kapitels (\texttt{\textbackslash chapter}) in die Kopfzeile der rechten 
+Seiten gesetzt.
+
+\begin{Verbatim}[frame=single]
+\markright{\chapter}
+\end{Verbatim}
+
+Bei doppelseitigem Druckstil und
+der Bearbeitungsklasse \verb!article!
+wird von \verb!\markboth! die Überschrift des aktuellen Abschnitts (\texttt{\textbackslash section}) in die Kopfzeilen der linken 
+Seiten gesetzt und die Überschrift
+des aktuellen Unterabschnitts (\texttt{\textbackslash subsection})
+wird in die Kopfzeilen der rechten Seiten geschrieben.
+
+\begin{Verbatim}[frame=single]
+\markboth{\section}{\subsection}
+\end{Verbatim}
+
+Bei einseitigem Druckstil und \verb!article!
+wird von \verb!\markright! standardmäßig die 
+Überschrift des aktuellen Abschnitts 
+(\texttt{\textbackslash section}) in die Kopfzeile der rechten Seiten gesetzt.
+
+\begin{Verbatim}[frame=single]
+\markright{\section}
+\end{Verbatim}
+
+
+\begin{table}[h!tb]
+\centering
+\caption[Standardmäßiger Inhalt der Kopfzeile]{Standardmäßiger Inhalt der Kopfzeile~\cite{Kopka2000}}
+\label{Tabelle_Standardeinstellung_Kopfzeile}       % Give a unique label
+\begin{tabular}{llcc}
+\hline
+     &        & \multicolumn{2}{c}{Dokumentklasse} \\
+Stil & Befehl & \texttt{book}, \texttt{report} & \texttt{article} \\
+\hline
+doppelseitig 
+& \texttt{\textbackslash markboth\{}\textsl{linker Kopf}\texttt{\}}   
+& \texttt{\textbackslash chapter} 
+& \texttt{\textbackslash section} \\  
+& \texttt{\textbackslash markboth\{}\textsl{rechter Kopf}\texttt{\}}   
+& \texttt{\textbackslash section}
+& \texttt{\textbackslash subsection} \\
+einseitig 
+& \texttt{\textbackslash markright}   
+& \texttt{\textbackslash chapter}
+& \texttt{\textbackslash section} \\
+\hline
+\end{tabular}
+\end{table}
+
+% Eine ähnliche Tabelle befindet sich bei Kopka2000 auf S.32
+
+Alternativ zur automatischen Befüllung der Kopfzeilen mit den Überschriften der Kapitel, Abschnitten und Unterabschnitten, ist es auch möglich, einen beliebigen Text zu definieren, der auf allen Seiten in der Kopfzeile gesetzt wird. 
+
+Wenn beispielsweise 
+bei einem zweiseitigen Dokument mit
+der Dokumentklasse \verb!book! auf jeder
+linken Seite das Wort \textsl{Masterthesis} 
+und auf jeder rechten Seite die
+aktuelle Kapitelüberschrift
+stehen soll, kann dieses mit den folgenden Befehlen realisiert werden:
+
+\begin{Verbatim}[frame=single]
+\pagestyle{headings}
+\markright{Masterthesis}{\chapter}
+\end{Verbatim}
+
+Befinden sich auf einer Seite mehrere \texttt{\textbackslash section}-
+oder \texttt{\textbackslash subsection}-Befehle, fügt \LaTeX\ standardmäßig auf \textsl{linken} Seiten 
+die jeweils \textsl{letzte} und auf
+\textsl{rechten} Seiten die jeweils 
+\textsl{erste} Überschrift in die 
+Kopfzeile ein.
+
+
+
+
+\section{Definition der Kopfzeile mit \texttt{fancyhdr}}
+\label{fancyheadings}
+\index{fancyheadings}
+\index{Kopfzeile}
+\index{Fußzeile}
+
+Umfangreichere Möglichkeiten zur Definition der Kopfzeile und der Fußzeile bietet das Erweiterungspaket \verb!fancyhdr!. Dieses definiert Befehle für den Seitenstil \verb!fancy!. Bei \verb!fancyhdr! sind, wie in den Abbildungen~\ref{Abbildungen_fancyhdr_gerade_Seiten} und \ref{Abbildungen_fancyhdr_ungerade_Seiten} zu sehen ist, die Kopf- bzw. Fußzeile dreigeteilt (in Links-Mitte-Rechts). 
+
+
+\begin{figure}[H]
+\centering
+\fbox{
+\begin{tabularx}{.75\textwidth}{XYZ}
+\textsl{LK-gerade} & \textsl{MK-gerade} & \textsl{RK-gerade}\\
+\hline
+ &  & \\ 
+ &  & \\ 
+\multicolumn{3}{c}{{\LARGE Gerade Seiten}}\\
+ &  & \\ 
+ &  & \\ 
+\hline
+\textsl{LF-gerade} & \textsl{MF-gerade} & \textsl{RF-gerade}
+\end{tabularx}
+}
+\caption[Aufteilung von \texttt{fancyheadings} bei geraden Seiten]{Aufteilung von \texttt{fancyheadings} bei geraden Seiten~\cite{GoossensMittelachSamarin2000}}
+\label{Abbildungen_fancyhdr_gerade_Seiten}
+\end{figure}
+
+
+
+
+
+\begin{figure}[H]
+\centering
+\fbox{
+\begin{tabularx}{.75\textwidth}{XYZ}
+\textsl{LK-ungerade} & \textsl{MK-ungerade} & \textsl{RK-ungerade}\\
+\hline
+ &  & \\ 
+ &  & \\ 
+\multicolumn{3}{c}{{\LARGE Ungerade Seiten}}\\
+ &  & \\ 
+ &  & \\ 
+\hline
+\textsl{LF-ungerade} & \textsl{MF-ungerade} & \textsl{RF-ungerade}
+\end{tabularx}
+}
+\caption[Aufteilung von \texttt{fancyheadings} bei ungeraden Seiten]{Aufteilung von \texttt{fancyheadings} bei ungeraden Seiten~\cite{GoossensMittelachSamarin2000}}
+\label{Abbildungen_fancyhdr_ungerade_Seiten}
+\end{figure}
+
+
+Um \verb!fancyhdr! zu verwenden, muss das Erweiterungspaket
+in der Präambel der \LaTeX-Quelldatei mit dem Befehl \verb!\usepackage{fancyheadings}! eingebunden und der Seitenstil \verb!fancy! mit dem Befehl \verb!\pagestyle{fancy}! ausgewählt sein.
+
+\begin{Verbatim}[frame=single]
+\pagestyle{fancy}
+\end{Verbatim}
+
+Die Definition des Inhalts der in den Abbildungen~\ref{Abbildungen_fancyhdr_gerade_Seiten} und \ref{Abbildungen_fancyhdr_ungerade_Seiten} dargestellten Felder der Kopf- bzw. Fußzeilen auf den gerade und ungeraden Seiten geschieht mit den Befehlen \texttt{\textbackslash lhead}, \texttt{\textbackslash chead}, \texttt{\textbackslash rhead}, \texttt{\textbackslash lfoot}, \texttt{\textbackslash cfoot} und \texttt{\textbackslash rfoot}.
+
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash lhead[}\textsl{LK-gerade}\texttt{]\{}\textsl{LK-ungerade}\texttt{\}} \\
+\texttt{\textbackslash chead[}\textsl{MK-gerade}\texttt{]\{}\textsl{MK-ungerade}\texttt{\}} \\
+\texttt{\textbackslash rhead[}\textsl{RK-gerade}\texttt{]\{}\textsl{RK-ungerade}\texttt{\}} \\
+\texttt{\textbackslash lfoot[}\textsl{LF-gerade}\texttt{]\{}\textsl{LF-ungerade}\texttt{\}} \\
+\texttt{\textbackslash cfoot[}\textsl{MF-gerade}\texttt{]\{}\textsl{MF-ungerade}\texttt{\}} \\
+\texttt{\textbackslash rfoot[}\textsl{RF-gerade}\texttt{]\{}\textsl{RF-ungerade}\texttt{\}} 
+\end{boxedminipage}
+
+
+Diese Befehle müssen in der Präambel der \LaTeX-Quelldatei, also vor dem 
+\verb!\begin{document}! stehen. Wie in den Abbildungen~\ref{Abbildungen_fancyhdr_gerade_Seiten} und \ref{Abbildungen_fancyhdr_ungerade_Seiten} dargestellt, werden die Informationen in den Feldern \textsl{LK} und \textsl{LF} linksbündig und in den Feldern \textsl{RK} und \textsl{RF} rechtsbündig gesetzt. Die Einträge in den Feldern \textsl{MK} und \textsl{MF} erscheinen zentriert. 
+
+
+Das Aussehen der Linen unter der Kopfzeile und über der Fußzeile wird mit den 
+Befehlen \verb!\headrulewidth!\index[cmd]{\texttt{\textbackslash headrulewidth}}
+und \verb!\footrulewidth!\index[cmd]{\texttt{\textbackslash footrulewidth}} 
+beeinflusst. Auch diese beiden Befehle müssen in der Präambel der \LaTeX-Quelldatei stehen.
+
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash renewcommand\{\textbackslash headrulewidth\}}\{\textsl{Wert}\} \\
+\texttt{\textbackslash renewcommand\{\textbackslash footrulewidth\}}\{\textsl{Wert}\} 
+\end{boxedminipage}
+
+Sollen die Linen unter der Kopfzeile und über der Fußzeile gar nicht erscheinen, so kann die Strichbreite einfach auf einen Wert \verb!0pt! gesetzt werden.
+
+Die Höhe der Kopfzeile kann mit dem Längenbefehl \verb!\headheight!\index[cmd]{\texttt{\textbackslash headheight}} 
+beeinflusst werden. So ist es möglich mehrzeilige Kopfzeilen zu setzen.
+
+\fbox{\texttt{\textbackslash setlength\{\textbackslash headheight\}}\{\textsl{Wert}\}}
+
+
+
+Abbildung~\ref{Abbildungen_fancyhdr_Standardeinstellung} zeigt das voreingestellte Seitenlayout des Erweiterungspaketes \verb!fancyhdr!.
+
+\begin{figure}[H]
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\fbox{
+\begin{tabular}{lcr}
+\texttt{\textbackslash rightmark} & & \texttt{\textbackslash leftmark}\\
+\hline
+& & \\ 
+& & \\ 
+\multicolumn{3}{c}{{\LARGE Gerade Seiten}}\\
+& & \\ 
+& & \\ 
+\multicolumn{3}{c}{\texttt{\textbackslash thepage}}
+\end{tabular}
+}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\fbox{
+\begin{tabular}{lcr}
+\texttt{\textbackslash leftmark} & & \texttt{\textbackslash rightmark}\\
+\hline
+& & \\ 
+& & \\ 
+\multicolumn{3}{c}{{\LARGE Ungerade Seiten}}\\
+& & \\ 
+& & \\ 
+\multicolumn{3}{c}{\texttt{\textbackslash thepage}}
+\end{tabular}
+}
+\end{minipage}
+\caption[Voreingestelltes Seitenlayout bei \texttt{fancyhdr}]{Voreingestelltes Seitenlayout bei \texttt{fancyhdr}~\cite{GoossensMittelachSamarin2000}}
+\label{Abbildungen_fancyhdr_Standardeinstellung}
+\end{figure}
+
+Der Befehl \verb!\thepage! fügt an der Stelle, an der er eingefügt ist, auf jeder Seite die entsprechende Seitenzahl ein.
+
+Der Befehl \verb!\leftmark! fügt bei den Dokumentklassen \verb!book! und \verb!report! standardmäßig die Überschrift des aktuellen Kapitels (\verb!chapter!) auf der jeweiligen Seite ein. \verb!\rightmark! fügt standardmäßig die Überschrift des aktuellen Abschnitts (\verb!section!) auf der jeweiligen Seite ein.
+
+Bei Dokumentklassen, die über keine Kapitel verfügen, wie zum Beispiel \verb!article!, fügt  \verb!\leftmark! die Überschrift des aktuellen Abschnitts und \verb!\rightmark! die Überschrift des aktuellen Unterabschnitts ein.
+
+\section{Seitennummerierung}
+\index{Seitennummerierung}
+
+\LaTeX\ nummeriert automatisch 
+die Seiten eines Dokuments durch. Der voreingestellte
+Stil der Seitennummerierung ist dabei 
+\verb!arabic!, also die Nummerierung mit
+arabischen Ziffern.\index{Ziffern!arabisch}\index[cmd]{\texttt{arabic}}
+
+Der Befehl \verb!\pagenumbering!\index[cmd]{\texttt{\textbackslash pagenumbering}} ermöglicht die Definition des Seitennummerierungsstils.\index{Seitennummerierung!Stil}
+
+\fbox{\texttt{\textbackslash pagenumbering\{\textsl{Stil}\}}}
+
+Weitere, von \LaTeX\ unterstützte
+Stile zur Seitennummerierung (siehe Tabelle~\ref{Tabelle_Nummerierungsstilarten})
+sind die Nummerierung mit kleinen (\verb!roman!) und großen (\verb!Roman!) römischen Ziffern\index{Ziffern!römisch} 
+oder mit fortlaufenden Klein- oder 
+Großbuchstaben von a-z (\verb!alph!) bzw. A-Z (\verb!Alph!).
+
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Seitennummerierungsstile}
+\label{Tabelle_Nummerierungsstilarten}       % Give a unique label
+\begin{tabular}{ll}
+\hline
+Stil & Ergebnis \\
+\hline
+\texttt{arabic} & Nummerierung mit arabischen Ziffern \\
+\texttt{roman} & Nummerierung in kleinen römischen Ziffern \\
+\texttt{Roman} & Nummerierung in großen römischen Ziffern \\
+\texttt{alph} & Nummerierung in Kleinbuchstaben (a-z) \\
+\texttt{Alph} & Nummerierung in Großbuchstaben (A-Z) \\
+\hline
+\end{tabular}
+\end{table}
+
+Bei den Seitennummerierungsstilen \verb!alph! und \verb!Alph!
+entsprechen die Buchstaben a-z bzw. A-Z den Zählerwerten 1-26 des Zählers \verb!page! für
+die Seitenzahlen. Das bedeutet, auch wenn die Seitenzahlen in Buchstaben
+angezeigt werden, rechnet \LaTeX\ intern ganz normal mit Zahlen weiter. 
+
+Eine Änderung des Seitennummerierungsstils 
+mit \verb!\pagenumbering! setzt den \LaTeX-internen Zähler der 
+Seitennummern \verb!page!\index[cmd]{\texttt{\textbackslash page}} automatisch 
+auf den Wert \verb!1! zurück.
+
+Um den Startwert der Seitennummerierung 
+auf einen anderen Wert als \texttt{1} zu setzen, muss der Zähler
+\texttt{page} auf einen höheren 
+Wert gesetzt werden. 
+
+\fbox{\texttt{\textbackslash setcounter\{page\}\{\textsl{Nummer}\}}}
+\index[cmd]{\texttt{\textbackslash setcounter}}
+
+
+Sollen beispielsweise das Vorwort und das Inhaltsverzeichnis eines Dokuments mit (großen) römischen Ziffern 
+und das eigentliche 
+Dokument mit arabischen Ziffern durchnummeriert werden, kann dieses auf folgende Art und Weise realisiert werden: 
+Nach dem \verb!\begin{document}! wird mit \verb!\pagenumbering{Roman}! der 
+Seitennummerierungsstil auf große römische Ziffern festgelegt und direkt nach 
+dem ersten \texttt{\textbackslash chapter}-Befehl erfolgt mit \verb!\pagenumbering{arabic}! ein Wechsel 
+auf arabische Ziffern. Die Struktur des Dokuments ist also so oder so ähnlich:
+
+
+\begin{Verbatim}[frame=single]
+<Präambel der LaTeX-Quelldatei>
+\begin{document}
+\pagenumbering{Roman}
+...
+\tableofcontents
+...
+\chapter{Kapitel 1}
+\pagenumbering{arabic}
+...
+\end{Verbatim}
+
+
+
+
+\section{Wichtige Abstände}
+\index{Abstände}
+
+In diesem Abschnitt ist die Anpassung wichtiger Abstände im Dokument beschrieben. Bei diesen handelt es sich um den Zeilenabstand, den Absatzabstand und die Tiefe der Einrückung der ersten Zeile eines Absatzes.
+
+
+\subsection{Zeilenabstand}
+\index{Zeilenabstand} 
+
+Der Abstand zwischen zwei aufeinander 
+folgenden Zeilen heißt 
+Zeilenabstand. Diesen definiert der Wert in der 
+Variablen \verb!\baselineskip!\index[cmd]{\texttt{\textbackslash baselineskip}}.
+Der \LaTeX-Compiler legt den Zeilenabstand 
+automatisch fest und berücksichtigt dabei die
+aktuelle Schriftgröße. 
+
+Um den Zeilenabstand zu ändern, sollte nicht \verb!\baselineskip! einen neuen Wert zugewiesen bekommen. Gründe dafür sind:
+
+
+\begin{itemize}
+\item Der Wert für \verb!\baselineskip! 
+kann nicht in der Präambel definiert werden.
+\item Bei jeder Änderung der Schriftgröße wird 
+eine selbst vorgenommene Änderung des Zeilenabstandes
+überschrieben, da eine Änderung der 
+Schriftgröße auch eine Änderung des
+Zeilenabstandes von \LaTeX\ nach sich zieht.
+\item Wird \verb!\baselineskip! innerhalb 
+eines Absatzes geändert, gilt
+das rückwirkend für den gesamten Absatz.
+\item Wird innerhalb eines Absatzes 
+mehrmals mit \verb!\baselineskip!
+der Zeilenabstand geändert, gilt nur die 
+letzte Änderung im Absatz, da diese alle anderen Änderungen rückwirkend überschreibt.
+\end{itemize}
+
+Besser als eine Änderung des Werts von \verb!\baselineskip! ist es, den Längenbefehl 
+\verb!\baselinestretch! zu verwenden. Dieser enthält
+einen Faktor, mit 
+dem der normale
+Zeilenabstand (also \verb!\baselineskip!)
+multipliziert wird. 
+Standardmäßig hat \verb!\baselinestretch!\index[cmd]{\texttt{\textbackslash baselinestretch}}
+den Wert \verb!1!. Die Zuweisung eines neuen Werts geschieht folgenderweise:
+
+\fbox{\texttt{\textbackslash renewcommand\{\textbackslash baselinestretch\}\{\textsl{Faktor}\}}}
+
+Wird der Wert des Längenbefehls \verb!\baselinestretch! 
+in der Präambel geändert, gilt
+diese Änderung für das gesamte Dokument.
+
+Wird der Wert von \verb!\baselinestretch! außerhalb der Präambel geändert, dann gilt die Änderung des Zeilenabstandes erst nach dem nächsten 
+Schriftgrößenwechsel. Darum macht es 
+Sinn, direkt nach dem Festlegen des neuen 
+Zeilenabstandes einen Schriftgrößenbefehl 
+zu bringen. Im einfachsten Fall, wenn die Schriftgröße gleich bleiben soll, geschieht das mit dem Befehl \verb!\normalsize!.
+
+
+
+\subsection{Absatzabstand}
+\index{Absatzabstand}
+\label{Absatzabstand}
+
+Der Abstand, den der \LaTeX-Compiler zwischen zwei Absätzen einfügt, hängt vom Wert des 
+Längenbefehls \verb!\parskip!\index[cmd]{\texttt{\textbackslash parskip}} ab. 
+
+Es ist ratsam, für die Definition des Absatzabstands die Maßeinheit \verb!ex! (siehe Seite~\pageref{Tabelle_Masseinheiten}) zu verwenden, da diese sich an der aktuellen Zeichengröße orientiert und den
+Absatzabstand als elastisches Maß (siehe Seite~\pageref{Elastische_Masse}) zu definieren, damit \LaTeX\ das entstehen von 
+\textsl{Hurenkindern}\index{Hurenkind} und \textsl{Schusterjungen}\index{Schusterjunge} verhindert. Mit diesen Begriffen bezeichnet man den Makel beim Textsatz, dass eine Seite mit der ersten Zeile eines 
+Absatzes endet (so genannte \textsl{Schusterjungen}) oder aber eine neue 
+Seite mit der letzten Zeile eines Absatzes beginnt (so genannte
+\textsl{Hurenkinder}).
+
+Die folgende Zeile beispielsweise setzt den Absatzabstand
+auf \verb!1.5ex! plus/minus \verb!0.5ex!:
+
+\begin{Verbatim}[frame=single]
+\setlength{\parskip}{1.5ex plus 0.5ex minus 0.5ex}
+\end{Verbatim}
+
+
+
+
+\subsection{Einrückung der ersten Zeile eines Absatzes}
+\index{Einrückung!Absatz}
+
+
+\setlength{\parindent}{1.5em}
+Bei englischsprachigen Dokumenten ist es üblich, keinen zusätzlichen Freiraum zwischen Absätzen einzufügen, und dafür (außer beim ersten Absatz) immer die erste Zeile eines Absatzes um einen festen Abstand (z.B. einen halben Zentimeter) einzurücken.
+
+Auch \LaTeX\ nimmt diese Einrückung
+standardmäßig vor. Wie es aussieht, wenn immer die erste 
+Zeile eines Absatzes eingerückt wird, zeigt dieser Abschnitt. 
+Dabei ist die erste Zeile immer um \verb!1.5em! eingerückt.
+Der Betrag, um den \LaTeX\ die erste 
+Zeile eines jeden Absatzes nach rechts 
+einrückt, ist im Längenbefehl \verb!\parindent!
+\index[cmd]{\texttt{\textbackslash parindent}} gespeichert.
+
+Das Einrückverhalten von \LaTeX\ können Autoren anpassen, indem sie mit
+dem Befehl \verb!\setlength! dem
+Längenbefehl \verb!\parindent!
+einen anderen
+Wert zuweisen. Die Syntax ist dabei folgende:
+
+
+\fbox{\texttt{\textbackslash setlength\{\textbackslash parindent\}\{}\textsl{Betrag}\texttt{\}}}
+
+Um das automatische
+Einrücken zu unterbinden, genügt es also, dem Längenbefehl \verb!\parindent! in der Präambel der \LaTeX-Quelldatei den Wert \verb!0em! zuzuweisen.
+
+Um nur das Einrückverhalten des nächsten Absatzes zu beeinflussen, existiert der Befehl \verb!\noindent!. Dieser verhindert das Einrücken des nächsten Absatzes, habt aber auch nur für den nächsten Absatz Gültigkeit.
+
+\fbox{\texttt{\textbackslash noindent}}
+
+Zudem existiert 
+der Befehl \verb!\indent!\index[cmd]{\texttt{\textbackslash indent}}, der das 
+Einrücken nur des nächsten Absatzes anweist.
+
+\fbox{\texttt{\textbackslash indent}}
+
+\setlength{\parindent}{0em}
+
+\section{Parameter zur Seitendeklaration}
+\index{Seitendeklaration}
+
+Dieser Abschnitt beschreibt einige Längenbefehle (siehe Tabelle~\ref{Tabelle_Längenbefehle_Layout}), die die geometrischen Dimensionen des Layouts beeinflussen.
+Diese Befehle sind nur dann für Autoren relevant, wenn sie von den 
+Standardwerten, die von der verwendeten
+Dokumentklasse abhängen, abweichen wollen. 
+
+Jede Seite besteht aus einer Kopfzeile\index{Kopfzeile} (\textsl{Head}), einem Textkörper\index{Textkörper}
+(\textsl{Body}) und einer Fußzeile\index{Fußzeile} (\textsl{Foot}).
+
+\begin{table}[h!tb]
+\centering
+\caption[Längenbefehle zur Beeinflussung des Layouts]{Längenbefehle zur Beeinflussung des Layouts~\cite{GoossensMittelachSamarin2000}}
+\label{Tabelle_Längenbefehle_Layout}       % Give a unique label
+\begin{tabularx}{\textwidth}{lX}
+\hline
+Befehl & Bedeutung \\
+\hline
+\texttt{\textbackslash columnsep} & Abstand der Spalten 
+bei Mehrspaltensatz \\
+\texttt{\textbackslash columnseprule} & Breite der Trennline, die die
+Spalten beim Mehrspaltensatz voneinander trennt (normalerweise \texttt{0pt},
+also unsichtbar) \\
+\texttt{\textbackslash columnwidth} & Spaltenbreite beim Mehrspaltensatz.
+Hängt von \texttt{\textbackslash textwidth} und 
+\texttt{\textbackslash columnsep} ab\\
+\texttt{\textbackslash evensidemargin} & Zusätzlicher linker Rand auf geraden
+Seiten (bei zweiseitigem Satz)\\
+\texttt{\textbackslash footskip} & Vertikale Abstand zwischen der 
+Grundlinie der letzten Textzeile und der Grundlinie der Fußzeile\\
+\texttt{\textbackslash headheight} & Höhe der Kopfzeile\\
+\texttt{\textbackslash headsep} & Vertikale Abstand zwischen Kopfzeile und
+Textkörper\\
+\texttt{\textbackslash linewidth} & Breite der aktuellen Zeile\\
+\texttt{\textbackslash marginparpush} & Vertikale Mindestabstand zwischen
+zwei aufeinander folgenden Marginalien\\
+\texttt{\textbackslash marginparsep} & Horizontaler Abstand zwischen 
+Textkörper und Marginalien\\
+\texttt{\textbackslash marginparwidth} & Breite der Marginalien \\
+\texttt{\textbackslash oddsidemargin} & Zusätzlicher linker Rand auf ungeraden
+Seiten (bei zweiseitigem Satz)\\
+\texttt{\textbackslash paperheight} & Höhe des Papiers \\
+\texttt{\textbackslash paperwidth} & Breite des Papiers \\
+\texttt{\textbackslash topmargin} & Abstand vom oberen Rand des Papiers
+bis zum oberen Rand der Kopfzeile\\
+\texttt{\textbackslash textheight} & Höhe des Textkörpers
+ohne Kopf- und Fußzeile\\
+\texttt{\textbackslash textwidth} & Breite des Textkörpers \\
+\hline
+\end{tabularx}
+\index[cmd]{\texttt{\textbackslash columnsep}}
+\index[cmd]{\texttt{\textbackslash columnseprule}}
+\index[cmd]{\texttt{\textbackslash columnwidth}}
+\index[cmd]{\texttt{\textbackslash evensidemargin}}
+\index[cmd]{\texttt{\textbackslash footskip}}
+\index[cmd]{\texttt{\textbackslash headheight}}
+\index[cmd]{\texttt{\textbackslash headsep}}
+\index[cmd]{\texttt{\textbackslash linewidth}}
+\index[cmd]{\texttt{\textbackslash marginparpush}}
+\index[cmd]{\texttt{\textbackslash marginparsep}}
+\index[cmd]{\texttt{\textbackslash marginparwidth}}
+\index[cmd]{\texttt{\textbackslash oddsidemargin}}
+\index[cmd]{\texttt{\textbackslash paperheight}}
+\index[cmd]{\texttt{\textbackslash paperwidth}}
+\index[cmd]{\texttt{\textbackslash topmargin}}
+\index[cmd]{\texttt{\textbackslash textheight}}
+\index[cmd]{\texttt{\textbackslash textwidth}}
+\end{table}
+
+Das Zuweisen neuer Werte zu den Längenbefehlen in Tabelle~\ref{Tabelle_Längenbefehle_Layout} erfolgt mit dem Befehl \verb!\setlength! (siehe Seite~\pageref{Absatzabstand}).
+
+
+
+
+Das Erweiterungspaket \verb!layouts.sty! ermöglicht die Ausgabe einer übersichtlichen Darstellung des aktuellen Seitenlayouts. Um eine Darstellung, wie in Abbildung~\ref{Abbildung_Ausgabe_layout} zu auszugeben, lassen Sie mit dem Befehl \verb!\currentpage!\index[cmd]{\texttt{\textbackslash currentpage}} 
+die aktuellen Werte der Längenbefehle auslesen, 
+legen mit dem Befehl \verb!\oddpagelayouttrue!\index[cmd]{\texttt{\textbackslash oddpagelayouttrue}} oder alternativ mit dem Befehl
+\verb!\oddpagelayoutfalse!\index[cmd]{\texttt{\textbackslash oddpagelayoutfalse}} fest, 
+ob Sie das Layout einer ungeraden oder einer geraden Seiten ausgeben wollen und setzen die Übersicht mit dem Befehl \verb!\pagedesign!.
+
+
+\begin{figure}[htbp]
+\currentpage
+\oddpagelayouttrue
+\pagedesign
+\caption{Layout ungerader Seiten im aktuellen Dokument} \label{Abbildung_Ausgabe_layout}
+\end{figure}
+
+
+
+
+
+\section{Mehrspaltenlayout}
+
+Soll ein Dokument ab einer bestimmten Stelle zweiseitig gesetzt werden, muss dafür an der gewünschten Stelle der Befehl \verb!\twocolumn! aufgerufen werden.
+
+\index{Seitenlayout!zweispaltig}\index{Zweispaltig}
+
+An der Stelle, wo der Befehl aufgerufen wird, beginnt \LaTeX\ eine neue Seite mit zweispaltigem Layout. Ist eine Überschrift gewünscht, die über beiden Spalten steht, wird diese als optionales Argument in eckigen Klammern hinter dem Befehl \verb!\twocolumn!
+angegeben. 
+
+\fbox{\texttt{\textbackslash twocolumn[Überschrift über beide Spalten]}}
+\index[cmd]{\texttt{\textbackslash twocolumn}}
+
+Eine Eigenschaft von \verb!\twocolumn! ist, dass es immer dafür sorgt, dass ganze Seiten zweispaltig gesetzt werden. Dabei wird immer zuerst die linke 
+Spalte und dann die rechte Spalte gefüllt. 
+So kann es zu einer sehr unausgewogenen 
+Verteilung des Textes kommen.
+
+Soll wieder auf ein einspaltiges Layout umgeschaltete werden, geschieht dieses mit dem Befehl \verb!\onecolumn!.
+
+\index{Seitenlayout!einspaltig}\index{Einspaltig}
+
+\fbox{\texttt{\textbackslash onecolumn}}
+\index[cmd]{\texttt{\textbackslash onecolumn}}
+
+
+
+
+\section{Querformat}
+\index{Querformat}
+\index{Seitenlayout!Querformat}
+\index{Hochformat} 
+\index{Seitenlayout!Hochformat}
+\index{Portrait} 
+\index{Seitenlayout!Portrait}
+
+Beim Setzen von Text ist es üblich,
+das die längere Papierseite die vertikale
+ist und die kürzere die horizontale.
+Dieses Konzept heißt \textsl{Hochformat} 
+oder \textsl{Portrait}. Für die 
+allermeisten Arten von Dokumenten ist 
+dieses das übliche Vorgehen.
+
+Für einige Anwendungen,  zum Beispiel wenn Aushänge mit breiten Bildern oder Tabellen gesetzt werden sollen, empfiehlt es sich allerdings
+die längere Papierseite als
+die Horizontale zu verwenden. In diesem Fall spricht man vom \textsl{Querformat}.
+
+Um Seiten im Querformat zu setzen, ist das Makropaket
+\verb!portland! nützlich. Dieses definiert die Befehle 
+\verb!\landscape!\index[cmd]{\texttt{\textbackslash landscape}} und
+\verb!\portrait!\index[cmd]{\texttt{\textbackslash portrait}} sowie die beiden Umgebungen:
+
+\begin{itemize}
+\item \verb!\begin{portrait}!\dots\verb!\end{portrait}! für das Hochformat und\index[cmd]{\texttt{portrait}}
+\item \verb!\begin{landscape}!\dots\verb!\end{landscape}! für das Querformat\index[cmd]{\texttt{landscape}}
+\end{itemize}
+
+
+
+Der Befehl \verb!\portrait! setzt das 
+Seitenlayout auf die ursprünglichen Werte
+des Hochformats, so wie sie zu
+Beginn eines Dokuments nach dem
+\verb!\begin{document}! vorgegeben sind.
+Beim Befehl \verb!\landscape! werden 
+die horizontalen und vertikalen Werte
+vertauscht. Das Textfeld belegt also im Landscape-Modus die 
+gleiche Fläche und die gleichen
+Koordinaten wie im Portrait-Modus. 
+
+
+An der Stelle im Quelltext, wo der  Befehl \verb!\portrait! oder alternativ der Befehl \verb!\landscape! aufgerufen wird, beginnt der \LaTeX-Compiler eine neue Seite, die dann entweder
+im Hoch- oder Querformat erscheint. Die beiden Befehle \verb!\portrait! und \verb!\landscape! gelten aber immer nur für die nächste Seite. Sollen
+mehrere aufeinander folgende Seiten im Querformat gesetzt werden,  
+ist es bequemer, die Umgebung \verb!\landscape! zu 
+nutzen, als für jede Seite den Befehl \verb!\landscape! aufzurufen.
+
+
+
+\section{Befehle und Umgebungen zur Gliederung}
+\index{Gliederung}
+
+
+Die Gliederung von Dokumenten unterstützt deren Lesbarkeit. Dieser Abschnitt stellt Befehle und Umgebungen zur Realisierung der Titelseite, der Zusammenfassung (Abstract), von Kapiteln, Abschnitten und Unterabschnitten, sowie Anhängen vor.
+
+
+\subsection{Titelei}
+\index{Titelei}
+
+Eine Titelseite kann unter \LaTeX\ entweder komplett manuell definiert, oder komfortabel mit Hilfe weniger Befehle generiert werden. Die zweite Alternative geht deutlich schneller, bietet dafür aber auch weniger Freiheiten als die erste Alternative.
+
+Soll die Titelseite automatisch generiert werden, geschieht dieses mit Hilfe der Befehle 
+\verb!\maketile!\index[cmd]{\texttt{\textbackslash maketile}}, \verb!\title!, \verb!\author!, \verb!\date! und \verb!\thanks!.
+
+Der Befehl \verb!\title!\index[cmd]{\texttt{\textbackslash title}} dient zur Definition des Dokumenttitels. 
+
+\fbox{\texttt{\textbackslash title\{}\textsl{Text}\texttt{\}}}
+
+Mit dem Befehl \verb!\author!\index[cmd]{\texttt{\textbackslash author}} können Name und Adresse des Autors oder 
+auch mehrerer Autoren definiert werden.
+
+\fbox{\texttt{\textbackslash author\{}\textsl{Text}\texttt{\}}}
+
+Gibt es mehrere Autoren, so ist es möglich,
+deren Namen mit dem Befehl \verb!\and!\index[cmd]{\texttt{\textbackslash and}} zu verknüpfen. Sollen beispielsweise die Namen und Adressen von zwei Autoren auf dem Titel erscheinen, ist eine Lösung wie die folgende denkbar:
+
+
+\begin{Verbatim}[frame=single]
+\author{erster Autor \\Adresse des \\ersten Autors \and
+zweiter Autor \\Adressse des \\zweiten Autors
+\end{Verbatim}
+
+Auf der Titelseite würde dieses Beispiel zu folgendem Ergebnis führen:
+
+\begin{center}
+% \fbox{
+\begin{tabular}{p{1cm}cp{3cm}cp{1cm}}
+& erster Autor  & & zweiter Autor   & \\
+& Adresse des   & & Adresse des     & \\
+& ersten Autors & & zweiten Autors  & \\
+\end{tabular}
+% }
+\end{center}
+
+Der Befehl \verb!\date! setzt einen
+zentrierten Textblock unterhalb der Angaben zu
+den Autoren. Dieser Textblock kann ein Datum oder sonst eine Information enthalten.
+
+\fbox{\texttt{\textbackslash date\{}\textsl{Datum}\texttt{\}}}
+
+Eine einfache Möglichkeit, das aktuelle Datum einzufügen, ist die Verwendung der Befehlskombination \verb!\date{\today}!\index[cmd]{\texttt{\textbackslash date}}, 
+denn der Befehl \verb!\today!\index[cmd]{\texttt{\textbackslash today}}
+fügt an der Stelle, an der er aufgerufen wird, das aktuelle Datum ein.
+
+Fehlt der Befehl \verb!\date!, fügt \LaTeX\ automatisch das aktuelle Datum auf die Titelseite ein. Ist keine Datumsangabe auf der Titelseite gewünscht, sollte der Befehl \verb!\date! ohne Argumente, also mit leeren geschweiften Klammern im Quelltext stehen.
+Das unterdrückt die automatische Datumsangabe durch \LaTeX.
+
+Der Befehl \verb!\thanks!
+\index[cmd]{\texttt{\textbackslash thanks}} setzt auf der Titelseite eine einzeilige Fußnote.
+
+\fbox{\texttt{\textbackslash thanks\{}\textsl{Text}\texttt{\}}}
+
+Eine häufige Anwendungen von \verb!\thanks! ist, wenn mehrere Autoren an einem Dokument gearbeitet haben und weitere Informationen zu deren Beitrag zum Dokument, zu deren Erreichbarkeit oder eventuell zu deren Arbeitgebern auf der Titelseite erwähnt sein sollen. 
+
+Der Befehl \verb!\maketitle!\index[cmd]{\texttt{\textbackslash maketile}}, 
+der die Titelseite nach den gemachten Vorgaben setzt, sollte sich im Quelltext nach den Befehlen \verb!\title!, \verb!\author!, \verb!\date!, \verb!\thanks! und nach dem \verb!\begin{document}! befinden.
+
+\fbox{\texttt{\textbackslash maketile}}
+
+
+\subsection{Die Zusammenfassung -- das Abstract}
+\index{Abstract}
+\index{Zusammenfassung}
+
+Als \textsl{Abstract} bezeichnet man einen (kurzen) Text, der den Inhalt des
+Dokuments zusammenfasst. 
+Es steht abhängig von der Dokumentklasse 
+auf der Titelseite, beidseitig eingerückt unter dem Titel oder auf einer
+eigenen Seite nach der Titelseite. 
+
+Um solche Zusammenfassungen unter 
+\LaTeX\ zu setzen, existiert die
+Umgebung \verb!abstract!\index[cmd]{\texttt{abstract}}.
+
+\fbox{\texttt{\textbackslash begin\{abstract\}\texttt{\dots}\textbackslash end\{abstract\}}}
+
+In der Dokumentklasse \verb!book! ist
+die Umgebung \verb!abstract!
+nicht definiert.
+Eine Zusammenfassung am Anfang eines 
+Buches wäre auch sehr ungewöhnlich. Wenn,
+dann finden sich solche Zusammenfassungen 
+auf dem Cover eines Buches oder in
+Buchbesprechungen, und diese werden 
+nicht in der Klasse \verb!book! erstellt~\cite{Kopka2000}.
+
+% So wird das auch bei Kopka2000 auf Seite 39 argumentiert
+
+Die Dokumentenklasse \verb!article! hat standardmäßig keine extra Seite für die Titelseite\index{Titelseite}.
+Aus diesem Grund setzt der \LaTeX-Compiler bei \verb|article|
+die Zusammenfassung auf der ersten
+Seite unter der Überschrift. Wurde allerdings die 
+Option \verb!titlepage! bei der Deklaration der Dokumentklasse verwendet,
+gibt es doch eine eigene Seite für die Titelseite und die Zusammenfassung 
+erscheint auf der Titelseite unter dem Titel. 
+beidseitig eingerückt und in einer kleinen Schriftgröße.
+
+
+Bei der Dokumentklasse \verb!report!
+erscheint die Zusammenfassung 
+auf einer separaten Seite ohne
+Seitennummer nach der Titelseite. 
+Die Schriftgröße der Zusammenfassung entspricht der Standardgröße. Eine
+beidseitige Einrückung wie bei der 
+Dokumentklasse \verb!article! erfolgt nicht.
+
+
+
+
+\subsection{Gliederungsbefehle}
+\index{Gliederungsbefehl}
+
+\LaTeX\ enthält für die 
+fortlaufende Untergliederung von Dokumenten in Teile, 
+Kapitel, Abschnitte, Paragraphen usw. entsprechende
+Befehle.
+Tabelle~\ref{Tabelle_Gliederungsebenen} enthält eine 
+Zusammenstellung der unter \LaTeX\
+verfügbaren Gliederungsbefehle 
+und der zugehörigen Werte des Zählers
+\verb!tocdepth!\index[cmd]{\texttt{\textbackslash tocdepth}}.
+
+
+\begin{table}[h!tb]
+	\centering
+	\caption[Gliederungsebenen und der Zähler \texttt{tocdepth}]{Gliederungsebenen und der Zähler \texttt{tocdepth}~\cite{Schlosser2009}}
+	\label{Tabelle_Gliederungsebenen}       % Give a unique label
+	\begin{tabular}{ll}
+		\hline
+		Gliederungsebene                      & Wert \\
+		\hline
+		\texttt{\textbackslash part}          & -1 bei \texttt{book} und \texttt{report}, 0 bei \texttt{article}  \\
+		\texttt{\textbackslash chapter}       & 0    \\
+		\texttt{\textbackslash section}       & 1    \\
+		\texttt{\textbackslash subsection}    & 2    \\
+		\texttt{\textbackslash subsubsection} & 3    \\
+		\texttt{\textbackslash paragraph}     & 4    \\
+		\texttt{\textbackslash subparagraph}  & 5    \\
+		\hline
+	\end{tabular}
+	\index[cmd]{\texttt{\textbackslash part}}
+	\index[cmd]{\texttt{\textbackslash chapter}}
+	\index[cmd]{\texttt{\textbackslash section}}
+	\index[cmd]{\texttt{\textbackslash subsection}}
+	\index[cmd]{\texttt{\textbackslash subsubsection}}
+	\index[cmd]{\texttt{\textbackslash paragraph}}
+	\index[cmd]{\texttt{\textbackslash subparagraph}}
+\end{table}
+
+
+
+Alle diese Befehle zur Untergliederung
+von Dokumenten, mit
+Ausnahme von
+\texttt{\textbackslash part} (\textsl{Teil}\index{Teil}), bauen eine
+Gliederungshierarchie auf.
+Bei den Dokumentklassen 
+\verb!book! und
+\verb!report! beginnt die 
+Gliederung mit
+\textsl{Kapiteln}\index{Kapitel} (\texttt{\textbackslash chapter}). Die
+Kapitel werden untergliedert in
+\textsl{Abschnitte}\index{Abschnitt} (\texttt{\textbackslash section})
+und diese wiederum in 
+\textsl{Unterabschnitte}\index{Unterabschnitt} (\texttt{\textbackslash subsection}) 
+und so weiter~\cite{Kopka2000}. 
+
+Bei den 
+Dokumentklassen \verb!article! und \verb!proc! 
+beginnt die Gliederung erst mit 
+\textsl{Abschnitten} (\texttt{\textbackslash section}). 
+\textsl{Kapitel} (\texttt{\textbackslash chapter}) stehen hier 
+nicht zur Verfügung. 
+
+Die Überschrift wird den Gliederungsbefehlen aus Tabelle~\ref{Tabelle_Gliederungsebenen}  in geschweiften Klammern übergeben. Zudem kann als optionales Argument in eckigen Klammern eine Kurzform der Überschrift definiert werden. Diese wird anstatt der langen Überschrift im Inhaltsverzeichnis und in der Kopfzeile verwendet.
+
+
+\fbox{\texttt{\textbackslash}\textsl{Gliederungsbefehl}\texttt{[}\textsl{Kurzform}\texttt{]}\{\textsl{Überschrift}\texttt{\}}}
+
+Bei den Dokumentklassen \verb!book! 
+und \verb!report! erhält die
+Gliederungsüberschrift eines Kapitels 
+(\texttt{\textbackslash chapter}) eine einstellige 
+Nummer, die eines \textsl{Abschnitts} 
+(\texttt{\textbackslash section}) eine zweistellige 
+und die Überschrift eines \textsl{Unterabschnitts} 
+(\texttt{\textbackslash subsection}) eine dreistellige Nummer. 
+Gliederungsbefehle, die in der Hierarchie 
+tiefer als \textsl{Unterabschnitte} stehen, 
+erhalten keine Nummer. Wenn die Nummer einer 
+Gliederungsüberschrift mehr als eine Ziffer 
+enthält, dann werden die Ziffern von \LaTeX\ jeweils mit 
+einem Punkt voneinander getrennt.
+
+Bei den Dokumentklassen \verb!article! 
+und \verb!proc! erhalten die 
+\textsl{Abschnitte} (\texttt{\textbackslash section})
+eine einstellige und die\index{Unterabschnitt} 
+\textsl{Unterabschnitte} (\texttt{\textbackslash subsection}) 
+eine zweistellige Nummer.
+
+Der Gliederungsbefehl \texttt{\textbackslash part} hat eine Sonderposition 
+unter den Gliederungsbefehlen inne. Er beeinflusst nicht die Nummerierung 
+der anderen Gliederungsbefehle.
+
+Wird mit dem Befehl \texttt{\textbackslash chapter} ein neues Kapitel begonnen,
+beendet \LaTeX\ automatisch die
+aktuelle Seite und beginnt eine neue. 
+Diese enthält ganz oben im Textfeld eine Zeile \glqq\textbf{Chapter \textsl{x}}\grqq. 
+Das \textbf{\textsl{x}} 
+steht für die Nummer des Kapitels.
+Direkt darunter befindet sich die
+Überschrift des Kapitels. Ist in einem Dokument das Erweiterungspaket
+\verb!german.sty! oder alternativ \verb!ngerman.sty! eingebunden, setzt der \LaTeX-Compiler anstatt 
+\textbf{Chapter \textsl{x}} das deutsche 
+\textbf{Kapitel \textsl{x}}. 
+
+
+\begin{table}[htb]
+\centering
+\caption{Auswirkungen von \texttt{(n)german.sty} auf die Gliederungselemente}
+\label{Tabelle_Deutsche_Gliederungsebenen}       % Give a unique label
+\begin{tabular}{lll}
+\hline
+Befehl & Standard & mit \texttt{(n)german.sty} \\
+\hline
+\texttt{\textbackslash prefacename} & Preface & Vorwort \\
+\texttt{\textbackslash refname} & References & Literatur \\
+\texttt{\textbackslash abstractname} & Abstract & Zusammenfassung \\
+\texttt{\textbackslash bibname} & Bibliography & Literaturverzeichnis \\
+\texttt{\textbackslash chaptername} & Chapter & Kapitel \\
+\texttt{\textbackslash appendixname} & Appendix & Anhang \\
+\texttt{\textbackslash contentsname} & Contents & Inhaltsverzeichnis \\
+\texttt{\textbackslash listfigurename} & List of Figures & Abbildungsverzeichnis\\
+\texttt{\textbackslash listtablename} & List of Tables & Tabellenverzeichnis \\
+\texttt{\textbackslash indexname} & Index & Index \\
+\texttt{\textbackslash figurename} & Figure & Abbildung \\
+\texttt{\textbackslash tablename} & Table & Tabelle \\
+\texttt{\textbackslash partname} & Part & Teil \\
+\texttt{\textbackslash pagename} & Page & Seite \\
+\hline
+\end{tabular}
+\index[cmd]{\texttt{\textbackslash prefacename}}
+\index[cmd]{\texttt{\textbackslash refname}}
+\index[cmd]{\texttt{\textbackslash abstractname}}
+\index[cmd]{\texttt{\textbackslash bibname}}
+\index[cmd]{\texttt{\textbackslash chaptername}}
+\index[cmd]{\texttt{\textbackslash appendixname}}
+\index[cmd]{\texttt{\textbackslash contentsname}}
+\index[cmd]{\texttt{\textbackslash listfigurename}}
+\index[cmd]{\texttt{\textbackslash listtablename}}
+\index[cmd]{\texttt{\textbackslash indexname}}
+\index[cmd]{\texttt{\textbackslash figurename}}
+\index[cmd]{\texttt{\textbackslash tablename}}
+\index[cmd]{\texttt{\textbackslash partname}}
+\index[cmd]{\texttt{\textbackslash pagename}}
+\end{table}
+
+Tabelle~\ref{Tabelle_Deutsche_Gliederungsebenen} enthält eine Übersicht, wie das Erweiterungspaket \verb!(n)german.sty! 
+die Bezeichnungen und Überschriften der 
+Gliederungselemente verändert.
+
+Ist bei einem Gliederungsbefehl weder
+eine Nummerierung noch ein
+Eintrag im Inhaltsverzeichnis gewollt, 
+muss ein Stern $\ast$ zwischen 
+Gliederungsbefehl und dem Argument mit der Überschrift stehen.
+
+\fbox{\texttt{\textbackslash}\textsl{Gliederungsbefehl}\texttt{$\ast$\{}\textsl{Überschrift}\}}
+
+Die Angabe einer verkürzten Überschrift in eckigen Klammern ist hierbei nicht möglich. Es würde auch keinen Sinn machen, hier eine verkürzte Überschrift anzugeben, da diese eh nie abgedruckt würde.
+
+Bei jedem Aufruf
+eines Gliederungsbefehls, 
+wird der dazugehörige Zähler um eins 
+erhöht. Wird ein Gliederungsbefehl 
+der $\ast$-Form aufrufen, wird der
+Zähler nicht verändert.
+
+\subsection{Tiefe der Nummerierung bei der Gliederung ändern}
+
+Bei der Dokumentklasse \verb!article! ist die Tiefe, 
+bis zu der Gliederungsbefehle
+durchnummeriert werden können, gleich drei, und bei den Dokumentklassen 
+\verb!book! und \verb!report! ist die Schranke gleich zwei. 
+
+Das bedeutet, dass \verb!book! und \verb!report! 
+standardmäßig bis
+einschließlich \texttt{\textbackslash subsection} und \verb!article! 
+bis einschließlich \verb!\subsubsection! durchnummerieren.
+
+Die Schranke realisiert unter \LaTeX\ der Zähler \verb!secnumdepth!\index[cmd]{\texttt{\textbackslash secnumdepth}} 
+und eine Änderung seines Werts ermöglicht der Befehl \verb|\setcounter|.
+
+
+\fbox{\texttt{\textbackslash setcounter\{secnumdepth\}\{}\textsl{Zahl}\texttt{\}}}
+
+
+Würde beispielsweise in einem Dokument mit der 
+Dokumentklasse \verb!book! der Wert \verb!secnumdepth! auf \verb!4! gesetzt, 
+würde der \LaTeX-Compiler die Gliederungsbefehle bis einschließlich \verb!\paragraph!
+durchnummerieren. Mögliche Werte für \verb!secnumdepth! sind bei den 
+Dokumentklassen \verb!book! und 
+\verb!report! \verb!-1,0,1,...,5!.
+Bei der Dokumentklasse \verb!article! 
+ist der Wertebereich \verb!0,1,...,5!.
+
+
+\subsection{Anfangswert der Nummerierung ändern}
+
+Die Nummerierung jeder Ebene der Gliederungshierarchie beginnt mit 
+dem Wert \verb!1!. Soll der Zähler eines bestimmten 
+Gliederungsbefehls nicht mit \verb!1! beginnen, muss dem Zähler mit dem 
+Befehl \verb!\setcounter!\index[cmd]{\texttt{\textbackslash setcounter}} ein anderer Wert zugewiesen werden.
+
+\fbox{\texttt{\textbackslash setcounter\{}\textsl{Gliederungsname}\texttt{\}\{}\textsl{Zahl}\texttt{\}}}
+
+Dieser Befehl legt den Startwert des Zählers des 
+angegebenen Gliederungsbefehls fest. \textsl{Gliederungsname} steht in der Syntax
+für einen Gliederungsbefehl, allerdings ohne 
+den üblichen Backslash \verb!\! am Anfang des Befehls.
+
+Der Befehl \verb!\setcounter{section}{5}! zum Beispiel setzt den Zähler von
+\texttt{\textbackslash section} auf den Wert \verb!5!. Beim nächsten Aufruf von 
+\texttt{\textbackslash section} wird der Zähler um eins erhöht, und damit bekommt der nächste
+Abschnitt (\texttt{\textbackslash section}) die Nummer \verb!6! und 
+der folgende Abschnitt die Nummer \verb!7! und so weiter. 
+
+Ein Anwendungsbeispiel, wo die manuelle Definition des Zählers eines Gliederungsbefehls hilfreich ist, sind große Dokumente, die in mehrere unabhängige \LaTeX-Dateien unterteilt sind, und die zusammen wie ein großes Dokument aussehen sollen.
+
+
+
+
+
+\subsection{Zusätzliche Untergliederung bei Büchern}
+
+Die Dokumentklasse \verb!book! ermöglicht noch eine weitere Möglichkeit
+der Untergliederung. Es handelt sich hierbei um eine Untergliederung in einen Buchvorspann (u.a. Vorwort), Buchhauptteil (Kapitel und Anhänge) und Buchnachspann (u.a.  Literaturverzeichnis und Index). Den Beginn jedes dieser drei Teile markieren die Befehle 
+\verb!\frontmatter!, \verb!\mainmatter! und \verb!\backmatter!.
+\index{Buchvorspann}
+\index{Buchhauptteil}
+\index{Buchnachspann}
+
+Der Dokumentteil, der nach dem Befehl \verb!\frontmatter!\index[cmd]{\texttt{\textbackslash frontmatter}} 
+folgt, erhält von \LaTeX\ kleine römische Zahlen für die Seitennummerierung.
+Gliederungsbefehle in diesem Teil erhalten keine Nummerierung. 
+
+\fbox{\texttt{\textbackslash frontmatter}}
+
+Im Hauptteil des Buches, der nach dem Befehl \verb!\mainmatter!\index[cmd]{\texttt{\textbackslash backmatter}} 
+folgt, erfolgt die Seitennummerierung
+mit arabischen Ziffern. Der Zähler für die Seitenzahlen wird automatisch
+zurückgesetzt. Das heißt, dass die erste Seite des Hauptteils eine arabische 
+\verb!1! als Seitenzahl erhält. Gliederungsbefehle in diesem Teil erhalten eine
+fortlaufende Nummerierung. 
+
+\fbox{\texttt{\textbackslash mainmatter}}
+
+Im Nachspann des Buches, der nach dem Befehl \verb!\backmatter!\index[cmd]{\texttt{\textbackslash backmatter}} 
+folgt, ist die Gliederungsnummerierung wie im Buchvorspann
+abgeschaltet. Die Seitenzahlen werden aber wie im Hauptteil
+in arabischen Ziffern geschrieben und der Zähler wird nicht zurückgesetzt.
+
+\fbox{\texttt{\textbackslash backmatter}}
+
+
+\subsection{Anhang}
+\index{Anhang}
+
+Zur Realisierung des Anhangs existiert der 
+Befehl \verb!\appendix!\index[cmd]{\texttt{\textbackslash appendix}}.
+
+\fbox{\texttt{\textbackslash appendix}}
+
+An der Stelle im Quelltext, wo dieser Befehl aufgerufen wird, setzt \LaTeX\ 
+bei den Dokumentklassen \verb!book! und \verb!report! den Zähler der Kapitel (\verb!chapter!) auf null zurück. 
+
+Bei der Dokumentklasse \verb!article!, bei der ja keine Kapitel 
+(\texttt{\textbackslash chapter}) existieren, wird der Zähler der Abschnitte
+(\verb!chapter!) auf null zurückgesetzt. 
+
+Im Anhang nummeriert der \LaTeX.Compiler die Kapitel, bzw. bei \verb!article! die Abschnitte, nicht mehr mit arabischen Ziffern, sondern mit großen Buchstaben. Dabei steht
+\verb!A! für \verb!1!  und \verb!Z! für \verb!26!. Außerdem wird das Wort
+\textbf{Chapter} bzw. \textbf{Kapitel} (bei \texttt{(n)german.sty}) durch das Wort 
+\textbf{Appendix} bzw. \textbf{Anhang} ersetzt.
+
+Alle in der Hierarchie darunter gelegenen Gliederungsbefehle werden ganz normal
+mit arabischen Ziffern durchnummeriert. So könnte ein Unterabschnitt im Anhang
+eines Dokuments mit der Dokumentklasse \verb!book! beispielsweise die
+Nummer \textbf{D.5.3} tragen.
+
+
+\section{Inhaltsverzeichnis}
+\index{Inhaltsverzeichnis}
+
+Das Inhaltsverzeichnis (\textsl{Table of Contents}) enthält die
+Abschnittsüberschriften mit den zugehörigen Seitennummern, die der \LaTeX-Compiler beim Durchlauf in der 
+\verb!.toc!-Datei ablegt. Diese Datei wird, wenn der 
+Befehl \verb!\tableofcontents!\index[cmd]{\texttt{\textbackslash tableofcontents}}  
+aufgerufen wird und vorausgesetzt sie existiert, bei der Übersetzung eines
+Dokuments eingelesen und als Inhaltsverzeichnis formatiert 
+auf einer neuen Seite ausgegeben. 
+
+\fbox{\texttt{\textbackslash tableofcontents}}
+
+Wegen des Konzepts von \LaTeX\ schlagen sich Änderungen in der Struktur
+(Gliederung) des Dokuments sich erst nach zwei Durchläufen des \LaTeX-Compilers im
+Inhaltsverzeichnis nieder.
+
+Der Grund dafür ist, dass die (aktuellsten) Informationen über das Inhaltsverzeichnis erst nach einer
+kompletten Abarbeitung des Dokuments vorliegen können. Da aber das
+Inhaltsverzeichnis normalerweise am Anfang des Dokuments liegt und nicht am
+Ende, muss bei Änderungen am Inhaltsverzeichnis der \LaTeX-Compiler zwei mal das Dokument durchlaufen. 
+Beim ersten Durchlauf durch das Dokument weist der
+Befehl \verb!\tableofcontents! den \LaTeX-Compiler an, eine Datei mit dem Stammnamen des Dokuments
+und der Endung \verb!.toc! anzulegen. In diese Datei schreibt der Compiler die
+verwendete Sprache, Gliederungsbefehle und ihre zugehörigen Überschriften
+sowie Seitenzahlen. Diese Datei wird während jeder Abarbeitung des Dokuments befüllt
+bzw. aktualisiert. 
+
+Typische Einträge in der \verb!.toc!-Datei sehen wie folgt aus:
+
+\fbox{\texttt{\textbackslash contentsline\{}\textsl{Gliederungsname}\texttt{\}\{}\textsl{Überschrift}\texttt{\}\{}\textsl{Seitennummer}\texttt{\}}}
+
+\textsl{Gliederungsname} steht für den Gliederungsbefehl, der
+verwendet wurde, also zum Beispiel \texttt{\textbackslash chapter}, \texttt{\textbackslash section} oder \texttt{\textbackslash subsection}.
+\textsl{Überschrift} steht für die Gliederungsüberschrift
+bzw. für die optionale Kurzform der Überschrift, die in eckigen Klammern
+zwischen Gliederungsbefehl und Gliederungsüberschrift angeben sein kann. 
+Die \textsl{Seitennummer}, der letzte Eintrag einer jeden Zeile, steht
+für die zugehörige Seitennummer im Dokument.
+
+\subsection{Manuell Einträge in das Inhaltsverzeichnis einfügen}
+\index{Inhaltsverzeichnis!Eintrag}
+
+
+Einige Situationen erfordern es, eigene Eintragungen in das Inhaltsverzeichnis 
+zu setzen. Denkbare Szenarien sind der 
+Einsatz von Gliederungsbefehlen der 
+$\ast$-Form oder wenn ein Gliederungsbefehl (z.B. Literaturverzeichnis oder Index) verwendet wird, der keinen automatischen Eintrag im Inhaltsverzeichnis erzeugt. 
+
+
+Der Befehl \verb!\addcontentsline!\index[cmd]{\texttt{\textbackslash addcontentsline}} ermöglicht das manuelle Einfügen von Einträgen in das Inhaltsverzeichnis.
+
+\fbox{\texttt{\textbackslash addcontentsline\{toc\}\{}\textsl{Gliederungsname}\texttt{\}\{}\textsl{Text}\texttt{\}}}
+
+
+\textsl{Gliederungsname} ist der 
+Name des gewünschten Gliederungsbefehls ohne den für einen Befehl 
+typischen, vorgestellten Backslash \verb!\!. 
+Dieser \textsl{Gliederungsname} ist 
+für die Einrückung des Eintrags im
+Inhaltsverzeichnis verantwortlich.
+Bei der Dokumentklasse \verb!book! ist ein \verb!chapter!-Eintrag überhaupt 
+nicht eingerückt. Ein \verb!section!-Eintrag 
+hingegen schon, und ein 
+\verb!subsection!-Eintrag noch mehr. 
+
+
+\textsl{Text} ist der neue Eintrag im
+Inhaltsverzeichnis, der vor der Seitennummer 
+stehen soll.
+
+
+\section{Abbildungs- und Tabellenverzeichnis}
+\index{Abbildungsverzeichnis}
+\index{Tabellenverzeichnis}
+
+Bei umfangreichen Dokumenten sind ein Abbildungsverzeichnis und ein Tabellenverzeichnis häufig sinnvoll. 
+
+Der Befehl \verb!\listoffigures!\index[cmd]{\texttt{\textbackslash listoffigures}} 
+fügt an der Stelle im Quelltext, an der er aufgerufen wird, auf einer neuen Seite ein Abbildungsverzeichnis ein. 
+
+\fbox{\texttt{\textbackslash listoffigures}} 
+
+Das Tabellenverzeichnis fügt der Befehl \verb!\listoftables!\index[cmd]{\texttt{\textbackslash listoftables}} 
+an der aufgerufenen Stelle auf einer neuen Seite ein.
+
+\fbox{\texttt{\textbackslash listoftables}} 
+
+Eintragungen in diese Verzeichnisse erfolgen automatisch immer dann, wenn der Befehl
+\verb!\caption! aufgerufen wird. Dieser Befehl wird bei den Umgebungen \verb!figure! und \verb!table! angewendet, um die Bildunter- bzw. Tabellenunterschrift zu setzen.
+
+
+\section{Querverweise}
+\index{Querverweis}
+
+Mit dem Befehl \verb!\label! werden in Dokumenten 
+unsichtbare Markierungen\index{Markierung} eingefügt, auf die mit den Befehlen 
+\verb!\ref! und \verb!\pageref! referenziert werden kann.
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash label\{}\textsl{Markierung}\texttt{\}} \\
+\texttt{\textbackslash pageref\{}\textsl{Markierung}\texttt{\}} \\
+\texttt{\textbackslash ref\{}\textsl{Markierung}\texttt{\}}
+\end{boxedminipage}
+
+Die \textsl{Markierung}, die dem Befehl \verb!\label!
+als Argument übergeben wird, kann 
+eine fast beliebige Folge von Buchstaben,
+Zahlen und Zeichen aller Art sein. Auf die Verwendung der Sonderzeichen
+aus Tabelle~\ref{Tabelle_Sonderzeichen} sollte hier in jedem Fall verzichtet werden.
+
+
+Mit dem Befehl \verb!\pageref!
+ist es möglich, auf eine Seitenzahl zu referenzieren.
+An der Position, an der der Befehl \verb!\pageref! auftritt, 
+erscheint die Seitennummer, an der sich die 
+\textsl{Markierung} befindet, auf die die \verb!\pageref! referenziert.
+
+Ein weiterer Befehl, um Querverweise zu erzeugen, 
+ist der Befehl \verb!\ref!. Mit diesem ist es möglich auf eine
+Gleichungs-, Gliederungs-, Tabellen- oder Bildnummer zu referenzieren.
+Was konkret referenziert wird, hängt davon ab, ob sich der Befehl \verb!\label! in einer 
+mathematischen Umgebung wie zum Beispiel
+\verb!math! oder \verb!displaymath! befindet, oder in nach einem Gliederungsbefehl (z.B. 
+\texttt{\textbackslash chapter}, \texttt{\textbackslash section} oder \texttt{\textbackslash subsection}), oder in einer Tabellenumgebung (z.B. \verb!table!) oder
+in der Umgebung \verb!figure! zum Satz einer Abbildung, etc. Weitere sinnvolle Anwendungen, wie zum Beispiel die 
+Referenzierung auf Fußnoten sind denkbar.
+
+
+\section{Index}
+% In das Stichwortverzeichnis schreibe ich hier nicht Index, weil das Wort schon in der Mathematik vorkommt.
+\index{Indexregister}
+\index{Stichwortverzeichnis}
+
+Die Erzeugung eines
+Indexregisters (Stichwortverzeichnis)
+geschieht weitgehend automatisiert.
+Hierfür muss das Erweiterungspaket \verb!makeidx! mit dem Befehl \verb!\usepackage{makeidx}! in der Präambel der \verb!.tex!-Quelldatei eingebunden sein.
+Zudem müssen im Quelltext des Dokuments an den 
+entsprechenden Stellen die 
+Einträge für das Indexregister mit dem Befehl \verb!\index! definiert sein. 
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash index\{}\textsl{Indexeintrag}\texttt{\}} 
+\end{boxedminipage}
+
+Zusätzlich muss in der Präambel des Dokuments der Befehl \verb!\makeindex!\index[cmd]{\texttt{\textbackslash makeindex}}  stehen
+und an der Stelle im Dokument, an der das Indexregister erscheinen soll, 
+ist der Befehl \verb!\printindex!\index[cmd]{\texttt{\textbackslash printindex}}  nötig.
+
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash makeindex} \\
+\texttt{\textbackslash printindex} 
+\end{boxedminipage}
+
+Die Schritte zur Erstellung des Stichwortverzeichnisses 
+sind wie folgt:
+
+Nachdem die Quelldatei vom \LaTeX-Compiler abgearbeitet wurde\dots
+
+\textbf{1)} \verb!pdflatex dateiname.tex!
+
+erzeugt der \LaTeX-Compiler eine Datei 
+\verb!dateiname.idx!, die 
+die Einträge für das Indexregister 
+enthält. Anschließend muss ein Durchlauf des Programms
+\verb!makeindex! folgen:
+
+\textbf{2)} \verb!makeindex dateiname.idx!
+
+Das Programm \verb!makeindex! legt eine Datei \verb!dateiname.ind! an, 
+die ebenfalls alle Einträge für das Indexregister enthält,
+aber im Gegensatz zu \verb!dateiname.idx! sind die Einträge hier
+alphabetisch sortiert und die Seitenzahlen beigefügt.
+
+Ein abschließender Durchlauf des \LaTeX-Compilers sorgt dafür, dass das alphabetisch 
+korrekt sortierte Indexregister an der Stelle im Dokument eingefügt 
+wird, wo der Befehl \verb!\printindex! eingefügt ist.
+
+\textbf{3)} \verb!pdflatex dateiname.tex!
