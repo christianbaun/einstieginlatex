@@ -1,0 +1,742 @@
+\chapter{Texthervorhebungen}
+\label{KapitelTexthervorhebungen}
+\index{Texthervorhebungen}
+
+Texthervorhebungen ermöglichen es, bestimmte 
+Textstellen von anderen abzugrenzen oder hervorzuheben. Konkret beschreibt dieses
+Kapitel unter anderem, Möglichkeiten um Schriftarten und Schriftgröße zu verändern, 
+Texte zu unterstreichen und die Lesbarkeit von Texte mit Aufzählungen zu verbessern.
+
+\section{Texte hervorheben}
+
+Das \emph{Hervorheben} kurzer Textstellen (einzelner Wörter oder Sätze) geschieht 
+mit dem Befehl \verb!\emph!\index[cmd]{\texttt{\textbackslash emph}}  
+oder alternativ mit der Umgebung \verb!em!\index[cmd]{\texttt{em}}. 
+Beide heben den betreffenden Text durch einen Wechseln des Schriftschnitts\index{Schriftschnitt} hervor.
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash emph\{\textsl{Text}\}}\\
+\texttt{\textbackslash begin\{em\}} \enskip \textsl{Text} \enskip \texttt{\textbackslash end\{em\}}
+\end{boxedminipage}
+
+Bei einer senkrechten Grundschrift stellt \verb!\emph! den 
+\emph{hervorzuhebenden Text} mit einer \textsl{kursiven Schrift} dar. 
+Bei einer kursiven Grundschriftart ist es genau 
+umgekehrt. Hier wird der hervorgehobene Text mit einer senkrechten 
+Schriftart dargestellt.
+
+Der Wechsel des Schriftschnitts sieht weniger aufdringlich aus als das
+klassische \underline{Unterstreichen} mit dem Befehl \verb!\underline!.\index[cmd]{\texttt{\textbackslash underline}}  
+
+\fbox{\texttt{\textbackslash underline\{\textsl{Text}\}}}
+
+Ein Nachteil des Befehls \verb!\underline! ist, das er keinen Zeilenumbruch zulässt, weil er den kompletten Inhalt des Arguments \textsl{Text} in einer horizontale Box unterbringt. Darum eignet sich \verb!\underline! in erster Linie zur Hervorhebung einzelner Zeichen oder Wörter.
+
+Weitere Befehle, um Text hervorzuheben, enthält das Erweiterungspaket \verb!ulem.sty!. 
+Wird dieses in der Präambel eines Dokuments mit dem Befehl \verb!\usepackage{ulem}! eingebunden, steht eine Reihe 
+weiterer Befehle zur Verfügung.
+
+Dieses sind die Befehle \verb!\uline!\index[cmd]{\texttt{\textbackslash uline}}  
+zum \uline{Unterstreichen}, \verb!\uuline!\index[cmd]{\texttt{\textbackslash uuline}}  
+zum \uuline{Doppeltunterstreichen}, \verb!\uwave!\index[cmd]{\texttt{\textbackslash uwave}}  
+zum \uwave{Unterstreichen mit Wellen}, \verb!\sout!\index[cmd]{\texttt{\textbackslash sout}}  
+zum \sout{Durchstreichen}, \verb!\xout!\index[cmd]{\texttt{\textbackslash xout}}  
+zum \xout{Ausstreichen}, \verb!\dashuline!\index[cmd]{\texttt{\textbackslash dashuline}}  
+zum  \dashuline{Unterstreichen mit kurzen Strichen} und \verb!\dotuline!\index[cmd]{\texttt{\textbackslash dotuline}}  
+zum  \dotuline{Unterstreichen mit einer Linie aus Punkten}
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash uline\{}\textsl{Text}\texttt{\}} \\
+\texttt{\textbackslash uuline\{}\textsl{Text}\texttt{\}} \\
+\texttt{\textbackslash uwave\{}\textsl{Text}\texttt{\}} \\
+\texttt{\textbackslash sout\{}\textsl{Text}\texttt{\}} \\
+\texttt{\textbackslash xout\{}\textsl{Text}\texttt{\}} \\
+\texttt{\textbackslash dashuline\{}\textsl{Text}\texttt{\}} \\
+\texttt{\textbackslash dotuline\{}\textsl{Text}\texttt{\}} 
+\end{boxedminipage}
+
+Da diese Befehle aus dem Erweiterungspaket \verb!ulem.sty! jedes Wort in einer eigenen Box verpacken, sind innerhalb des  Arguments \textsl{Text} Zeilenumbrüche möglich.
+
+Eine Eigenheit des Erweiterungspakets \verb!ulem.sty! ist, dass es das Verhalten des Befehls \verb!\emph! dahingehend ändert, das der \LaTeX-Compiler mit \verb!\emph! betonte Wörter nicht mehr kursiv, sondern unterstrichen setzt. Mit dem Befehl \verb!\normalem! nach dem \verb!\begin{document}! kann das \emph{normale} Verhalten des Befehls \verb!\emph! wiederhergestellt werden.
+
+\section{Schriftgrößen}
+
+Zur Definition der Schriftgröße existiert eine Reihe von Befehlen (siehe Tabelle~\ref{Tabelle_Schriftgroesse})
+Diese Befehle gelten ab der Position, wo sie im Quelltext aufgerufen werden. Die so ausgewählte Schriftgröße bleibt so lange aktuell, bis das 
+Ende der Gruppe oder das Ende des Dokuments erreicht ist oder bis durch einen Befehl
+eine neue Schriftgröße festlegt wird.
+
+\begin{table}[htb]
+\centering
+\caption{Befehle zur Definition der Schriftgröße}
+\index[cmd]{\texttt{\textbackslash tiny}}  
+\index[cmd]{\texttt{\textbackslash scriptsize}}  
+\index[cmd]{\texttt{\textbackslash footnotesize}}  
+\index[cmd]{\texttt{\textbackslash small}}  
+\index[cmd]{\texttt{\textbackslash normalsize}}  
+\index[cmd]{\texttt{\textbackslash large}}  
+\index[cmd]{\texttt{\textbackslash Large}}  
+\index[cmd]{\texttt{\textbackslash LARGE}}  
+\index[cmd]{\texttt{\textbackslash huge}}  
+\index[cmd]{\texttt{\textbackslash Huge}}  
+\label{Tabelle_Schriftgroesse}       % Give a unique label
+\begin{tabular}{ll}
+\hline
+Befehl & Beispiel \\
+\hline
+\texttt{\textbackslash tiny} & {\tiny ABCDEFGHI0123456789} \\
+\texttt{\textbackslash scriptsize} & {\scriptsize ABCDEFGHI0123456789} \\
+\texttt{\textbackslash footnotesize} & {\footnotesize ABCDEFGHI0123456789} \\
+\texttt{\textbackslash small} & {\small ABCDEFGHI0123456789} \\
+\texttt{\textbackslash normalsize} & {\normalsize ABCDEFGHI0123456789} \\
+\texttt{\textbackslash large} & {\large ABCDEFGHI0123456789} \\
+\texttt{\textbackslash Large} & {\Large ABCDEFGHI0123456789} \\
+\texttt{\textbackslash LARGE} & {\LARGE ABCDEFGHI0123456789} \\
+\texttt{\textbackslash huge} & {\huge ABCDEFGHI0123456789} \\
+\texttt{\textbackslash Huge} & {\Huge ABCDEFGHI0123456789} \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Schriftfamilien und Schriftschnitte}
+\label{AbschnittSchriftfamilienSchriftschnitte}
+
+Tabelle~\ref{Tabelle_SchriftfamilieSchriftschnittMitArgument} zeigt Befehle zur Definition der Schrift, die den betreffenden Text als Argument übergeben bekommen.
+
+\begin{table}[h!tb]
+\centering
+\caption{Befehle zur Definition der Schrift mit Text als Argument}
+\index[cmd]{\texttt{\textbackslash textrm}}  
+\index[cmd]{\texttt{\textbackslash texttt}}  
+\index[cmd]{\texttt{\textbackslash textsf}}  
+\index[cmd]{\texttt{\textbackslash textsc}}  
+\index[cmd]{\texttt{\textbackslash textsl}}  
+\index[cmd]{\texttt{\textbackslash textit}}  
+\index[cmd]{\texttt{\textbackslash textup}}  
+\index[cmd]{\texttt{\textbackslash textmd}}  
+\index[cmd]{\texttt{\textbackslash textbf}}  
+\label{Tabelle_SchriftfamilieSchriftschnittMitArgument}       % Give a unique label
+\begin{tabular}{ll}
+\hline
+Befehl & Beschreibung \\
+\hline
+\texttt{\textbackslash textrm\{\textsl{Text}\}} & \textrm{schaltet auf die Schriftart Roman} \\
+\texttt{\textbackslash texttt\{\textsl{Text}\}} & \texttt{schaltet auf eine Schreibmaschinenschrift (Typewriter)} \\
+\texttt{\textbackslash textsf\{\textsl{Text}\}} & \textsf{schaltet auf die Sans-Serif-Schriftfamilie} \\
+\texttt{\textbackslash textsc\{\textsl{Text}\}} & \textsc{schaltet auf Kapitälchen-Schrift (Small Caps)} \\
+\texttt{\textbackslash textsl\{\textsl{Text}\}} & \textsl{schaltet auf geneigte Roman-Schrift (Slanted)} \\
+\texttt{\textbackslash textit\{\textsl{Text}\}} & \textit{schaltet auf die Schrift Italic} \\
+\texttt{\textbackslash textup\{\textsl{Text}\}} & \textup{schaltet auf senkrechten Schriftschnitt} \\
+\texttt{\textbackslash textmd\{\textsl{Text}\}} & \textmd{schaltet auf normale Breite und Strichstärke (normale Schrift)} \\
+\texttt{\textbackslash textbf\{\textsl{Text}\}} & \textbf{schaltet auf fette Schrift} \\
+\hline
+\end{tabular}
+\end{table}
+
+Während die Befehle aus Tabelle~\ref{Tabelle_SchriftfamilieSchriftschnittMitArgument} mit dem Text als Argument sich eher für kürzere Texte eignen, sind die Deklarationsbefehle aus Tabelle~\ref{Tabelle_SchriftfamilieSchriftschnittOhneArgument} zum Umschalten der Schrift für längere Texte besser geeignet.
+
+\begin{table}[h!tb]
+\centering
+\caption{Befehle zur Definition der Schrift und die entsprechenden Umgebungen}
+\label{Tabelle_SchriftfamilieSchriftschnittOhneArgument}       % Give a unique label
+\begin{tabular}{lcl}
+\hline
+Befehl & Umgebung & Beispiel \\
+\hline
+\texttt{\textbackslash rmfamily} & \texttt{\textbackslash begin\{rmfamily\}} \enskip \textsl{Text} \enskip \texttt{\textbackslash end\{rmfamily\}} & {\rmfamily Roman} \\
+\texttt{\textbackslash ttfamily} & \texttt{\textbackslash begin\{ttfamily\}} \enskip \textsl{Text} \enskip \texttt{\textbackslash end\{ttfamily\}} & {\ttfamily Typewriter} \\
+\texttt{\textbackslash sffamily} & \texttt{\textbackslash begin\{sffamily\}} \enskip \textsl{Text} \enskip \texttt{\textbackslash end\{sffamily\}} & {\sffamily Sans Serif} \\
+\texttt{\textbackslash scshape} & \texttt{\textbackslash begin\{scshape\}} \enskip \textsl{Text} \enskip \texttt{\textbackslash end\{scshape\}} & {\scshape Small Caps} \\
+\texttt{\textbackslash slshape} & \texttt{\textbackslash begin\{slshape\}} \enskip \textsl{Text} \enskip \texttt{\textbackslash end\{slshape\}} & {\slshape Slanted} \\
+\texttt{\textbackslash itshape} & \texttt{\textbackslash begin\{itshape\}} \enskip \textsl{Text} \enskip \texttt{\textbackslash end\{itshape\}} & {\itshape Italic} \\
+\texttt{\textbackslash upshape} & \texttt{\textbackslash begin\{upshape\}} \enskip \textsl{Text} \enskip \texttt{\textbackslash end\{upshape\}} & {\upshape Senkrechte Schrift} \\
+\texttt{\textbackslash mdseries} & \texttt{\textbackslash begin\{mdseries\}} \enskip \textsl{Text} \enskip \texttt{\textbackslash end\{mdseries\}} & {\mdseries Normale Schrift} \\
+\texttt{\textbackslash bfseries} & \texttt{\textbackslash begin\{bfseries\}} \enskip \textsl{Text} \enskip \texttt{\textbackslash end\{bfseries\}} & {\bfseries Fette Schrift} \\
+\hline
+\end{tabular}
+\index[cmd]{\texttt{\textbackslash rmfamily}}
+\index[cmd]{\texttt{\textbackslash ttfamily}}
+\index[cmd]{\texttt{\textbackslash sffamily}}
+\index[cmd]{\texttt{\textbackslash scshape}}
+\index[cmd]{\texttt{\textbackslash slshape}}
+\index[cmd]{\texttt{\textbackslash slshape}}
+\index[cmd]{\texttt{\textbackslash itshape}}
+\index[cmd]{\texttt{\textbackslash upshape}}
+\index[cmd]{\texttt{\textbackslash mdseries}}
+\index[cmd]{\texttt{\textbackslash bfseries}}
+\end{table}
+
+Die Befehle in Tabelle~\ref{Tabelle_SchriftfamilieSchriftschnittOhneArgument} schalten die Schrift an der Stelle 
+ihres Auftretens im \LaTeX-Quelltext um. 
+Die Wirkung dieser Befehle ist durch die aktuelle Gruppe
+begrenzt. Ein Aufruf eines dieser Befehle in der Präambel eines Dokuments
+beeinflusst das gesamte Dokument. 
+
+Nach eine Änderung der Schrift kann mit dem Befehl \verb!\textnormal!\index[cmd]{\texttt{\textbackslash textnormal}} 
+jederzeit auf die alte Schrift zurückgegriffen werden, die zu Beginn des Dokuments gültig war. 
+
+\fbox{\texttt{\textbackslash textnormal\{\textsl{Text}\}}}
+
+Die Umgebungen in Tabelle~\ref{Tabelle_SchriftfamilieSchriftschnittOhneArgument} eignen sich besonders dann, wenn für einzelne Abschnitte eines Dokuments die Schrift angepasst werden soll. 
+
+\section{Aufzählungen}
+\label{Abschnitt_Aufzaehlungen}
+\index{Aufzählung}
+
+Das Setzen von Aufzählungen geschieht mit den Umgebungen 
+\verb!itemize!\index[cmd]{\texttt{itemize}}, 
+\verb!enumerate!\index[cmd]{\texttt{enumerate}} und 
+\verb!description!\index[cmd]{\texttt{description}}. Alle
+diese Umgebungen rücken den aufgezählten Text ein wenig ein und versehen ihn am Anfang mit einer Markierung (einem Zeichen).
+
+\begin{boxedminipage}{\textwidth}
+	\texttt{\textbackslash begin\{itemize\}} \enskip \dots\ \enskip \texttt{\textbackslash end\{itemize\}} \\
+	\texttt{\textbackslash begin\{enumerate\}} \enskip \dots\ \enskip \texttt{\textbackslash end\{enumerate\}} \\
+	\texttt{\textbackslash begin\{description\}} \enskip \dots\ \enskip \texttt{\textbackslash end\{description\}}
+\end{boxedminipage}
+
+Während \verb!itemize! jedes neue Element der Aufzählung mit einem schwarzen,
+ausgefüllten Punkt \textbullet\ kennzeichnet, nummeriert \verb!enumerate! die 
+Elemente durch. \verb!description! hingegen hebt einen vom Autor festzulegenden 
+Text am Anfang des Elements hervor.
+
+Bei allen diesen drei Umgebungen wird jeder neue Element der Aufzählung durch
+den Befehl \verb!\item!\index[cmd]{\texttt{\textbackslash item}} gekennzeichnet. Der Text jedes Elements -- man könnte auch Aufzählungspunktes\index{Aufzählungspunkt} sagen -- darf beliebig lang sein, und kann auch aus
+mehreren Absätzen bestehen. 
+
+Alle in diesem Abschnitt beschrieben Umgebungen können verschachtelt werden. Mehr als vier Ebenen sind aber nicht zulässig. 
+
+Bei der Umgebung \verb!itemize! ist für jede Ebene ein Markierungszeichen voreingestellt. Die folgende Übersicht zeigt, welche das im Einzelnen sind.
+
+% \begin{figure}[H]
+\begin{minipage}[h]{0.44\textwidth}
+\setlength{\parskip}{1em}
+\frenchspacing
+\begin{Verbatim}[frame=single]
+\begin{itemize}
+\item In der ersten Ebene...
+\begin{itemize}
+\item In der zweiten Ebene
+ist es ein...
+\begin{itemize}
+\item In der dritten Ebene
+ist das Markierungszeichen...
+\begin{itemize}
+\item In der vierten Ebene 
+ist es ein...
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{Verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{0.54\textwidth}
+\setlength{\parskip}{1em}
+\frenchspacing
+\begin{itemize}
+\item In der ersten Ebene von \texttt{itemize} ist das Markierungszeichen ein sogenannter
+\texttt{\textbackslash textbullet}.
+\begin{itemize}
+\item In der zweiten Ebene ist es ein fett geschriebener Trennstrich
+\texttt{\{\textbackslash normalfont\textbackslash bfseries \textbackslash textendash\}}.
+\begin{itemize}
+\item In der dritten Ebene ist das Markierungszeichen ein \texttt{\textbackslash textasteriskcentered}.
+\begin{itemize}
+\item In der vierten Ebene ist es ein \texttt{\textbackslash textperiodcentered}. 
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+% \end{figure}
+
+Aufzählungen realisiert die Umgebung \verb!enumerate!. Auch bei \verb!enumerate! ist für jede Ebene eine andere Art von Markierungszeichen voreingestellt und die Nummerierung der Aufzählungspunkte startet in jeder Ebene neu beim Wert \verb!1!.
+
+% \begin{figure}[H]
+\begin{minipage}[h]{0.44\textwidth}
+\setlength{\parskip}{1em}
+\frenchspacing
+\begin{Verbatim}[frame=single]
+\begin{enumerate}
+\item In der ersten Ebene...
+\item arabischen Ziffern...
+\begin{enumerate}
+\item Die zweite Ebene...
+\item Buchstaben und...
+\begin{enumerate}
+\item Die dritte Ebene...
+\item römische Ziffern.
+\begin{enumerate}
+\item Die vierte Ebene nutzt 
+\item großen Buchstaben.
+\end{enumerate}
+\item Beim Verschachteln...
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{Verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{0.54\textwidth}
+\setlength{\parskip}{1em}
+\frenchspacing
+\begin{enumerate}
+\item In der ersten Ebene wird mit
+\item arabischen Ziffern durchnummeriert.
+\begin{enumerate}
+\item Die zweite Ebene verwendet kleine
+\item Buchstaben und schließende Klammern.
+\begin{enumerate}
+\item Die dritte Ebene verwendet
+\item römische Ziffern.
+\begin{enumerate}
+\item Die vierte Ebene nutzt 
+\item großen Buchstaben.
+\end{enumerate}
+\item Beim Verschachteln gehen die Zählerstände nicht verloren.
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{minipage}
+% \end{figure}
+
+Die Umgebung \verb!description! ist ideal um Begriffe (Schlagwort) zu beschreiben oder Teilnehmerlisten zu realisieren. Diese Umgebung unterscheidet sich in einigen Punkten von \verb!itemize! und \verb!enumerate!.
+Bei \verb!description! wird zwischen dem Befehl \verb!\item! und der Beschreibung das Schlagwort in eckigen Klammern angegeben. Die Ausgabe des Schlagworts erfolgt im Fettdruck. 
+
+% \begin{figure}[H]
+\begin{minipage}[h]{0.44\textwidth}
+\setlength{\parskip}{1em}
+\frenchspacing
+\begin{Verbatim}[frame=single]
+\begin{description}
+\item[Bit] Kleinstmögliche...
+\item[Byte] Gruppe von 8...
+\item[Nibble] Gruppe von 4...
+\item[Oktett] siehe Byte...
+\item[Unicode] Mehrbyte....
+\end{description}
+\end{Verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{0.54\textwidth}
+\setlength{\parskip}{1em}
+\frenchspacing
+\begin{description}
+\item[Bit] Kleinstmögliche Informationseinheit. Zwei mögliche Zustände
+\item[Byte] Gruppe von 8\,Bits
+\item[Nibble] Gruppe von 4\,Bits bzw. ein Halbbyte
+\item[Oktett] siehe Byte
+\item[Unicode] Mehrbyte-Zeichenkodierung
+\end{description}
+\end{minipage}
+% \end{figure}
+
+\section{Fußnoten}
+\index{Fußnote}
+
+Das Erzeugen von Fußnoten geschieht mit dem Befehl \verb!\footnote!\index[cmd]{\texttt{\textbackslash footnote}}. 
+
+\fbox{\texttt{\textbackslash footnote\{}\textsl{Text in der Fußnote}\texttt{\}}}
+
+Der Befehl \verb!\footnote! folgt im Quelltext immer direkt -- also ohne
+Leerzeichen -- nach dem Wort, an das die Markierung der Fußnote angehängt sein soll. Der
+Text der Fußnote wird vom \LaTeX-Compiler in einer kleineren Schrift von der Größe  
+{\footnotesize footnotesize} geschrieben. 
+Standardmäßig rückt der \LaTeX-Compiler die erste
+Zeile einer Fußnote einen halben Zentimeter ein. 
+
+Zwischen den
+Fußnoten einer Seite und dem gewöhnlichen 
+Text des Dokuments fügt der \LaTeX-Compiler automatisch eine
+horizontale Linie ein, um die Fußnoten deutlich vom Text abzuheben. 
+
+Der Befehl \verb!\footnote! darf nicht innerhalb mathematischer 
+Umgebungen oder Tabellen aufgerufen werden. Es gibt aber verschiedene Tricks, um sich in einem solchen Fall zu behelfen. Eine Möglichkeit, um Fußnoten in von Tabellen zu realisieren, sind die Befehle \verb!\footnotemark!\index[cmd]{\texttt{\textbackslash footnotemark}} 
+zum Erzeugen einer einzelne Fußnotenmarkierung und \verb!\footnotetext!\index[cmd]{\texttt{\textbackslash footnotetext}} 
+zum Erzeugt eines einzelnen Fußnotentextes für eine bestimmte Fußnotenmarkierung.
+
+\section{Marginalien}
+\index{Marginalie}
+\index{Randbemerkung}
+\index{Randnotiz} 
+
+Randbemerkungen, die auch \emph{Marginalien} heißen, 
+sind ein mögliches Stilmittel für 
+Ergänzungen und Erläuterungen.   
+
+\fbox{\texttt{\textbackslash marginpar[}\textsl{Text einer linken Randnotiz}\texttt{]\{}\textsl{Text einer rechten Randnotiz}\texttt{\}}}
+
+Bei\marginpar{Die erste Zeile des Textes der Marginalie wird von \LaTeX\ in der gleichen Zeile gesetzt, in der sich der Befehl \texttt{\textbackslash marginpar} befindet.} einem Text mit zweispaltigem Layout wird die Randbemerkung an den am 
+nächsten liegenden Rand gesetzt.
+Mit Hilfe der drei Befehle \verb!\marginparwidth!\index[cmd]{\texttt{\textbackslash marginparwidth}}, 
+\verb!\marginparsep! \index[cmd]{\texttt{\textbackslash marginparsep}}und 
+\verb!\marginparpush!\index[cmd]{\texttt{\textbackslash marginparpush}} ist es möglich, das Aussehen der Marginalien zu beeinflussen.
+Jeder der drei Befehle erfordert die Angabe einer Breite bzw. eines Abstands inklusive einer Maßeinheit (siehe Abschnitt~\ref{sec:Massangaben}) in geschweiften Klammern.
+
+Der Befehl \verb!\marginparwidth! definiert die Breite des Randnotizen-Bereichs fest.
+
+\fbox{\texttt{\textbackslash setlength\{\textbackslash marginparwidth\}\{\textsl{Breite}\texttt{\}}}}
+
+Der Befehl \verb!\marginparsep! definiert den Abstand zwischen Textfeld und Randnotizen.
+
+\fbox{\texttt{\textbackslash setlength\{\textbackslash marginparsep\}\{\textsl{Abstand}\texttt{\}}}}
+
+Der Befehl \verb!\marginparpush! definiert den Abstand zwischen zwei Randnotizen.
+
+\fbox{\texttt{\textbackslash setlength\{\textbackslash marginparpush\}\{\textsl{Abstand}\texttt{\}}}}
+
+\section{Unformatierter Text}
+\index{Text!unformatierter}
+\index{Unformatierter Text}
+
+Die Möglichkeit, unformatierten Text in einem Dokument einzufügen, ist 
+besonders für Dokumentationen und wissenschaftliche 
+Publikationen im Bereich der Informatik hilfreich, denn
+Programmcode wird auf diese Art und Weise 
+vom übrigen Text abgehoben.
+Auch in diesem Dokument sind Befehle und Umgebungen auf diese Art und Weise dargestellt.
+
+Das Setzen von unformatiertem Text kann u.a. mit der Umgebung \verb!verbatim!\index[cmd]{\texttt{verbatim}} 
+geschehen. 
+
+\fbox{\texttt{\textbackslash begin\{verbatim\}}\textsl{Text}\texttt{\textbackslash end\{verbatim\}}}
+
+Text, der sich innerhalb dieser Umgebung befindet, wird vom \LaTeX-Compiler in \verb!TypeWriter!, also \verb!Schreibmaschinenschrift! gesetzt und nicht verändert oder interpretiert.
+Dieser Text kann somit alle Sonderzeichen von \LaTeX\ 
+und beliebige Kombinationen von Leerzeichen und Zeilenumbrüchen enthalten. 
+
+Zu Beginn und Ende der Umgebung \verb!verbatim! fügt der \LaTeX-Compiler einen
+vertikalen Leerraum ein und es wird zu
+Anfang und Ende der Umgebung eine neue Zeile begonnen.
+
+Eine weitere Möglichkeit, unformatierten,
+maximal eine Zeile langen Text auszugeben ist der Befehl \verb!\verb!\index[cmd]{\texttt{\textbackslash verb}}.
+Direkt im Anschluss an den Befehl muss ein zur Abgrenzung verwendetes Zeichen folgen.
+Dieses Begrenzungszeichen muss den unformatiert auszugebenden Text auch abschließen. 
+In der folgenden Darstellung der Syntax von \verb!\verb! dient das Zeichen \verb|+| als Begrenzungszeichen.
+
+\fbox{\texttt{\textbackslash verb}+\textsl{Text}+}
+
+Anstelle des Zeichens \verb|+| könnte auch das Zeichen \verb?!?, \verb#?#, \verb<#< oder \verb!|! oder sonst (fast) ein beliebiges Zeichen als Begrenzungszeichen
+verwendet werden. Das Begrenzungszeichen darf sich
+aber nicht im darzustellenden Text befinden und die 
+Begrenzungszeichen eines \verb!\verb!-Befehls müssen sich 
+in einer Zeile im Quelltext befinden. 
+
+Weder die Umgebung \verb!verbatim!, noch Varianten davon wie der Befehl \verb!\verb! dürfen in Argumenten von Befehlen oder innerhalb von Tabellen verwendet werden.
+
+\section{Internetadressen}
+\index{Internetadressen}
+\index{URL}
+
+Zum Satz von Internetadressen (URL) existiert das Erweiterungspaket \verb!url!. Wird dieses mit dem Befehl \verb!\usepackage{url}! in der Präambel der Quelldatei eingebunden, steht der gleichnamige Befehl \verb!\url!\index[cmd]{\texttt{\textbackslash url}} zur Verfügung. Diesem wird die zu setzende
+Internetadresse in geschweiften Klammern als Parameter übergeben. 
+
+\fbox{\texttt{\textbackslash url\{}\textsl{Internatadresse}\texttt{\}}}
+
+Die Adresse setzt der \LaTeX-Compiler dann in einer Schrift mit fester Zeichenbreite und bricht die Adressen bei Bedarf optisch ansehnlich um.
+Zudem sind mit dem Befehl \verb!\url! realisierte Internetadressen in der resultierenden PDF-Datei als Link nutzbar.
+
+\section{Boxen um Text und Bilder zeichnen}
+\label{Abschnitt_Boxen}
+\index{Boxen}
+
+Boxen sind eine einfache Möglichkeit, um Textabschnitte oder Bilder hervorzuheben. 
+Ein Beispiel für einen Befehl, der es ermöglicht, einen Kasten um einen zu umrahmenden Text zu setzen, ist \verb!\fbox!.
+
+\fbox{\texttt{\textbackslash fbox\{\textsl{Text}\}}}
+
+Ein Nachteil dieses Befehls ist, das damit weder die Größe der Box, noch die Ausrichtung des Textes beeinflusst werden können.
+
+Ausgefallenere Boxentypen bietet das Erweiterungspaket \verb!fancybox!\index[cmd]{\texttt{fancybox}}. Wird es mit dem Befehl \verb!\usepackage{fancybox}! in der Präambel der \verb!.tex!-Quelldatei eingebunden, stehen die Befehle \verb!\doublebox!, \verb!\ovalbox!, \verb!\Ovalbox! und \verb!\shadowbox! zur Verfügung.
+
+\begin{center}
+\doublebox{\texttt{\textbackslash doublebox}}\index[cmd]{\texttt{\textbackslash doublebox}}  
+\hspace{5mm}
+\ovalbox{\texttt{\textbackslash ovalbox}}\index[cmd]{\texttt{\textbackslash ovalbox}}   
+\hspace{5mm}
+\Ovalbox{\texttt{\textbackslash Ovalbox}} 
+\hspace{5mm}
+\shadowbox{\texttt{\textbackslash shadowbox}}\index[cmd]{\texttt{\textbackslash shadowbox}}   
+\end{center}
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash doublebox\{\textsl{Text}\}}\\
+\texttt{\textbackslash ovalbox\{\textsl{Text}\}}\\
+\texttt{\textbackslash Ovalbox\{\textsl{Text}\}}\\
+\texttt{\textbackslash shadowbox\{\textsl{Text}\}}
+\end{boxedminipage}
+
+Zur manuellen Definition der Linienstärke bei den Boxentypen \verb!doublebox!, \verb!fbox! und \verb!shadowbox! wird dem Längenbefehl \verb!\fboxrule! mit dem Befehl \verb!\setlength! ein Wert zugewiesen, der zum Standardwert unterschiedlich ist. Der Standardwert ist in der Datei \verb!latex.ltx! definiert und hat den Wert \verb!.4pt!. 
+
+Bei einer \verb!doublebox! ist die Linienstärke des äußeren Rahmens \verb!1.5\fboxrule!, also das Anderthalbfache von \verb!\fboxrule!, und die Linienstärke des inneren Rahmens ist \verb!.75\fboxrule!.
+
+Die folgenden Beispiele zeigen die Auswirkungen der Änderung des Längenbefehls \verb!\fboxrule!:
+
+% \begin{figure}[H]
+\begin{minipage}[c]{0.5\textwidth}
+\setlength{\parskip}{1em}
+\setlength{\fboxrule}{.1pt}
+\hspace{5mm}
+\doublebox{Text} 
+\hspace{5mm}
+\fbox{Text}
+\hspace{5mm}
+\shadowbox{Text}
+\hfill
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=fboxrule1, style=customlatex]
+\setlength{\fboxrule}{.1pt}
+\doublebox{Text} 
+\fbox{Text}
+\shadowbox{Text}
+\end{lstlisting}
+\end{minipage}
+% \caption{Das Drehen von Abbildungen geschieht mit der Option \texttt{angle}}
+% \label{Beispiel_includegraphics2}
+% \end{figure}
+
+\begin{minipage}[c]{0.5\textwidth}
+\setlength{\parskip}{1em}
+\setlength{\fboxrule}{.4pt}
+\hspace{5mm}
+\doublebox{Text} 
+\hspace{5mm}
+\fbox{Text}
+\hspace{5mm}
+\shadowbox{Text}
+\hfill
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=fboxrule2, style=customlatex]
+\setlength{\fboxrule}{.5pt}
+\doublebox{Text} 
+\fbox{Text}
+\shadowbox{Text}
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}[c]{0.5\textwidth}
+\setlength{\parskip}{1em}
+\setlength{\fboxrule}{1pt}
+\hspace{5mm}
+\doublebox{Text} 
+\hspace{5mm}
+\fbox{Text}
+\hspace{5mm}
+\shadowbox{Text}
+\hfill
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=fboxrule3, style=customlatex]
+\setlength{\fboxrule}{1pt}
+\doublebox{Text} 
+\fbox{Text}
+\shadowbox{Text}
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}[c]{0.5\textwidth}
+\setlength{\parskip}{1em}
+\setlength{\fboxrule}{2pt}
+\hspace{5mm}
+\doublebox{Text} 
+\hspace{5mm}
+\fbox{Text}
+\hspace{5mm}
+\shadowbox{Text}
+\hfill
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\textwidth}
+\setlength{\parskip}{2em}
+\begin{lstlisting}[label=fboxrule4, style=customlatex]
+\setlength{\fboxrule}{2pt}
+\doublebox{Text} 
+\fbox{Text}
+\shadowbox{Text}
+\end{lstlisting}
+\end{minipage}
+
+Zur manuellen Definition des Abstands zwischen Inhalt und Rahmen bei den gezeigten Boxentypen wird dem 
+Längenbefehl \verb!\fboxsep!\index[cmd]{\texttt{\textbackslash fboxsep}} mit dem 
+Befehl \verb!\setlength! ein Wert zugewiesen, der zum Standardwert unterschiedlich ist. 
+Der Standardwert ist in der Datei \verb!latex.ltx! definiert und hat den Wert \verb!3pt!. 
+
+Die folgenden Beispiele zeigen die Auswirkungen der Änderung des Längenbefehls \verb!\fboxsep!:
+
+% \begin{figure}[H]
+\begin{minipage}[c]{0.5\textwidth}
+\setlength{\parskip}{1em}
+\setlength{\fboxsep}{1pt}
+\hspace{5mm}
+\doublebox{Text} 
+\hspace{5mm}
+\fbox{Text}
+\hspace{5mm}
+\shadowbox{Text}
+\hfill
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=tabularmultirow5, style=customlatex]
+\setlength{\fboxsep}{1pt}
+\doublebox{Text} 
+\fbox{Text}
+\shadowbox{Text}
+\end{lstlisting}
+\end{minipage}
+% \caption{Das Drehen von Abbildungen geschieht mit der Option \texttt{angle}}
+% \label{Beispiel_includegraphics2}
+% \end{figure}
+
+\begin{minipage}[c]{0.5\textwidth}
+\setlength{\parskip}{1em}
+\setlength{\fboxsep}{3pt}
+\hspace{5mm}
+\doublebox{Text} 
+\hspace{5mm}
+\fbox{Text}
+\hspace{5mm}
+\shadowbox{Text}
+\hfill
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=tabularmultirow6, style=customlatex]
+\setlength{\fboxsep}{3pt}
+\doublebox{Text} 
+\fbox{Text}
+\shadowbox{Text}
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}[c]{0.5\textwidth}
+\setlength{\parskip}{1em}
+\setlength{\fboxsep}{5pt}
+\hspace{5mm}
+\doublebox{Text} 
+\hspace{5mm}
+\fbox{Text}
+\hspace{5mm}
+\shadowbox{Text}
+\hfill
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=tabularmultirow7, style=customlatex]
+\setlength{\fboxsep}{5pt}
+\doublebox{Text} 
+\fbox{Text}
+\shadowbox{Text}
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}[c]{0.5\textwidth}
+\setlength{\parskip}{1em}
+\setlength{\fboxsep}{10pt}
+\hspace{5mm}
+\doublebox{Text} 
+\hspace{5mm}
+\fbox{Text}
+\hspace{5mm}
+\shadowbox{Text}
+\hfill
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\textwidth}
+\setlength{\parskip}{2em}
+\begin{lstlisting}[label=tabularmultirow8, style=customlatex]
+\setlength{\fboxsep}{10pt}
+\doublebox{Text} 
+\fbox{Text}
+\shadowbox{Text}
+\end{lstlisting}
+\end{minipage}
+
+Einige weitere Längenbefehle enthält Tabelle~\ref{Tabelle_LaengenbefehleBoxen}.
+
+\begin{table}[h!tb]
+\centering
+\caption{Längenbefehle für Boxen}
+\label{Tabelle_LaengenbefehleBoxen}       % Give a unique label
+\begin{tabularx}{\textwidth}{lXc}
+\hline
+Längenbefehl & Bedeutung &  Standardwert \\
+\hline
+\texttt{\textbackslash fboxrule} & Definiert die Linienstärke bei den Boxentypen \texttt{\textbackslash doublebox}, \texttt{\textbackslash fbox} und \texttt{\textbackslash shadowbox}  & \texttt{.4pt} \\
+\texttt{\textbackslash fboxsep} & Definiert den Abstand zwischen Inhalt und Rahmen & \texttt{3tp} \\
+\texttt{\textbackslash shadowsize} & Definiert die Breite des Schattens bei \texttt{\textbackslash shadowbox} & \texttt{4tp} \\
+\texttt{\textbackslash thinlines} & Definiert die Linienstärke bei \texttt{\textbackslash ovalbox} &  \texttt{.4pt} \\
+\texttt{\textbackslash thicklines} & Definiert die Linienstärke bei \texttt{\textbackslash Ovalbox} &  \texttt{.8pt}  \\
+\hline
+\end{tabularx}
+\end{table}
+% Solche Tabellen/Gegenüberstellungen finden sich in allen Dokumentationen zu TeX/LaTeX
+% Quelle für den Standardwert von thinlines und thicklines: https://mirror.hmc.edu/ctan/macros/latex/contrib/eepic/epic.sty
+
+Eine komfortable Möglichkeit, mehrzeilige Inhalte mit einem Rahmen zu versehen, bietet das Erweiterungspaket \verb!boxedminipage2e!. Wird es mit dem Befehl \verb!\usepackage{boxedminipage2e}! in der Präambel der \verb!.tex!-Quelldatei eingebunden, steht die 
+Umgebung \verb!boxedminipage!\index[cmd]{\texttt{boxedimage}} zur Verfügung. Mit dieser ist es möglich, 
+\verb!minipage!-Umgebungen zu erzeugen, die von einem Rahmen umgeben sind (siehe Abbildung~\ref{Beispiel_boxedminipage}). 
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash
+begin\{boxedminipage\}[}\textsl{Ausrichtung}\texttt{][}\textsl{Höhe}\texttt{][}\textsl{Position}\texttt{]\{}\textsl{Breite}\texttt{\} \\
+Inhalt \\
+\textbackslash end\{boxedminipage\}}
+\end{boxedminipage}
+
+% \fbox{\texttt{\textbackslash
+% begin\{boxedminipage\}[}\textsl{Ausrichtung}\texttt{][}\textsl{Höhe}\texttt{][}\textsl{Position}\texttt{]\{}\textsl{Breite}\texttt{\}
+% Text \textbackslash end\{boxedminipage\}}}
+
+Die Argumente der Umgebung \verb!boxedminipage! orientieren sich an denen der Umgebung \verb!minipage!.
+
+Das erste optionale Argument \verb!Ausrichtung! definiert die Ausrichtung der Umgebung anhand der aktuellen Zeile. Es richtet die Minipage relativ zur aktuellen Grundlinie aus. Mögliche Werte sind \verb!t! (top=oben), wobei die Minipage relativ zur aktuellen Grundlinie ausgerichtet wird, \verb!c! (center=zentriert), wobei die Mitte der Minipage eine Linie mit der aktuellen Grundlinie bildet und \verb!b! (bottom=unten), wobei die unterste Grundlinie innerhalb der Minipage eine Linie mit der aktuellen Grundlinie bildet. Der Standardwert ist \verb!c!.~\cite{goLaTeX_minipage_Webpage}
+
+Das optionale Argument \verb!Höhe! definiert die Höhe als Absolutwert inklusive einer Maßeinheit (z.B. \verb!5cm!) als relativen Wert (z.B. \verb!.5\textheight!). Wird der Wert dieses Arguments definiert, spielt die tatsächliche Höhe des Inhalts der Minipage für deren Dimensionierung keine Rolle. 
+
+Das optionale Argument \verb!Position! definiert die Ausrichtung des Inhaltes. Mögliche Werte sind auch hier: \verb!t!, \verb!c! oder \verb!b! und auch hier ist \verb!c! der Standardwert.
+
+Das einzige zwingend nötige Argument \verb!Breite! definiert die Breite der Minipage. Auch dabei kann es sich um einen Absolutwert inklusive einer Maßeinheit oder einen relativen Wert handeln. Der \LaTeX-Compiler bricht den Inhalt der Minipage entsprechend deren Breite um.
+
+Sind nur zwei optionale Argumente angegeben, so sind die Werte von \verb!Ausrichtung! und \verb!Position! identisch. 
+Ist nur ein optionales Argument angegeben, so entspricht der Wert von \verb!Höhe! der Gesamthöhe des Inhalts der Minipage.
+
+\begin{figure}[H]
+\begin{minipage}[c]{.5\textwidth}
+\setlength{\parskip}{1em}
+\begin{center}
+\begin{boxedminipage}{6cm}
+Das ist eine gewöhnliche \verb!minipage!-Umgebung mit 
+einem Rahmen, die mit der Umgebung \verb!boxedminipage! aus dem Erweiterungspaket \verb!boxedminipage2e! erzeugt wurde.
+\end{boxedminipage}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{.48\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=boxedminipagebeispiel, style=customlatex]
+\begin{center}
+\begin{boxedminipage}{6cm}
+Das ist eine 
+...
+erzeugt wurde.
+\end{boxedminipage}
+\end{center}
+\end{lstlisting}
+\end{minipage}
+\caption{Minipages mit Rahmen realisiert die Umgebung \texttt{boxedminipage}}
+\label{Beispiel_boxedminipage}
+\end{figure}
