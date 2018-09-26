@@ -1,0 +1,150 @@
+\chapter{Präsentationsfolien}
+\label{Kapitel_Praesentationsfolien}
+
+Die Verwendung der Dokumentklasse \verb!beamer! ermöglicht auf komfortable Art und Weise die Erstellung optisch ansprechender Präsentationsfolien. 
+
+Ein einfaches Beispiel für ein Grundgerüst einer Quelldatei mit \verb|beamer| zeigt Listing~\ref{erstesbeispielbeamer}. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_erstesbeispielbeamer}.
+
+\lstinputlisting[caption={Einfaches Grundgerüst einer \LaTeX-Quelldatei mit \texttt{beamer}},label=erstesbeispielbeamer, style=customlatex]{Beispiele/Folien_beamer_einfaches_Beispiel/beamer_einfaches_beispiel.tex}
+
+\begin{figure}[H]
+	%     \centering
+	% Abschneiden mit trim = liks unten rechts oben
+	\fbox{\includegraphics[page=1, clip, width=.98\textwidth]{Beispiele/Folien_beamer_einfaches_Beispiel/beamer_einfaches_beispiel.pdf}}
+	\caption{Resultat von Listing~\ref{erstesbeispielbeamer}}
+	\label{fig_erstesbeispielbeamer}
+\end{figure}
+
+Das grundlegende Layout der Präsentationsfolien definieren sogenannte Themen\footnote{Die (Layout-)Themen von \texttt{beamer} sind immer nach Städten benannt.}. In jedem Foliensatz muss exakt ein Thema definiert sein. 
+Die farbliche Gestaltung kann mit Hilfe von Farbthemen\footnote{Die Farbthemen von \texttt{beamer} sind immer nach Tieren benannt.} beeinflusst werden. Eine hilfreiche Übersicht über die verschiedenen Kombinationen aus standardmäßig enthaltenen (Layout-)Themen und Farbthemen bietet~\cite{BeamerThemeMatrixWebseite}. 
+
+Jede Folie, die mit \verb|beamer| erstellt wird, besteht aus einer Umgebung \verb!frame!. Innerhalb der Umgebung kann der Folientitel mit dem Befehl \verb|frametitle| definiert sein. Der Titel wird dem Befehl in geschweiften Klammern als Argument übergeben.
+
+\begin{boxedminipage}{\textwidth}
+\verb!\begin{frame}!\newline
+\verb!  \frametitle{!\textsl{Folientitel}\verb!}! \newline
+\verb!  !\textsl{\dots\ Inhalt der Folie\ \dots} \newline
+\verb!\end{frame}!
+\end{boxedminipage}
+
+\section{Titelfolie}
+
+Der automatische Satz einer Titelfolie geschieht mit dem Befehl \verb!\titlepage!\index[cmd]{\texttt{\textbackslash titlepage}}.
+
+\begin{boxedminipage}{\textwidth}
+\verb!\begin{frame}!\newline
+\verb!  \titlepage! \newline
+\verb!\end{frame}!
+\end{boxedminipage}
+
+Der Befehl \verb!\titlepage! greift zum Satz der Titelfolie auf diejenigen
+Argumente zurück, die den Befehlen
+\verb|\title|\index[cmd]{\texttt{\textbackslash title}}, 
+\verb|\subtitle|\index[cmd]{\texttt{\textbackslash subtitle}}, 
+\verb|\author|\index[cmd]{\texttt{\textbackslash author}}, 
+\verb|\date|\index[cmd]{\texttt{\textbackslash date}} und
+\verb|\institute|\index[cmd]{\texttt{\textbackslash institute}} mit geschweiften Klammern übergeben werden.
+
+Ein Beispiel für das automatische Erzeugen der Titelfolie mit \verb|beamer| zeigt Listing~\ref{Titelfoliebeamer}. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_Titelfoliebeamer}.
+
+\lstinputlisting[caption={Automatisches Erzeugen der Titelfolie},label=Titelfoliebeamer, style=customlatex]{Beispiele/Folien_beamer_Titelseite/Folien_beamer_beispiel_titel.tex}
+
+\begin{figure}[H]
+	%     \centering
+	% Abschneiden mit trim = liks unten rechts oben
+	\fbox{\includegraphics[page=1, clip, width=.98\textwidth]{Beispiele/Folien_beamer_Titelseite/Folien_beamer_beispiel_titel.pdf}}
+	\caption{Resultat von Listing~\ref{Titelfoliebeamer}}
+	\label{fig_Titelfoliebeamer}
+\end{figure}
+
+Das Beispiel in Listing~\ref{Titelfoliebeamer} zeigt auch eine mögliche Verwendung der Kopf- und Fußzeilen. Im Beispiel wird mit Hilfe des Befehls \verb!\insertnavigation!\index[cmd]{\texttt{\textbackslash insertnavigation}} die Gliederungsstruktur des Foliensatzes in der Kopfzeile ausgegeben. Abschnitte (\verb|section|) sind mit ihren Abschnittsnamen aufgeführt. Jeder Unterabschnitt (\verb!subsection!) und jede Folie sind durch Punkte unter den Abschnittsnamen repräsentiert.  
+
+Im Beispiel ist auch die Ausgabe der 
+kleinen Navigationsleiste am unteren Rand 
+durch den Befehl \verb!\beamertemplatenavigationsymbolsempty!\index[cmd]{\texttt{\textbackslash beamertemplatenavigationsymbolsempty}}
+abgeschaltet.
+
+\section{Automatischer Satz eines Inhaltsverzeichnisses}
+
+Wie bei anderen Dokumentklassen auch, ist es bei \verb|beamer| üblich, Dokumente mit den Befehlen 
+\verb|\section|\index[cmd]{\texttt{\textbackslash section}},
+\verb|\subsection|\index[cmd]{\texttt{\textbackslash subsection}} und
+\verb|\subsubsection|\index[cmd]{\texttt{\textbackslash subsubsection}} zu gliedern. 
+
+Der automatische Satz einer Folie mit der Agenda der Präsentation, also mit dem Inhalt des Foliensatzes, kann mit dem Befehl 
+\verb|\tableofcontents|\index[cmd]{\texttt{\textbackslash tableofcontents}} geschehen.
+
+\begin{boxedminipage}{\textwidth}
+	\verb!\begin{frame}!\newline
+	\verb!  \frametitle{Agenda}! \newline
+	\verb!	\tableofcontents[!\textsl{Argument(e)}\verb|]| \newline
+	\verb!\end{frame}!
+\end{boxedminipage}
+
+Das Verhalten des Befehls kann durch Argumente beeinflusst werden, die in eckigen Klammern übergeben werden.
+Sollen beispielsweise nur die Namen der Abschnitte (\verb|sections|) im Inhaltsverzeichnis erscheinen, so realisiert dieses 
+der folgende Befehl:
+
+\verb|\tableofcontents[current,hideallsubsections]|
+
+Soll nur die Gliederung des aktuellen Abschnitts (\verb|section|) inklusive seiner Unterabschnitte berücksichtigt werden, 
+legt dieses der folgende Befehl fest:
+
+\verb|\tableofcontents[currentsection]|
+
+\section{Inhalte auf Präsentationsfolien setzen}
+
+Klassischerweise werden Inhalte auf Präsentationsfolien mit 
+Aufzählungen (siehe Abschnitt~\ref{Abschnitt_Aufzaehlungen}), also mit den Umgebungen \verb!itemize! und \verb!enumerate! gesetzt. 
+
+Sinnvoll kann auch der Gebrauch von farbigen Blöcken sein.
+\verb|beamer| stellt standardmäßig Umgebungen für drei verschiedene Blöcke zur Verfügung. Diese sind
+\verb|block|\index[cmd]{\texttt{\textbackslash block}}, 
+\verb|exampleblock|\index[cmd]{\texttt{\textbackslash exampleblock}} und 
+\verb|alertblock|\index[cmd]{\texttt{\textbackslash alertblock}}. Der Titel eines Blocks 
+wird der Umgebung als Argument in geschweiften Klammern übergeben.
+
+\begin{boxedminipage}{\textwidth}
+	\verb!\begin{block}{!\textsl{Blocktitel}\verb!}! \newline
+	\verb!  !\textsl{Blocktext} \newline
+	\verb!\end{block}! \\\enskip
+	
+	\verb!\begin{exampleblock}{!\textsl{Blocktitel}\verb!}! \newline
+    \verb!  !\textsl{Blocktext} \newline
+    \verb!\end{exampleblock}! \\\enskip
+
+	\verb!\begin{alertblock}{!\textsl{Blocktitel}\verb!}! \newline
+    \verb!  !\textsl{Blocktext} \newline
+    \verb!\end{alertblock}!
+\end{boxedminipage}
+
+Ein Beispiel für die Verwendung der genannten Umgebungen für Aufzählungen und Blöcke zeigt Listing~\ref{Titelbeamerbloecke}. Der Quellcode zeigt nur den relevanten Ausschnitt -- die entsprechende Folie -- aus der Quelldatei. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_Titelbeamerbloecke}.
+
+\lstinputlisting[caption={Aufzählungen und farbige Blöcke auf Präsentationsfolien},label=Titelbeamerbloecke, style=customlatex, firstline=56, lastline=78,firstnumber=56]{Beispiele/Folien_beamer/Folien_beamer_beispiel.tex}
+
+\begin{figure}[H]
+	%     \centering
+	% Abschneiden mit trim = liks unten rechts oben
+	\fbox{\includegraphics[page=2, clip, width=.98\textwidth]{Beispiele/Folien_beamer/Folien_beamer_beispiel.pdf}}
+	\caption{Resultat von Listing~\ref{Titelbeamerbloecke}}
+	\label{fig_Titelbeamerbloecke}
+\end{figure}
+
+\section{Mehrspaltige Präsentationsfolien setzen}
+
+Ein hilfreiches Werkzeug, um das Layout von Präsentationsfolien zu definiert, ist die Umgebung \verb!columns!\index[cmd]{\texttt{columns}} zum Satz mehrspaltiger Folien.
+
+Innerhalb einer Umgebung \verb|columns| umschließt jede Umgebung \verb|column| den Inhalt einer neuen Spalte.
+Die Breite einer Spalte wird als Argument nach dem \verb!\begin{column}! in geschweiften Klammern als absolute oder relative Maßeinheit (siehe Abschnitt~\ref{sec:Massangaben}) oder alternativ mit Hilfe eines Längenbefehls wie zum Beispiel \verb|\textsidth| definiert. Zusätzlich ist es auch möglich, die vertikale Ausrichtung innerhalb jeder Spalte als Option in eckigen Klammern zu definieren. Der Buchstabe \verb|T| steht dabei für \emph{top}, also für eine Ausrichtung am oberen Rand der Spalte, und der Buchstabe \verb|c| steht für \emph{center}, also für eine vertikal zentrierte Ausrichtung des Inhalts. 
+
+Ein Beispiel für eine zweispaltige Folie, bei der beide Spalten gleich groß sind (jeweils die halbe Breite des Textfeldes) und sich in der rechten Spalte eine Abbildung befindet, zeigt Listing~\ref{beamercolumns}. Der Quelltext zeigt nur den relevanten Ausschnitt aus der Quelldatei. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_beamercolumns}. 
+
+\lstinputlisting[caption={Mehrspaltige Präsentationsfolien ermöglicht die Umgebung \texttt{columns}},label=beamercolumns, style=customlatex, firstline=83, lastline=106,firstnumber=83]{Beispiele/Folien_beamer/Folien_beamer_beispiel.tex}
+
+\begin{figure}[H]
+	%     \centering
+	% Abschneiden mit trim = liks unten rechts oben
+	\fbox{\includegraphics[page=3, clip, width=.98\textwidth]{Beispiele/Folien_beamer/Folien_beamer_beispiel.pdf}}
+	\caption{Resultat von Listing~\ref{beamercolumns}}
+	\label{fig_beamercolumns}
+\end{figure}

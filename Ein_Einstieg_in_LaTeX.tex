@@ -6,7 +6,7 @@
 % url:          https://github.com/christianbaun/einstieginlatex
 % license:      CC-BY-SA-3.0
 % date:         October 26th 2018
-% version:      0.9
+% version:      1.0
 % requires:     pdflatex, makeindex, bibtex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -110,7 +110,6 @@
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 
-
 \hyphenation{AppScale OpenShift MapReduce Python}
 
 \definecolor{Brown}{cmyk}{0,0.81,1,0.60}
@@ -183,8 +182,6 @@ literate=
 % writing file \jobname.bib
 \begin{filecontents*}{\jobname.bib}
 
-
-
 @misc{AuthoreaWebseite,
 	Author = {{Authorea}},
 	note = "\url{https://www.authorea.com}"
@@ -199,7 +196,6 @@ literate=
 	Author = {{ShareLaTeX}},
 	note = "\url{https://www.sharelatex.com}"
 }
-
 
 @misc{BibtexStylesShareLaTeXWebseite,
 	Author = {{Bibtex bibliography styles}},
@@ -242,10 +238,9 @@ literate=
 }
 
 @misc{TeXlipseWebseite,
-        Author = {{Eclipse TeXlipse}},
+        Author = {{TeXlipse}},
         note = "\url{https://projects.eclipse.org/projects/science.texlipse}"
 }
-
 
 @misc{TeXLive_Webpage,
         Author = {{\TeX~Live}},
@@ -286,9 +281,8 @@ literate=
 @misc{Wikibooks_LaTeX_Kompendium,
 	Author = {{LaTeX-Kompendium: Zitieren mit BibTeX}},
 	note = "\url{https://de.wikibooks.org/wiki/LaTeX-Kompendium:_Zitieren_mit_BibTeX}"
-	}
+}
 
-        
 @misc{goLaTeX_minipage_Webpage,
         Author = {{Geviert -- Typografie-Fachbegriffe-Wiki}},
         note = "\url{http://www.typografie.info/3/wiki.html/g/geviert-r165/}"
@@ -303,8 +297,7 @@ literate=
         Author = {{\LaTeX\ Font Catalogue}},
         note = "\url{http://www.tug.dk/FontCatalogue/}"
 }
-
-        
+  
 @misc{KOMAScript_Dokumentation,
         Author = {{KOMA-Script}},
         note = "\url{http://mirrors.ctan.org/macros/latex/contrib/koma-script/doc/scrguide.pdf}"
@@ -344,7 +337,6 @@ literate=
         note = "\url{http://www.lamport.org}"
 }
 
-
 @misc{bibtexWikipediaWebseite,
 	title={{Wikipedia -- BibTeX}},
 	note = "\url{https://de.wikipedia.org/wiki/BibTeX}"
@@ -359,7 +351,6 @@ literate=
         Author = {{makebarcode – Print various kinds 2/5 and Code 39 bar codes}},
         note = "\url{http://mirrors.ctan.org/macros/latex/contrib/makebarcode/doc/latex/makebarcode/makebarcode.pdf}"
 }
-
 
 @misc{QRCode_Wikipedia,
         Author = {{QR-Code}},
@@ -376,7 +367,6 @@ literate=
     year={1991},
     note = "\url{https://www.tug.org/TUGboat/tb12-1/tb31hara.pdf}"
 }
-
 
 @misc{LaTeXSuendenregisterLink,
   	title={{Das \LaTeX 2$\varepsilon$-S{\"u}ndenregister oder Veraltete Befehle, Pakete und andere Fehler Version 2.7}},
@@ -399,15 +389,12 @@ literate=
 	note = "\url{https://www.fernuni-hagen.de/imperia/md/content/zmi_2010/a026_latex_einf.pdf}"
 }
 
-
 @misc{RichterTorstenLink,
 	title={{\LaTeX\ -- Tipps und Tricks}},
 	author={Richter, Torsten},
 	year={2013},
 	note = "\url{https://www.tortools.de/lib/exe/fetch.php/latex:richter_latex_tipps_1.2.pdf}"
 }
-
-
 
 @misc{MarxBueckerLink,
 	title={{Erstellung wissenschaftlicher Texte mit \LaTeX}},
@@ -438,7 +425,6 @@ literate=
 	publisher ={mitp}
 }
 
-
 @book{Kopka2000,
 	author = {Kopka, Helmut},
 	title = {{\LaTeX\ Einführung Band 1}},
@@ -447,14 +433,12 @@ literate=
 	publisher ={Addison-Wesley}
 }
 
-
 @book{GoossensMittelachSamarin2000,
 	author = {Goossens, Michael and Mittelbach, Frank and Samarin, Alexander},
 	title = {{Der \LaTeX-Begleiter}},
 	year = {2000},
 	publisher ={Addison-Wesley}
 }
-
 
 @book{Schwarz1988,
 	author = {Schwarz, Norbert},
@@ -485,7 +469,7 @@ literate=
 \title{Ein Einstieg in \LaTeX}
 \author{Prof. Dr. Christian Baun\\ Frankfurt University of Applied Sciences \\ (1971-2014: Fachhochschule Frankfurt am Main)\\
 Nibelungenplatz 1 \\ 60318 Frankfurt am Main\\\url{christianbaun@fb2.fra-uas.de}\\[3em]}
-\date{Version 0.9\\[3em] 26.~September 2018}
+\date{Version 1.0 \\[3em] 26.~September 2018}
 
 \publishers{
 
@@ -552,184 +536,9 @@ Dieses Werk ist lizenziert unter einer Creative Commons Namensnennung - Weiterga
 
 \input{kapitel11.tex}
 
-
-
-\chapter{Präsentationsfolien}
-\label{Kapitel_Praesentationsfolien}
-
-Die Verwendung der Dokumentklasse \verb!beamer! ermöglicht auf komfortable Art und Weise die Erstellung optisch ansprechender Präsentationsfolien mit \LaTeX. 
-
-
-Ein einfaches Beispiel für ein Grundgerüst einer \LaTeX-Quelldatei mit \verb|beamer| zeigt Listing~\ref{erstesbeispielbeamer}. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_erstesbeispielbeamer}.
-
-\lstinputlisting[caption={Einfaches Grundgerüst einer \LaTeX-Quelldatei mit \texttt{beamer}},label=erstesbeispielbeamer, style=customlatex]{Beispiele/Folien_beamer_einfaches_Beispiel/beamer_einfaches_beispiel.tex}
-
-
-
-\begin{figure}[H]
-	%     \centering
-	% Abschneiden mit trim = liks unten rechts oben
-	\fbox{\includegraphics[page=1, clip, width=.98\textwidth]{Beispiele/Folien_beamer_einfaches_Beispiel/beamer_einfaches_beispiel.pdf}}
-	\caption{Resultat von Listing~\ref{erstesbeispielbeamer}}
-	\label{fig_erstesbeispielbeamer}
-\end{figure}
-
-
-
-Das grundlegende Layout der Präsentationsfolien definieren sogenannte Themen\footnote{Die (Layout-)Themen von \texttt{beamer} sind immer nach Städten benannt.}. In jedem Foliensatz muss exakt ein Thema definiert sein. 
-Die farbliche Gestaltung kann mit Hilfe von Farbthemen\footnote{Die Farbthemen von \texttt{beamer} sind immer nach Tieren benannt.} beeinflusst werden. Eine hilfreiche Übersicht über die verschiedenen Kombinationen aus standardmäßig enthaltenen (Layout-)Themen und Farbthemen bietet~\cite{BeamerThemeMatrixWebseite}. 
-
-Jede Folie, die mit \verb|beamer| erstellt wird, besteht aus einer Umgebung \verb!frame!. Innerhalb der Umgebung kann Folientitel mit dem Befehl \verb|frametitle| definiert sein, indem er dem Befehl in geschweiften Klammern als Argument übergeben wird.
-
-
-\begin{boxedminipage}{\textwidth}
-\verb!\begin{frame}!\newline
-\verb!  \frametitle{!\textsl{Folientitel}\verb!}! \newline
-\verb!  !\textsl{\dots\ Inhalt der Folie\ \dots} \newline
-\verb!\end{frame}!
-\end{boxedminipage}
-
-
-\section{Titelfolie}
-
-
-Der automatische Satz einer Titelfolie geschieht mit dem Befehl \verb!\titlepage!\index[cmd]{\texttt{\textbackslash titlepage}}
-
-\begin{boxedminipage}{\textwidth}
-\verb!\begin{frame}!\newline
-\verb!  \titlepage! \newline
-\verb!\end{frame}!
-\end{boxedminipage}
-
-Der Befehl \verb!\titlepage! greift zum Satz der Titelfolie auf die 
-Argumente zurück, die den Befehlen
-\verb|\title|\index[cmd]{\texttt{\textbackslash title}}, 
-\verb|\subtitle|\index[cmd]{\texttt{\textbackslash subtitle}}, 
-\verb|\author|\index[cmd]{\texttt{\textbackslash author}}, 
-\verb|\date|\index[cmd]{\texttt{\textbackslash date}} und
-\verb|\institute|\index[cmd]{\texttt{\textbackslash institute}} mit geschweiften Klammern übergeben werden.
-
-
-
-Ein Beispiel für das automatische Erzeugen der Titelfolie mit \verb|beamer| zeigt Listing~\ref{Titelfoliebeamer}. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_Titelfoliebeamer}.
-
-\lstinputlisting[caption={Automatisches Erzeugen der Titelfolie},label=Titelfoliebeamer, style=customlatex]{Beispiele/Folien_beamer_Titelseite/Folien_beamer_beispiel_titel.tex}
-
-
-
-\begin{figure}[H]
-	%     \centering
-	% Abschneiden mit trim = liks unten rechts oben
-	\fbox{\includegraphics[page=1, clip, width=.98\textwidth]{Beispiele/Folien_beamer_Titelseite/Folien_beamer_beispiel_titel.pdf}}
-	\caption{Resultat von Listing~\ref{Titelfoliebeamer}}
-	\label{fig_Titelfoliebeamer}
-\end{figure}
-
-Das Beispiel in Listing~\ref{Titelfoliebeamer} zeigt auch eine mögliche Verwendung der Kopf- und Fußzeilen. Im Beispiel wird mit Hilfe des Befehls \verb!\insertnavigation!\index[cmd]{\texttt{\textbackslash insertnavigation}} die Gliederungsstruktur des Foliensatzes in der Kopfzeile ausgegeben. Abschnitte (\verb|section|) sind mit ihren Abschnittsnamen aufgeführt. Jeder Unterabschnitt (\verb!subsection!) und jede Folie sind durch Punkte unter den Abschnittsnamen repräsentiert.  
-
-Im Beispiel ist auch die Ausgabe der 
-kleinen Navigationsleiste am unteren Rand 
-durch den Befehl \verb!\beamertemplatenavigationsymbolsempty!\index[cmd]{\texttt{\textbackslash beamertemplatenavigationsymbolsempty}}
-abgeschaltet 
-
-
-\section{Automatischer Satz eines Inhaltsverzeichnisses}
-
-Wie bei anderen Dokumentklassen auch, ist es bei \verb|beamer| üblich, Dokumente mit den Gliederungsbefehlen 
-\verb|\section|\index[cmd]{\texttt{\textbackslash section}},
-\verb|\subsection|\index[cmd]{\texttt{\textbackslash subsection}} und
-\verb|\subsubsection|\index[cmd]{\texttt{\textbackslash subsubsection}} zu gliedern. 
-
-Der automatische Satz einer Folie mit der Agenda der Präsentation, also mit dem Inhalt des Foliensatzes, kann mit dem Befehl 
-\verb|\tableofcontents|\index[cmd]{\texttt{\textbackslash tableofcontents}} geschehen.
-
-\begin{boxedminipage}{\textwidth}
-	\verb!\begin{frame}!\newline
-	\verb!  \frametitle{Agenda}! \newline
-	\verb!	\tableofcontents[!\textsl{Argument(e)}\verb|]| \newline
-	\verb!\end{frame}!
-\end{boxedminipage}
-
-Das Verhalten des Befehls kann durch Argumente beeinflusst werden, die in eckigen Klammern übergeben werden.
-Sollen beispielsweise nur die Namen der Abschnitte (\verb|sections|) im Inhaltsverzeichnis erscheinen, so realisiert dieses 
-der Befehl 
-
-\verb|\tableofcontents[current,hideallsubsections]|
-
-Soll nur die Gliederung des aktuellen Abschnitts (\verb|section|) inklusive seiner Unterabschnitte berücksichtigt werden, 
-legt dieses der folgende Befehl fest.
-
-\verb|\tableofcontents[currentsection]|
-
-\section{Inhalte auf Präsentationsfolien setzen}
-
-Klassischerweise werden Inhalte auf Präsentationsfolien mit 
-Aufzählungen (siehe Abschnitt~\ref{Abschnitt_Aufzaehlungen}), also mit den Umgebungen \verb!itemize! und \verb!enumerate! gesetzt. 
-
-Sinnvoll kann auch der Gebrauch von farbigen Blöcken sein.
-\verb|beamer| stellt standardmäßig Umgebungen für drei verschiedene Blöcke zur Verfügung. Diese sind
-\verb|block|\index[cmd]{\texttt{\textbackslash block}}, 
-\verb|exampleblock|\index[cmd]{\texttt{\textbackslash exampleblock}} und 
-\verb|alertblock|\index[cmd]{\texttt{\textbackslash alertblock}}. Der Titel eines Blocks 
-wird der Umgebung als Argument in geschweiften Klammern übergeben.
-
-
-\begin{boxedminipage}{\textwidth}
-	\verb!\begin{block}{!\textsl{Blocktitel}\verb!}! \newline
-	\verb!  !\textsl{Blocktext} \newline
-	\verb!\end{block}! \\\enskip
-	
-	\verb!\begin{exampleblock}{!\textsl{Blocktitel}\verb!}! \newline
-    \verb!  !\textsl{Blocktext} \newline
-    \verb!\end{exampleblock}! \\\enskip
-
-	\verb!\begin{alertblock}{!\textsl{Blocktitel}\verb!}! \newline
-    \verb!  !\textsl{Blocktext} \newline
-    \verb!\end{alertblock}!
-\end{boxedminipage}
-
-
-Ein Beispiel die Verwendung der genannten Umgebungen für Aufzählungen und Blöcke zeigt Listing~\ref{Titelbeamerbloecke}. Der Quellcode zeigt nur den relevanten Ausschnitt aus der \LaTeX-Quelldatei. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_Titelbeamerbloecke}.
-
-\lstinputlisting[caption={Aufzählungen und farbige Blöcke auf Präsentationsfolien},label=Titelbeamerbloecke, style=customlatex, firstline=56, lastline=78,firstnumber=56]{Beispiele/Folien_beamer/Folien_beamer_beispiel.tex}
-
-
-
-
-\begin{figure}[H]
-	%     \centering
-	% Abschneiden mit trim = liks unten rechts oben
-	\fbox{\includegraphics[page=2, clip, width=.98\textwidth]{Beispiele/Folien_beamer/Folien_beamer_beispiel.pdf}}
-	\caption{Resultat von Listing~\ref{Titelbeamerbloecke}}
-	\label{fig_Titelbeamerbloecke}
-\end{figure}
-
-\section{Mehrspaltige Präsentationsfolien setzen}
-
-Ein hilfreiches Werkzeug, um das Layout von Präsentationsfolien zu definiert, ist die Umgebung \verb!columns!\index[cmd]{\texttt{columns}} zum Satz mehrspaltiger Folien.
-
-Die Innerhalb einer Umgebung \verb|columns| definiert jede Umgebung \verb|column| eine neue Spalte und umschließt deren Inhalt. 
-Die breite einer Spalte wird als Argument nach dem \verb!\begin{column}!| in leeren geschweiften Klammern als absolute oder relative Maßeinheit oder alternativ mit Hilfe eines Längenbefehls wie zum Beispiel \verb|\textsidth|) definiert. Zusätzlich ist es auch möglich, die vertikale Ausrichtung innerhalb jeder Spalte als Option in eckigen Klammern zu definieren. Der Buchstabe \verb|T| steht dabei für \emph{top}, also für eine Ausrichtung am oberen Rand der Spalte. Der Buchstabe \verb|c| steht für \emph{center}, also für eine vertikal zentrierte Ausrichtung des Inhalts. 
-
-Ein Beispiel für eine zweispaltige Folie, bei der beide Spalten gleich groß sind (jeweils die halbe Breite des Textfeldes) und sich in der rechten Spalte eine Abbildung befindet, zeigt Listing~\ref{beamercolumns}. Der Quelltext zeigt nur den relevanten Ausschnitt aus der \LaTeX-Quelldatei. Das Ergebnis dieses Beispiels zeigt Abbildung~\ref{fig_beamercolumns}. 
-
-\lstinputlisting[caption={Aufzählungen und farbige Blöcke auf Präsentationsfolien},label=beamercolumns, style=customlatex, firstline=83, lastline=106,firstnumber=83]{Beispiele/Folien_beamer/Folien_beamer_beispiel.tex}
-
-
-
-
-\begin{figure}[H]
-	%     \centering
-	% Abschneiden mit trim = liks unten rechts oben
-	\fbox{\includegraphics[page=3, clip, width=.98\textwidth]{Beispiele/Folien_beamer/Folien_beamer_beispiel.pdf}}
-	\caption{Resultat von Listing~\ref{beamercolumns}}
-	\label{fig_beamercolumns}
-\end{figure}
-
-
+\input{kapitel12.tex}
 
 \backmatter    %Ende des Buches
-
 
 % Absatzabstand
 % \setlength{\baselineskip}{4.5mm}
@@ -738,7 +547,6 @@ Ein Beispiel für eine zweispaltige Folie, bei der beide Spalten gleich groß si
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
 \bibliographystyle{ieeetr}    % Sortiert das Literaturverzeichnis anhand der Reihenfolge, wie im Text zitiert wird
 \bibliography{\jobname}       % uses \jobname.bib, according to \jobname.tex
-
 
 % Stichwortverzeichnis endgueltig anzeigen
 \addcontentsline{toc}{chapter}{Verzeichnis der Befehle, Umgebungen, Dokumentklassen und Optionen}
