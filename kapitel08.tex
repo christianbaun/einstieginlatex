@@ -1,0 +1,2195 @@
+\chapter{Mathematischer Formelsatz}
+\label{KapitelMathematik}
+\index{Mathematik}
+\index{Formelsatz}
+
+Die Fähigkeiten von \LaTeX, wenn es um den optisch ansprechenden Satz mathematischer Formeln geht, sind einer der am häufigsten genannten Vorzüge dieses Textsatzsystems. Möglicherweise ist diese Eigenschaft auch einer der Gründe für die Popularität von \LaTeX\ im universitären Umfeld und im Verlagswesen.
+
+Zum Formelsatz bietet \LaTeX\ verschiedene Umgebungen für eingebettete Formeln, die auch Textformeln heißen
+und für abgesetzte Formeln.
+
+Textformeln befinden sich im fortlaufenden Text. Abgesetzte Formeln hingegen werden
+mit einem Zwischenraum über und unter der Formel gesetzt und horizontal zentriert.
+
+\section{Eingebettete Formeln (Textformeln)}
+\index{Textformel}
+\index{Formel!eingebettete}
+
+Die kompakteste Möglichkeit, eine eingebettete Formel zu realisieren, ist im Quelltext vor und hinter die 
+Formel ein \verb!$!-Zeichen zu stellen. 
+
+\fbox{\texttt{\$}\textsl{Formel}\texttt{\$}}
+
+Ein negativer Aspekt dieser Vorgehensweisen ist, dass
+beide Begrenzungssymbole identisch und daher zweideutig sind. 
+Je nach Struktur des Dokuments wirkt sich das negativ auf die Lesbarkeit des Quelltextes aus.
+Eleganter und weniger fehleranfällig ist das
+Umschließen der Formel mit den Zeichenketten \verb!\(! und \verb!\)!.
+
+\fbox{\texttt{\textbackslash (}\textsl{Formel}\texttt{\textbackslash )}}
+
+
+Zusätzlich existiert die Umgebung \verb!math!\index[cmd]{\texttt{math}}, deren Verwendung zum
+gleichen Ergebnis führt wie die
+Verwendung von \verb!$...$! und \verb!\(...\)!.
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash
+begin\{math\} \\
+\textsl{Formel} \\
+\textbackslash end\{math\}}
+\end{boxedminipage}
+
+
+
+
+
+\section{Abgesetzte Formeln}
+\index{Formel!abgesetzt} 
+
+Auch zur Erzeugung abgesetzter Formeln existieren verschiedene
+Möglichkeiten. Eine Möglichkeit ist, den Anfang und 
+das Ende der abgesetzten Formel mit \verb!$$! zu kennzeichnen. 
+Allerdings gibt es auch hier das Problem, das
+beide Begrenzungssymbole identisch und daher zweideutig sind. 
+
+
+\fbox{\texttt{\$\$}\textsl{Formel}\texttt{\$\$}}
+
+Eine weitere
+Möglichkeit ist, den Anfang der Formel mit \verb!\[! und das Ende mit
+\verb!\]! zu kennzeichnen.
+
+
+\fbox{\texttt{\textbackslash [}\textsl{Formel}\texttt{\textbackslash ]}}
+
+
+Zusätzlich existiert die Umgebung \verb!displaymath!\index[cmd]{\texttt{displaymath}}, 
+deren Verwendung zum
+gleichen Ergebnis führt wie die
+Verwendung von \verb!$$...$$! und \verb!\[...\]!.
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash
+begin\{displaymath\} \\
+\textsl{Formel} \\
+\textbackslash end\{displaymath\}}
+\end{boxedminipage}
+
+
+Alle bisher vorgestellten Möglichkeiten zum Satz abgesetzter Formeln bewirken, das der \LaTeX-Compiler den aktuellen Absatz  
+abbricht und einen vertikalen
+Freiraum einfügt. Die abgesetzte 
+Formel wird horizontal zentriert 
+gesetzt, und nach einem weiteren vertikalen 
+Freiraum geht es mit dem Text weiter. Das folgende Beispiel zeigt diese Arbeitsweise:
+
+
+\begin{minipage}[c]{.48\textwidth}
+\setlength{\parskip}{1em}
+\begin{displaymath}
+(a+b)^2 = a^2 + 2ab + b^2
+\end{displaymath}
+\end{minipage}
+\hfill
+\begin{minipage}{.48\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=abgesetzteformelnbeispiel, style=customlatex]
+\begin{displaymath}
+(a+b)^2 = a^2 + 2ab + b^2
+\end{displaymath}
+\end{lstlisting}
+\end{minipage}
+
+
+
+Sollen Formeln nummeriert\index{Formel!nummeriert} sein, um im Fließtext einfach darauf Bezug nehmen zu können, 
+ist es sinnvoll die abgesetzten Formeln mit der Umgebung
+\verb!equation!\index[cmd]{\texttt{equation}-Umgebung} zu erzeugen. In diesem Fall erhält die Formel automatisch eine
+eindeutige Nummer.
+
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash
+begin\{equation\} \\
+\textsl{Formel} \\
+\textbackslash end\{equation\}}
+\end{boxedminipage}
+
+
+Zum Satz von Gleichungssystemen\index{Gleichungssysteme} bzw. für den Satz mehrerer untereinander angeordneter Formeln
+existieren die Umgebungen \verb!eqnarray! und \verb!eqnarray*!\index[cmd]{\texttt{eqnarray}}.
+Beide Umgebungen unterscheiden sich nur darin, das bei der Umgebung \verb!eqnarray!
+jede Zeile nummeriert wird und bei \verb!eqnarray*! ist das nicht der Fall.
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash
+begin\{eqnarray\} \\
+\textsl{Formel} \\
+\textbackslash end\{eqnarray\}}
+\end{boxedminipage}
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash
+begin\{eqnarray*\} \\
+\textsl{Formel} \\
+\textbackslash end\{eqnarray*\}}
+\end{boxedminipage}
+
+
+Die Arbeitsweise der beiden Umgebungen 
+\verb!eqnarray! und\index[cmd]{\texttt{eqnarray}-Umgebung} 
+\verb!eqnarray*!\index[cmd]{\texttt{eqnarray$\ast$}-Umgebung}
+ist vergleichbar mit der Arbeitsweise einer Tabelle, die in drei Spalten
+unterteilt ist, und deren 
+Spaltendefinition \verb!{rcl}! entspricht. 
+Das heißt, der Inhalt der ersten Spalte wird rechtsbündig, der Inhalt der 
+zweiten Spalte zentriert, und der Inhalt der dritten Spalte wird linksbündig gesetzt. 
+
+Genau wie bei Tabellen sind Spalten mit dem Zeichen \verb!&! voneinander abgegrenzt
+und das Ende einer Zeile kennzeichnet der Befehl \verb!\\!.
+
+Der Grund, warum die zweite Spalte zentriert gesetzt wird, ist, dass 
+sie für die Aufnahme eines Relationssymbols gedacht ist, wie es bei 
+Gleichungssystemen in jeder Zeile verwendet wird. In den meisten Fällen wird es sich um 
+das Zeichen \verb!=! handeln.
+
+Die folgende Gleichung wurde mit der Umgebung \verb!eqnarray*! gesetzt:
+
+\begin{eqnarray*}
+	P(\neg C \vee D) & = & 1 - P(\neg D \wedge C) \\
+	& = & 1 - P(\neg D|C) \cdot P(C) \\
+	& = & 1 - P(C) \cdot (1 - P(D|C)) \\
+	& = & 1 - P(C) + P(D|C) \cdot P(C) \\		 
+	& = & P(\neg C) + P(D|C) \cdot P(C)
+\end{eqnarray*}
+
+Der Quelltest zu dieser Gleichung aus dem Fachgebiet der
+Wissensverarbeitung wurde mit folgendem Quelltext erzeugt:
+
+\begin{lstlisting}[label=eqnarraybeispiel, style=customlatex]
+\begin{eqnarray*}
+P(\neg C \vee D) & = & 1 - P(\neg D \wedge C) \\
+& = & 1 - P(\neg D|C) \cdot P(C) \\
+& = & 1 - P(C) \cdot (1 - P(D|C)) \\
+& = & 1 - P(C) + P(D|C) \cdot P(C) \\		 
+& = & P(\neg C) + P(D|C) \cdot P(C)
+\end{eqnarray*}
+\end{lstlisting}
+
+
+Sollen bei einer Gleichung, die mit der Umgebung \verb!eqnarray! gesetzt wird, einzelne Zeilen 
+keine Nummer erhalten, können Autoren dieses in den jeweiligen Zeilen mit dem Befehl Befehl \verb!\nonumber!
+anweisen.
+
+\fbox{\texttt{\textbackslash nonumber}}
+\index[cmd]{\texttt{\textbackslash nonumber}} 
+
+Der Befehl wird einfach an das Ende jeder Zeile einer 
+\verb!eqnarray!-Umgebung geschrieben, die
+von der Nummerierung ausgeschlossen sein soll.
+
+
+\section{Grundlegende mathematische Konstrukte}
+\index{Mathematik!Konstrukte} 
+
+Dieser Abschnitt stellt die nötigen Befehle vor, um einige der wichtigsten 
+mathematischen Konstrukte realisieren können. 
+Dazu gehören Brüche, Wurzeln,
+Indizes und Exponenten, Summen und Integrale.
+
+
+
+
+\subsection{Brüche}
+\index{Bruch}
+\index{Mathematik!Bruch}
+
+Der Satz von Brüchen ist innerhalb eingebetteter und abgesetzter Formeln mit dem Befehl \verb!\frac! möglich.\index[cmd]{\texttt{\textbackslash frac}} 
+
+
+\fbox{\texttt{\textbackslash frac\{{\textsl Zähler}\}\{{\textsl Nenner}\}}}
+
+Das erste Argument des Befehls enthält den \textsl{Zähler}\index{Zähler} über dem Bruchstrich\index{Bruchstrich} und das zweite Argument den \textsl{Nenner}\index{Nenner} unter dem Bruchstrich (siehe Abbildung~\ref{Beispiel_frac1}). \textsl{Zähler} und\index{Nenner}
+\textsl{Nenner} selbst können Formeln von fast beliebiger Komplexität enthalten.
+
+\begin{figure}[H]
+\begin{minipage}[c]{.4\textwidth}
+\setlength{\parskip}{1em}
+\[
+  \frac{a}{b} + \frac{c}{d} = 
+  \frac{a\cdot d+c\cdot b}{b\cdot d}
+\]
+\end{minipage}
+\hfill
+\begin{minipage}{.58\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=fracbeispiel, style=customlatex]
+\[
+  \frac{a}{b} + \frac{c}{d} = 
+  \frac{a\cdot d+c\cdot b}{b\cdot d}
+\]
+\end{lstlisting}
+\end{minipage}
+\caption{Der Satz von Brüchen geschieht mit dem Befehl \texttt{\textbackslash frac}}
+\label{Beispiel_frac1}
+\end{figure}
+
+Als eingebettete Formel, unter Verwendung von \verb!$...$!, \verb!\(...\)! oder der Umgebung \verb!math!,  sieht das Beispiel von Abbildung~\ref{Beispiel_frac1} deutlich kompakter aus: \(\frac{a}{b} + \frac{c}{d} = \frac{a\cdot d+c\cdot b}{b\cdot d}\).
+
+\subsection{Indizes und Exponenten}
+\index{Index} 
+\index{Exponent} 
+
+Das Setzen eines Index geschieht 
+mit Hilfe eines Unterstriches 
+\verb!_!. Alles, was nach
+dem Unterstrich kommt, setzt der \LaTeX-Compiler als Index 
+der vorhergegangenen Teilformel. 
+
+\fbox{\texttt{\textunderscore\{}\textsl{Index}\}}
+
+Das Setzen von Exponenten geschieht mit dem Zeichen 
+\verb!^!. Das darauf folgende Zeichen 
+(oder die darauf folgende Teilformel) 
+setzt der \LaTeX-Compiler als Exponent.
+
+\fbox{\texttt{\textasciicircum\{}\textsl{Exponent}\}}
+
+Es verbessert die Lesbarkeit
+des Quelltextes, wenn Indizes und Exponenten immer in geschweiften Klammern stehen
+und wenn ein Index oder Exponent aus mehr als nur einem einzigen Zeichen besteht, 
+müssen diese auch auch zwingend in geschweiften Klammern stehen.
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ a^{2} + a^{b} - a_{2} + a^{n}_{i} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ a^{2} + a^{b} - a_{2} + a^{n}_{i} \]!
+\end{minipage}
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ (a+b)^{2} = a^{2} + 2ab + b^{2} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ (a+b)^{2} = a^{2} + 2ab + b^{2} \]!
+\end{minipage}
+
+
+Sollen gleichzeitig ein Index und ein Exponenten an ein Zeichen angehängt werden, ist deren
+Reihenfolge im Quelltext gleichgültig. Es ist also egal ob \(a^{x}_{y}\) 
+so: \verb!\(a^{x}_{y}\)! oder so: \verb!\(a_{y}^{x}\)! realisiert ist. 
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ a^{n+1} + a^{n_x} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ a^{n+1} + a^{n_x} \]!
+\end{minipage}
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ a^{b^{c^2}} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ a^{b^{c^2}} \]!
+\end{minipage}
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ a^{b^2_i}_{c^{2n-1}_{n+m}} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ a^{b^2_i}_{c^{2n-1}_{n+m}} \]!
+\end{minipage}
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ a^{e^{b_{2}}}_{1} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ a^{e^{b_{2}}}_{1} \]!
+\end{minipage}
+
+
+Da \LaTeX\ die beiden Zeichen \verb!^! oder \verb!_! nur zur Definition von
+Indizes und Exponenten in mathematische Umgebungen akzeptiert, können diese 
+im Fließtext nicht direkt eingegeben werden. In diesem Fall 
+müssen Autoren auf die Befehle \verb!\textasciicircum!\index[cmd]{\texttt{\textbackslash textasciicircum}}
+für das Zeichen \verb!^! und \verb!\textunderscore!\index[cmd]{\texttt{\textbackslash textunderscore}}
+oder alternativ \verb!\_! für das Zeichen \verb!_! zurückgreifen.
+
+
+\subsection{Wurzeln}
+\index{Wurzel} 
+
+
+Das Setzen von Wurzeln ermöglicht der Befehl
+\verb!sqrt!\index[cmd]{\texttt{\textbackslash sqrt}}.
+
+
+\fbox{\texttt{\textbackslash sqrt[}\textsl{Ordnung}\texttt{]\{}\textsl{Radikant}\texttt{\}}}
+
+Im ersten Argument ist die \textsl{Ordnung}\index{Ordnung} der Wurzel definiert und im 
+zweiten Argument der \textsl{Radikant}\index{Radikant}. Die Ordnung wird immer in eckigen 
+Klammern \verb![...]! geschrieben und der 
+Radikant muss in geschweiften Klammern stehen \verb!{...}!.
+
+
+
+Beide Argumente können fast beliebig komplexe 
+Formeln enthalten. 
+Die Größe des Wurzelzeichens\index{Wurzelzeichen} wird
+legt der \LaTeX-Compiler automatisch fest, wie das Beispiel in Abbildung~\ref{Beispiel_sqrt1} anschaulich zeigt.
+
+
+\begin{figure}[H]
+\begin{minipage}[c]{.5\textwidth}
+\setlength{\parskip}{1em}
+
+\[
+  \sqrt[1018]{-1}=
+  \sqrt{\sqrt{\sqrt{\sqrt{
+  \sqrt{\sqrt{\sqrt{\sqrt{
+  \sqrt{\sqrt{-1}}}}}}}}}}
+\]
+
+\end{minipage}
+\hfill
+\begin{minipage}{.48\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=sqrtbeispiel, style=customlatex]
+\[
+  \sqrt[1018]{-1}=
+  \sqrt{\sqrt{\sqrt{\sqrt{
+  \sqrt{\sqrt{\sqrt{\sqrt{
+  \sqrt{\sqrt{-1}}}}}}}}}}
+\]
+\end{lstlisting}
+\end{minipage}
+\caption{Der Satz von Wurzeln geschieht mit dem Befehl \texttt{\textbackslash sqrt}}
+\label{Beispiel_sqrt1}
+\end{figure}
+
+Es folgen einige weitere Beispiele, die das Setzen von Wurzeln demonstrieren:
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ \sqrt{x} + \sqrt{x+y+2} \] 
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ \sqrt{x} + \sqrt{x+y+2} \] !
+\end{minipage}
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ \sqrt[3]{x} + \sqrt[y+1]{x} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ \sqrt[3]{x} + \sqrt[y+1]{x} \] !
+\end{minipage}
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ 1+\sqrt[x]{x+2} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ 1+\sqrt[x]{x+2} \] !
+\end{minipage}
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ \sqrt{x^{9}+\sqrt{\alpha}} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ \sqrt{x^{9}+\sqrt{\alpha}} \] !
+\end{minipage}
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ a^{-r} = \frac{1}{
+   \sqrt[\alpha]{a^{p}}} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ a^{-r} = \frac{1}{! \\
+\verb!   \sqrt[\alpha]{a^{p}}} \]!
+\end{minipage}
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\vspace*{-5mm}
+\[ \sqrt[13]{\frac{y+b\sin\theta}
+   {e^{\imath\vartheta}}} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ \sqrt[13]{\frac{y+b\sin\theta}! \\
+\verb!   {e^{\imath\vartheta}}} \]!
+\end{minipage}
+
+
+\subsection{Summen und Integrale}
+\index{Summe} 
+\index{Integral}
+\index{Integralzeichen}
+\index{Produktzeichen}
+
+Dieser Abschnitt präsentiert einige 
+mathematische Zeichen, darunter unter anderem 
+das Summen-, das Integral-, das Produktzeichen und weitere Zeichen. 
+Genau wie beim Wurzelzeichen, das im vorherigen Unterabschnitt vorgestellt wurde, 
+hängt auch bei den Zeichen in diesem Abschnitt die Größe, in der das betreffende Zeichen gesetzt wird, 
+von der verwendeten Umgebung ab. Das heißt konkret, das die Darstellung in
+einer eingebetteten Formel kleiner ist als in einer abgesetzten Formel.
+
+Stellvertretend für alle Zeichen in diesem Abschnitt wird an dieser Stelle das
+Summenzeichen\index{Summenzeichen} vorgestellt, dessen 
+Satz mit dem Befehl \verb!\sum!\index[cmd]{\texttt{\textbackslash sum}} geschieht.
+
+\fbox{\texttt{\textbackslash sum\textunderscore\{}\textsl{unter dem Zeichen}\texttt{\}\textasciicircum\{}\textsl{über dem Zeichen}\}}
+
+Die eingebettete Formel \(\sum_{n=0}^{x}\) wurde mit folgenden 
+\LaTeX-Quelltext gesetzt: \verb!\(\sum{n=0}{x}\)!. Als abgesetzte Formel, zum Beispiel mit der Umgebung
+\verb!displaymath! oder unter Verwendung von \verb!\[...\]!, sieht der Satz deutlich anders aus:
+
+\begin{minipage}[c]{.4\textwidth}
+% \setlength{\parskip}{1em}
+% \centering
+\[ \sum_{n=0}^{x} \]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\verb!\[ \sum_{n=0}^{x} \] !
+\end{minipage}
+
+Tabelle~\ref{Tabelle_Groessen_mathematischer_Zeichen} enthält eine Übersicht über die 
+Größen verschiedener mathematischer Zeichen. Konkret ist in der Tabelle jedes Zeichen in der
+Form gesetzt, wie es als eingebettete Formel der Fall ist, und wie es in einer abgesetzten Formel 
+der Fall ist. Da abgesetzt Formeln nicht in Tabellen vorkommen dürfen, wurde die gewünschte Darstellung mit dem Befehl 
+\verb!\displaystyle!\index[cmd]{\texttt{\textbackslash displaystyle}} erzwungen.
+
+\fbox{\texttt{\textbackslash displaystyle}}
+
+
+
+
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Größenübersicht verschiedener mathematischer Zeichen}
+\label{Tabelle_Groessen_mathematischer_Zeichen}       % Give a unique label
+\begin{tabular}{ccl}
+\hline
+abgesetzte Formel & 
+eingebettete Formel & 
+% \texttt{\textbackslash scriptstyle} & 
+% \texttt{\textbackslash scriptscriptstyle} & 
+Befehl \\
+\hline
+\begin{math} \displaystyle \bigcap_{x}^{n} \end{math} &
+\begin{math} \bigcap_{x}^{n} \end{math} &
+\texttt{\textbackslash bigcap\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \bigcup_{x}^{n} \end{math} &
+\begin{math} \bigcup_{x}^{n} \end{math} &
+\texttt{\textbackslash bigcup\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \bigotimes_{x}^{n} \end{math} &
+\begin{math} \bigotimes_{x}^{n} \end{math} &
+\texttt{\textbackslash bigotimes\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \bigoplus_{x}^{n} \end{math} &
+\begin{math} \bigoplus_{x}^{n} \end{math} &
+\texttt{\textbackslash bigoplus\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \bigodot_{x}^{n} \end{math} &
+\begin{math} \bigodot_{x}^{n} \end{math} &
+\texttt{\textbackslash bigodot\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \bigsqcup_{x}^{n} \end{math} &
+\begin{math} \bigsqcup_{x}^{n} \end{math} &
+\texttt{\textbackslash bigsqcup\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \biguplus_{x}^{n} \end{math} &
+\begin{math} \biguplus_{x}^{n} \end{math} &
+\texttt{\textbackslash biguplus\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \bigvee_{x}^{n} \end{math} &
+\begin{math} \bigvee_{x}^{n} \end{math} &
+\texttt{\textbackslash bigvee\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \bigwedge_{x}^{n} \end{math} &
+\begin{math} \bigwedge_{x}^{n} \end{math} &
+\texttt{\textbackslash bigwedge\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \int_{x}^{n} \end{math} &
+\begin{math} \int_{x}^{n} \end{math} &
+\texttt{\textbackslash int\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \coprod_{x}^{n} \end{math} &
+\begin{math} \coprod_{x}^{n} \end{math} &
+\texttt{\textbackslash coprod\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \oint_{x}^{n} \end{math} &
+\begin{math} \oint_{x}^{n} \end{math} &
+\texttt{\textbackslash oint\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \prod_{x}^{n} \end{math} &
+\begin{math} \prod_{x}^{n} \end{math} &
+\texttt{\textbackslash prod\textunderscore \{x\}\textasciicircum \{n\}} \\
+\begin{math} \displaystyle \sqrt[x]{n} \end{math} &
+\begin{math} \sqrt[x]{n} \end{math} &
+\texttt{\textbackslash sqrt[x]\{n\}} \\
+\begin{math} \displaystyle \sum_{x}^{n} \end{math} &
+\begin{math} \sum_{x}^{n} \end{math} &
+\texttt{\textbackslash sum\textunderscore \{x\}\textasciicircum \{n\}} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Informationen über oder unter Zeichen positionieren}
+\index{Zeichen!positionieren} 
+
+Das Setzten von einzeiligen Informationen in kleinerer Schrift über oder unter einzelnen Zeichen ermöglichen die 
+Befehle \verb!\overset!,\index[cmd]{\texttt{\textbackslash overset}}  
+\verb!\underset!\index[cmd]{\texttt{\textbackslash underset}}.
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash overset\{}\textsl{oben}\texttt{\}\{}\textsl{unten}\texttt{\}}
+\texttt{\textbackslash underset\{}\textsl{unten}\texttt{\}\{}\textsl{oben}\texttt{\}} \\
+\end{boxedminipage}
+
+Der Befehl \verb!\overset! platziert den Inhalt des
+Arguments \textsl{oben} über dem Inhalt des Arguments \textsl{unten}
+und der Befehl \verb!\underset! platziert den Inhalt des Arguments
+\textsl{unten} unter den Inhalt von \textsl{oben}.
+
+Beide Befehle sind Teil des Erweiterungspakets \verb!amsmath! und stehen zur Verfügung, sobald das Paket 
+in der Präambel der Quelldatei mit dem Befehl \verb!\usepackage{amsmath}! eingebunden ist.
+
+\begin{minipage}[c]{.4\textwidth}
+\setlength{\parskip}{1em}
+\[ 
+  \overset{y}{X} 
+  \qquad
+  \underset{y}{X} 
+  \qquad  
+  \overset{a}{\underset{b}{X}} 
+\]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=oversetundersetbeispiel, style=customlatex]
+\[ 
+  \overset{y}{X} 
+  \qquad
+  \underset{y}{X} 
+  \qquad  
+  \overset{a}{\underset{b}{X}} 
+\]
+\end{lstlisting}
+\end{minipage}
+
+
+Bei der Bildung einer Summe oder zur Indizierung ist 
+es manchmal notwendig, mehrzeilige Angaben 
+zu machen. Das Erweiterungspaket \verb!amsmath! enthält für diesen Zweck
+den Befehl \verb!\substack!.\index[cmd]{\texttt{\textbackslash substack}}  
+
+\fbox{\texttt{\textbackslash substack\{}\textsl{mehrzeilige Formel}\texttt{\}}}
+
+Das Ende einer Zeile wird im 
+Argument \textsl{mehrzeilige Formel}
+mit dem Befehl \verb!\\! angewiesen.
+
+
+\begin{minipage}[c]{.4\textwidth}
+\setlength{\parskip}{1em}
+\[
+  \sum_{\substack{0 \le i \le m \\
+                  0 \le j \le m}} P (i,j)
+\]
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=substackbeispiel, style=customlatex]
+\[
+  \sum_{\substack{0 \le i \le m \\
+                  0 \le j \le m}} P (i,j)
+\]
+\end{lstlisting}
+\end{minipage}
+
+\section{Mathematische Zeichen und Symbole}
+
+Dieser Abschnitt enthält eine Übersicht über verschiedene 
+mathematische Zeichen und Symbole.
+
+
+\subsection{Griechische Buchstaben im Mathematikmodus} 
+\index{Griechische Buchstaben} 
+\index{Buchstaben!Griechische} 
+
+Griechische Buchstaben sind in der
+Mathematik häufig verwendete Zeichen. Die Erzeugung einiger dieser
+Buchstaben geschieht in einer mathematischen Umgebung automatisch, indem \textsl{normale} 
+Buchstaben verwendet werden. Für die übrigen Buchstaben existiert eigene Befehle 
+(siehe Tabelle~\ref{Tabelle_Griechische_Buchstaben1} und Tabelle~\ref{Tabelle_Griechische_Buchstaben2}). 
+
+\begin{table}[h!tb]
+\centering
+\caption{Griechische Großbuchstaben}
+\label{Tabelle_Griechische_Buchstaben1}       % Give a unique label
+\begin{tabular}{clclcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl & Zeichen & Befehl \\
+\hline
+\(A\)      & \texttt{A}                    & \(I\)       & \texttt{I}                     & \(P\)        & \texttt{P}\\
+\(B\)      & \texttt{B}                    & \(K\)       & \texttt{K}                     & \(\Sigma\)   & \texttt{\textbackslash Sigma} \\
+\(\Gamma\) & \texttt{\textbackslash Gamma} & \(\Lambda\) & \texttt{\textbackslash Lambda} & \(T\)        & \texttt{T}\\
+\(\Delta\) & \texttt{\textbackslash Delta} & \(M\)       & \texttt{M}                     & \(\Upsilon\) & \texttt{\textbackslash Upsilon} \\
+\(E\)      & \texttt{E}                    & \(N\)       & \texttt{N}                     & \(\Phi\)     & \texttt{\textbackslash Phi}\\
+\(Z\)      & \texttt{Z}                    & \(\Xi\)     & \texttt{\textbackslash Xi}     & \(X\)        & \texttt{X}\\
+\(H\)      & \texttt{H}                    & \(O\)       & \texttt{O}                     & \(\Psi\)     & \texttt{\textbackslash Psi}\\
+\(\Theta\) & \texttt{\textbackslash Theta} & \(\Pi\)     & \texttt{\textbackslash Pi}     & \(\Omega\)   & \texttt{\textbackslash Omega} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!tb]
+\centering
+\caption{Griechische Kleinbuchstaben}
+\label{Tabelle_Griechische_Buchstaben2}       % Give a unique label
+\begin{tabular}{clclcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl & Zeichen & Befehl \\
+\hline
+\(\alpha\) & \texttt{\textbackslash alpha} & 
+\(\iota\) & \texttt{\textbackslash iota} &
+\(\rho\) & \texttt{\textbackslash rho}\\
+\(\beta\) & {\texttt \textbackslash beta} &
+\(\kappa\) & \texttt{\textbackslash kappa} &
+\(\sigma\) & \texttt{\textbackslash sigma}\\
+\(\gamma\) & \texttt{\textbackslash gamma} & 
+\(\lambda\) & \texttt{\textbackslash lambda} &
+\(\tau\) & \texttt{\textbackslash tau} \\
+\(\delta\) & \texttt{\textbackslash delta} &
+\(\mu\) & \texttt{\textbackslash mu} &
+\(\upsilon\) & \texttt{\textbackslash upsilon} \\
+\(\epsilon\) & \texttt{\textbackslash epsilon} & 
+\(\nu\) & \texttt{\textbackslash nu} &
+\(\phi\) & \texttt{\textbackslash phi} \\
+\(\zeta\) & \texttt{\textbackslash zeta} & 
+\(\xi\) & \texttt{\textbackslash xi} &
+\(\chi\) & \texttt{\textbackslash chi}\\
+\(\eta\) & \texttt{\textbackslash eta} & 
+\(o\) & \texttt{o} &
+\(\psi\) & \texttt{\textbackslash psi} \\
+\(\theta\) & \texttt{\textbackslash theta} & 
+\(\pi\) & \texttt{\textbackslash pi} &
+\(\omega\) & \texttt{\textbackslash omega} \\
+\hline
+\end{tabular}
+\end{table}
+
+Wie in Tabelle~\ref{Tabelle_Griechische_Buchstaben1} und Tabelle~\ref{Tabelle_Griechische_Buchstaben2} zu sehen ist, 
+setzt der \LaTeX-Compiler griechischen Großbuchstaben üblicherweise in der Schrift Roman und griechische Kleinbuchstaben in der geneigten Schrift \textit{Italic} (siehe Abschnitt~\ref{AbschnittSchriftfamilienSchriftschnitte}).
+Sollen auch Großbuchstaben in geneigter Schrift ausgegeben werden, können Autoren dieses mit dem Befehl 
+\verb!\mathnormal!\index[cmd]{\texttt{\textbackslash mathnormal}} anweisen.
+
+\fbox{\texttt{\textbackslash mathnormal\{\textsl{Zeichen}\texttt{\}}}}
+
+Das Argument \verb!Zeichen! enthält die
+kursiv zu schreibenden griechischen Großbuchstaben.
+
+\begin{minipage}[c]{.4\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\( \mathnormal{\Gamma\Delta\Theta\Pi} \)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=mathnormalbeispiel, style=customlatex]
+\( \mathnormal{\Gamma\Delta\Theta\Pi} \)
+\end{lstlisting}
+\end{minipage}
+
+Tabelle~\ref{Tabelle_Griechische_Buchstaben3} zeigt Varianten einiger 
+griechischen Kleinbuchstaben, die u.a. als Variablen nützlich sind.
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Variierte griechische Kleinbuchstaben}
+\label{Tabelle_Griechische_Buchstaben3}       % Give a unique label
+\begin{tabular}{clclcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl & Zeichen & Befehl \\
+\hline
+$\varepsilon$ & \texttt{\textbackslash varepsilon} &
+$\varpi$ & \texttt{\textbackslash varpi} &
+$\varsigma$ & \texttt{\textbackslash varsigma}\\
+$\vartheta$ & \texttt{\textbackslash vartheta} &
+$\varrho$ & \texttt{\textbackslash varrho} &
+$\varphi$ & \texttt{\textbackslash varphi} \\
+\hline
+\end{tabular}
+\index[cmd]{\texttt{\textbackslash varepsilon}}
+\index[cmd]{\texttt{\textbackslash varpi}}
+\index[cmd]{\texttt{\textbackslash varsigma}}
+\index[cmd]{\texttt{\textbackslash vartheta}}
+\index[cmd]{\texttt{\textbackslash varrho}}
+\index[cmd]{\texttt{\textbackslash varphi}}
+\end{table}
+
+
+\subsection{Kalligrafische Buchstaben}
+\index{Buchstaben!Kalligrafische}
+\index{Kalligrafie}
+
+Den Satz von $\mathcal{KALLIGRAFISCHEN}$ Buchstaben innerhalb mathematischer Umgebungen ermöglicht der
+Befehl \verb!\mathcal!\index[cmd]{\texttt{\textbackslash mathcal}}.
+
+
+\fbox{\texttt{\textbackslash mathcal\{\textsl{Zeichen}\texttt{\}}}}
+
+Im Gegensatz zu den griechischen
+Buchstaben sind die kalligrafischen Buchstaben nur als Großbuchstaben verfügbar.
+
+\begin{minipage}[c]{.4\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\( \mathcal{A,B,C,D,E,F,G} \)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.58\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=mathcalbeispiel, style=customlatex]
+\( \mathcal{A,B,C,D,E,F,G} \)
+\end{lstlisting}
+\end{minipage}
+
+Eine Übersicht über die verfügbaren kalligrafischen Buchstaben
+enthält Tabelle~\ref{Tabelle_Kalligrafische_Buchstaben3}.
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Kalligrafische Zeichen}
+\label{Tabelle_Kalligrafische_Buchstaben3}       % Give a unique label
+\begin{tabular}{clclcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl & Zeichen & Befehl \\
+\hline
+\(\mathcal{A}\) & \texttt{\textbackslash mathcal\{A\}} &
+\(\mathcal{J}\) & \texttt{\textbackslash mathcal\{J\}} & 
+\(\mathcal{S}\) & \texttt{\textbackslash mathcal\{S\}} \\
+\(\mathcal{B}\) & \texttt{\textbackslash mathcal\{B\}} & 
+\(\mathcal{K}\) & \texttt{\textbackslash mathcal\{K\}} &
+\(\mathcal{T}\) & \texttt{\textbackslash mathcal\{T\}} \\
+\(\mathcal{C}\) & \texttt{\textbackslash mathcal\{C\}} & 
+\(\mathcal{L}\) & \texttt{\textbackslash mathcal\{L\}} &
+\(\mathcal{U}\) & \texttt{\textbackslash mathcal\{U\}} \\
+\(\mathcal{D}\) & \texttt{\textbackslash mathcal\{D\}} & 
+\(\mathcal{M}\) & \texttt{\textbackslash mathcal\{M\}} &
+\(\mathcal{V}\) & \texttt{\textbackslash mathcal\{V\}}\\
+\(\mathcal{E}\) & \texttt{\textbackslash mathcal\{E\}} & 
+\(\mathcal{N}\) & \texttt{\textbackslash mathcal\{N\}} &
+\(\mathcal{W}\) & \texttt{\textbackslash mathcal\{W\}}\\
+\(\mathcal{F}\) & \texttt{\textbackslash mathcal\{F\}} & 
+\(\mathcal{O}\) & \texttt{\textbackslash mathcal\{O\}} &
+\(\mathcal{X}\) & \texttt{\textbackslash mathcal\{X\}}\\
+\(\mathcal{G}\) & \texttt{\textbackslash mathcal\{G\}} & 
+\(\mathcal{P}\) & \texttt{\textbackslash mathcal\{P\}} &
+\(\mathcal{Y}\) & \texttt{\textbackslash mathcal\{Y\}}\\
+\(\mathcal{H}\) & \texttt{\textbackslash mathcal\{H\}} &
+\(\mathcal{Q}\) & \texttt{\textbackslash mathcal\{Q\}} &
+\(\mathcal{Z}\) & \texttt{\textbackslash mathcal\{Z\}}\\
+\(\mathcal{I}\) & \texttt{\textbackslash mathcal\{I\}} &
+\(\mathcal{R}\) & \texttt{\textbackslash mathcal\{R\}} & 
+& \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Operationssymbole}
+\index{Operationssymbole} 
+
+
+Werden in der Mathematik zwei Objekte mit jeweils einer bestimmten Größe 
+miteinander verknüpft und entsteht dabei ein neues Objekt mit einer bestimmten Größe, dann heißt diese Verknüpfung 
+eine \textsl{binäre Operation}.\index{binäre Operationen} Tabelle~\ref{Tabelle_Binaere_Operationssymbole} zeigt eine Auswahl an binären Operationssymbolen.
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Binäre Operationssymbole}
+\label{Tabelle_Binaere_Operationssymbole}       % Give a unique label
+\begin{tabular}{clcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl  \\
+\hline
+$\amalg$ & \texttt{\textbackslash amalg} &
+$\ominus$ & \texttt{\textbackslash ominus} \\
+$\ast$ & \texttt{\textbackslash ast} &
+$\oplus$ & \texttt{\textbackslash oplus} \\
+$\bigcirc$ & \texttt{\textbackslash bigcirc} &
+$\oslash$ & \texttt{\textbackslash oslash} \\
+$\bigtriangledown$ & \texttt{\textbackslash bigtriangledown} &
+$\otimes$ & \texttt{\textbackslash otimes} \\
+$\bigtriangleup$ & \texttt{\textbackslash bigtriangleup} &
+$\pm$ & \texttt{\textbackslash pm} \\
+$\Box$ & \texttt{\textbackslash Box$^\ast$} &
+$\rhd$ & \texttt{\textbackslash rhd$^\ast$} \\
+$\bullet$ & \texttt{\textbackslash bullet} &
+$\setminus$ & \texttt{\textbackslash setminus} \\
+$\cap$ & \texttt{\textbackslash cap} &
+$\sqcap$ & \texttt{\textbackslash sqcap} \\
+$\cdot$ & \texttt{\textbackslash cdot} &
+$\sqcup$ & \texttt{\textbackslash sqcup} \\
+$\circ$ & \texttt{\textbackslash circ} &
+$\star$ & \texttt{\textbackslash star} \\
+$\cup$ & \texttt{\textbackslash cup} &
+$\times$ & \texttt{\textbackslash times} \\
+$\dagger$ & \texttt{\textbackslash dagger} &
+$\triangleleft$ & \texttt{\textbackslash triangleleft} \\
+$\ddagger$ & \texttt{\textbackslash ddagger} &
+$\triangleright$ & \texttt{\textbackslash triangleright} \\
+$\Diamond$ & \texttt{\textbackslash Diamond$^\ast$} &
+$\unlhd$ & \texttt{\textbackslash unlhd$^\ast$} \\
+$\diamond$ & \texttt{\textbackslash diamond} &
+$\unrhd$ & \texttt{\textbackslash unrhd$^\ast$} \\
+$\div$ & \texttt{\textbackslash div} &
+$\uplus$ & \texttt{\textbackslash uplus} \\
+$\lhd$ & \texttt{\textbackslash lhd$^\ast$} &
+$\vee$ & \texttt{\textbackslash vee} \\
+$\mp$ & \texttt{\textbackslash mp} &
+$\wedge$ & \texttt{\textbackslash wedge} \\
+$\odot$ & \texttt{\textbackslash odot} &
+$\wr$ & \texttt{\textbackslash wr} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+Diejenigen binären Operationssymbole in Tabelle~\ref{Tabelle_Binaere_Operationssymbole}, die mit einem $^\ast$ gekennzeichnet sind,
+erfordern das Einbinden des \verb!latexsym!-Pakets mit dem Befehl 
+\verb!\usepackage{latexsym}! in der Präambel der Quelldatei.
+
+
+\subsection{Vergleichssymbole}
+\index{Vergleichssymbole} 
+
+Tabelle~\ref{Tabelle_Vergleichssymbole} zeigt eine Auswahl an 
+Vergleichssymbolen.
+
+\begin{table}[h!tb]
+\centering
+\caption{Vergleichssymbole}
+\label{Tabelle_Vergleichssymbole}       % Give a unique label
+\begin{tabular}{clcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl  \\
+\hline
+$<$ & \texttt{<} &
+$\ni$ & \texttt{\textbackslash ni} \\
+$>$ & \texttt{>} &
+$\parallel$ & \texttt{\textbackslash parallel} oder \texttt{\textbackslash$|$} \\
+$=$ & \texttt{=} &
+$\perp$ & \texttt{\textbackslash perp} \\
+$\approx$ & \texttt{\textbackslash approx} & 
+$\prec$ & \texttt{\textbackslash prec} \\
+$\asymp$ & \texttt{\textbackslash asymp} & 
+$\preceq$ & \texttt{\textbackslash preceq} \\
+$\bowtie$ & \texttt{\textbackslash bowtie} & 
+$\propto$ & \texttt{\textbackslash propto} \\ 
+$\cong$ & \texttt{\textbackslash cong} &
+$\sim$ & \texttt{\textbackslash sim} \\
+$\dashv$ & \texttt{\textbackslash dashv} & 
+$\smile$ & \texttt{\textbackslash smile} \\
+$\doteq$ & \texttt{\textbackslash doteq} & 
+$\sqsubseteq$ & \texttt{\textbackslash sqsubseteq} \\
+$\equiv$ & \texttt{\textbackslash equiv} & 
+$\sqsupseteq$ & \texttt{\textbackslash sqsupseteq} \\
+$\frown$ & \texttt{\textbackslash frown} & 
+$\subset$ & \texttt{\textbackslash subset} \\  
+$\geq$ & \texttt{\textbackslash ge} oder \texttt{\textbackslash geq} &
+$\subseteq$ & \texttt{\textbackslash subseteq} \\
+$\gg$ & \texttt{\textbackslash gg} & 
+$\succ$ & \texttt{\textbackslash succ} \\
+$\in$ & \texttt{\textbackslash in} & 
+$\succeq$ & \texttt{\textbackslash succeq} \\
+$\le$ & \texttt{\textbackslash le} oder \texttt{\textbackslash leq} & 
+$\supset$ & \texttt{\textbackslash supset} \\
+$\ll$ & \texttt{\textbackslash ll} & 
+$\supseteq$ & \texttt{\textbackslash supseteq} \\
+$\mid$ & \texttt{\textbackslash mid} oder \texttt{$|$} &
+$\simeq$ & \texttt{\textbackslash simeq} \\
+$\models$ & \texttt{\textbackslash models} & 
+$\vdash$ & \texttt{\textbackslash vdash} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+Die umgekehrte, also verneinende
+Bedeutung eines solchen Vergleichssymbols wird
+in der Mathematik durch ein Durchstreichen des betreffenden Symbols mit einem Schrägstrich (\textsl{Slash})
+\verb!/! gekennzeichnet. So ist die Negation von \(=\) (\textsl{gleich}) 
+beispielsweise \(\neq\) (\textsl{ungleich}).
+Die meisten Negationen können durch Voranstellen eines 
+\verb!\not!
+\index[cmd]{\texttt{\textbackslash not}} erzeugt werden. Für einige wenige existiert ein eigener,
+spezieller Befehl (z.B. \verb!\ne! für \(\ne\) oder 
+\verb!\notin!
+\index[cmd]{\texttt{\textbackslash notin}} für \(\notin\)).
+
+Tabelle~\ref{Tabelle_NegierteVergleichssymbole} zeigt eine Auswahl an
+Negationen von Vergleichssymbolen.
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Negierte Vergleichssymbole}
+\label{Tabelle_NegierteVergleichssymbole}       % Give a unique label
+\begin{tabular}{clcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl  \\
+\hline
+$\not<$ & \texttt{\textbackslash not<} & 
+$\not\parallel$ & \texttt{\textbackslash not\textbackslash parallel}\\
+$\not>$ & \texttt{\textbackslash not>} & 
+$\not\perp$ & \texttt{\textbackslash not\textbackslash perp} \\
+$\not=$ & \texttt{\textbackslash not=} oder \texttt{\textbackslash neq} oder \texttt{\textbackslash ne}&
+$\not\prec$ & \texttt{\textbackslash not\textbackslash prec} \\
+$\not\approx$ & \texttt{\textbackslash not\textbackslash approx} & 
+$\not\preceq$ & \texttt{\textbackslash not\textbackslash preceq} \\
+$\not\asymp$ & \texttt{\textbackslash not\textbackslash asymp} & 
+$\not\propto$ & \texttt{\textbackslash not\textbackslash propto} \\
+$\not\bowtie$ & \texttt{\textbackslash not\textbackslash bowtie} & 
+$\not\sim$ & \texttt{\textbackslash not\textbackslash sim} \\
+$\not\cong$ & \texttt{\textbackslash not\textbackslash cong} & 
+$\not\simeq$ & \texttt{\textbackslash not\textbackslash simeq} \\
+$\not\dashv$ & \texttt{\textbackslash not\textbackslash dashv} & 
+$\not\smile$ & \texttt{\textbackslash not\textbackslash smile} \\
+$\not\doteq$ & \texttt{\textbackslash not\textbackslash doteq} & 
+$\not\sqsubset$ & \texttt{\textbackslash not\textbackslash sqsubset$^\ast$} \\
+$\not\equiv$ & \texttt{\textbackslash not\textbackslash equiv} &
+$\not\sqsubseteq$ & \texttt{\textbackslash not\textbackslash sqsubseteq} \\
+$\not\frown$ & \texttt{\textbackslash not\textbackslash frown} & 
+$\not\sqsupset$ & \texttt{\textbackslash not\textbackslash sqsupset$^\ast$} \\
+$\not\geq$ & \texttt{\textbackslash not\textbackslash ge} oder \texttt{\textbackslash not\textbackslash geq} & 
+$\not\sqsupseteq$ & \texttt{\textbackslash not\textbackslash sqsupseteq} \\
+$\not\gg$ & \texttt{\textbackslash not\textbackslash gg} & 
+$\not\subset$ & \texttt{\textbackslash not\textbackslash subset} \\
+$\notin$ & \texttt{\textbackslash notin} &
+$\not\in$ & \texttt{\textbackslash not\textbackslash in} \\
+$\not\subseteq$ & \texttt{\textbackslash not\textbackslash subseteq} &
+$\not\Join$ & \texttt{\textbackslash not\textbackslash Join$^\ast$} \\
+$\not\succ$ & \texttt{\textbackslash not\textbackslash succ} &
+$\not\le$ & \texttt{\textbackslash not\textbackslash le} oder \texttt{\textbackslash not\textbackslash leq} \\
+$\not\succeq$ & \texttt{\textbackslash not\textbackslash succeq} &
+$\not\ll$ & \texttt{\textbackslash not\textbackslash ll} \\
+$\not\supset$ & \texttt{\textbackslash not\textbackslash supset} &
+$\not\mid$ & \texttt{\textbackslash not\textbackslash mid} \\
+$\not\supseteq$ & \texttt{\textbackslash not\textbackslash supseteq} &
+$\not\models$ & \texttt{\textbackslash not\textbackslash models} \\
+$\not\vdash$ & \texttt{\textbackslash not\textbackslash vdash} &
+$\not\ni$ & \texttt{\textbackslash not\textbackslash ni} \\
+\hline
+\end{tabular}
+\end{table}
+
+Diejenigen Symbole in Tabelle~\ref{Tabelle_Zusaetzliche_Vergleichssymbole}, die mit einem $^\ast$ markiert sind, sind nur nach einer
+Einbindung des Erweiterungspakets \texttt{latexsym} verfügbar.
+
+Einige zusätzliche Vergleichssymbole (siehe Tabelle~\ref{Tabelle_Zusaetzliche_Vergleichssymbole}) 
+bietet das Erweiterungspaket \verb!amssymb!, 
+das mit dem Befehl \verb!\usepackage{amssymb}! in der Präambel der Quelldatei eingebunden wird.
+
+\begin{table}[h!tb]
+\centering
+\caption{Zusätzliche Vergleichssymbole}
+\label{Tabelle_Zusaetzliche_Vergleichssymbole}       % Give a unique label
+\begin{tabular}{clcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl  \\
+\hline
+$\backepsilon$ & \texttt{\textbackslash backepsilon} &
+$\precsim$ & \texttt{\textbackslash precsim} \\
+$\backsimeq$ & \texttt{\textbackslash backsimeq} &
+$\risingdotseq$ & \texttt{\textbackslash risingdotseq} \\
+$\Bumpeq$ & \texttt{\textbackslash Bumpeq} &
+$\shortparallel$ & \texttt{\textbackslash shortparallel} \\
+$\circeq$ & \texttt{\textbackslash circeq} &
+$\smallsmile$ & \texttt{\textbackslash smallsmile} \\
+$\eqslantgtr$ & \texttt{\textbackslash eqslantgtr} &
+$\sqsubset$ & \texttt{\textbackslash sqsubset} \\
+$\gtrdot$ & \texttt{\textbackslash gtrdot} &
+$\sqsupset$ & \texttt{\textbackslash sqsupset} \\
+$\gtreqless$ & \texttt{\textbackslash gtreqless} &
+$\succsim$ & \texttt{\textbackslash succsim} \\
+$\Join$ & \texttt{\textbackslash Join} &
+$\thickapprox$ & \texttt{\textbackslash thickapprox} \\
+$\leqq$ & \texttt{\textbackslash leqq} &
+$\trianglelefteq$ & \texttt{\textbackslash trianglelefteq} \\
+$\lessdot$ & \texttt{\textbackslash lessdot} &
+$\trianglerighteq$ & \texttt{\textbackslash trianglerighteq} \\
+$\lesseqgtr$ & \texttt{\textbackslash lesseqgtr} &
+$\varpropto$ & \texttt{\textbackslash varpropto} \\
+$\lesssim$ & \texttt{\textbackslash lesssim} & & \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Pfeile und Zeiger}
+\index{Pfeil}
+\index{Zeiger}
+
+Tabelle~\ref{Tabelle_Pfeile} zeigt eine Auswahl an Pfeilen. 
+Diejenigen Symbole, die mit einem $^\ast$ markiert sind, sind nur nach einer
+Einbindung des Erweiterungspakets \texttt{latexsym} verfügbar.
+
+\begin{table}[h!tb]
+\centering
+\caption{Pfeile}
+\label{Tabelle_Pfeile}       % Give a unique label
+\begin{tabular}{clcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl  \\
+\hline
+$\downarrow$ & \texttt{\textbackslash downarrow} & 
+$\longrightarrow$ & \texttt{\textbackslash longrightarrow}\\
+$\Downarrow$ & \texttt{\textbackslash Downarrow} & 
+$\Longrightarrow$ & \texttt{\textbackslash Longrightarrow}\\
+$\hookleftarrow$ & \texttt{\textbackslash hookleftarrow} & 
+$\mapsto$ & \texttt{\textbackslash mapsto} \\
+$\hookrightarrow$ & \texttt{\textbackslash hookrightarrow} &  
+$\nearrow$ & \texttt{\textbackslash nearrow} \\
+$\leadsto$ & \texttt{\textbackslash leadsto$^\ast$} &  
+$\nwarrow$ & \texttt{\textbackslash nwarrow} \\
+$\leftarrow$ & \texttt{\textbackslash leftarrow} oder \texttt{\textbackslash gets}& 
+$\rightarrow$ & \texttt{\textbackslash rightarrow} oder \texttt{\textbackslash to}\\
+$\Leftarrow$ & \texttt{\textbackslash Leftarrow} & 
+$\Rightarrow$ & \texttt{\textbackslash Rightarrow} \\
+$\leftharpoondown$ & \texttt{\textbackslash leftharpoondown} & 
+$\rightharpoondown$ & \texttt{\textbackslash rightharpoondown} \\
+$\leftharpoonup$ & \texttt{\textbackslash leftharpoonup} & 
+$\rightharpoonup$ & \texttt{\textbackslash rightharpoonup} \\
+$\leftrightarrow$ & \texttt{\textbackslash leftrightarrow} & 
+$\rightleftharpoons$ & \texttt{\textbackslash rightleftharpoons} \\
+$\Leftrightarrow$ & \texttt{\textbackslash Leftrightarrow} & 
+$\searrow$ & \texttt{\textbackslash searrow} \\
+$\longleftarrow$ & \texttt{\textbackslash longleftarrow} & 
+$\swarrow$ & \texttt{\textbackslash swarrow} \\
+$\Longleftarrow$ & \texttt{\textbackslash Longleftarrow} & 
+$\uparrow$ & \texttt{\textbackslash uparrow} \\
+$\longleftrightarrow$ & \texttt{\textbackslash longleftrightarrow} & 
+$\Uparrow$ & \texttt{\textbackslash Uparrow} \\
+$\Longleftrightarrow$ & \texttt{\textbackslash Longleftrightarrow} & 
+$\updownarrow$ & \texttt{\textbackslash updownarrow} \\
+$\longmapsto$ & \texttt{\textbackslash longmapsto}& 
+$\Updownarrow$ & \texttt{\textbackslash Updownarrow} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+Es existieren zwei Möglichkeiten, um den Doppelpfeil $\Longleftrightarrow$ zu erzeugen.
+Eine Möglichkeit, ist die Verwendung des aus Tabelle~\ref{Tabelle_Pfeile} bekannten Befehls
+\verb!\Longleftrightarrow!. Eine alternative Möglichkeit ist die Verwendung des Befehls
+\verb!\iff!. Allerdings unterscheiden sich beide
+Befehle im Zwischenraum, den \LaTeX\ vor und hinter dem Pfeil einfügt.
+Bei \verb!\Longleftrightarrow! $(\Longleftrightarrow)$
+ist der Zwischenraum etwas kleiner als bei \verb!\iff! 
+
+Neben den in Tabelle~\ref{Tabelle_Pfeile} vorgestellten Pfeilen, 
+bietet das Erweiterungspaket \texttt{amsmath} zahlreiche
+Pfeile und Zeiger. Eine Übersicht enthält Tabelle~\ref{Tabelle_Pfeile2}
+
+\begin{table}[h!tb]
+\centering
+\caption{Pfeile und Zeiger}
+\label{Tabelle_Pfeile2}       % Give a unique label
+\begin{tabular}{clcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl  \\
+\hline
+$\circlearrowleft$ & \texttt{\textbackslash circlearrowleft} & 
+$\looparrowleft$ & \texttt{\textbackslash looparrowleft} \\
+$\circlearrowright$ & \texttt{\textbackslash circlearrowright} &
+$\Lsh$ & \texttt{\textbackslash Lsh} \\
+$\curvearrowleft$ & \texttt{\textbackslash curvearrowleft} &
+$\multimap$ & \texttt{\textbackslash multimap} \\
+$\curvearrowright$ & \texttt{\textbackslash curvearrowright} &
+$\rightarrowtail$ & \texttt{\textbackslash rightarrowtail} \\
+$\dashleftarrow$ & \texttt{\textbackslash dashleftarrow} &
+$\rightleftarrows$ & \texttt{\textbackslash rightleftarrows} \\
+$\dashrightarrow$ & \texttt{\textbackslash dashrightarrow} &
+$\rightleftharpoons$ & \texttt{\textbackslash rightleftharpoons} \\
+$\downdownarrows$ & \texttt{\textbackslash downdownarrows} &
+$\rightrightarrows$ & \texttt{\textbackslash rightrightarrows} \\
+$\downharpoonleft$ & \texttt{\textbackslash downharpoonleft} &
+$\rightsquigarrow$ & \texttt{\textbackslash rightsquigarrow} \\
+$\downharpoonright$ & \texttt{\textbackslash downharpoonright} &
+$\Rrightarrow$ & \texttt{\textbackslash Rrightarrow} \\
+$\leftarrowtail$ & \texttt{\textbackslash leftarrowtail} &
+$\Rsh$ & \texttt{\textbackslash Rsh} \\
+$\leftleftarrows$ & \texttt{\textbackslash leftleftarrows} &
+$\twoheadleftarrow$ & \texttt{\textbackslash twoheadleftarrow} \\
+$\leftrightarrows$ & \texttt{\textbackslash leftrightarrows} &
+$\twoheadrightarrow$ & \texttt{\textbackslash twoheadrightarrow} \\
+$\leftrightharpoons$ & \texttt{\textbackslash leftrightharpoons} &
+$\upuparrows$ & \texttt{\textbackslash upuparrows} \\
+$\leftrightsquigarrow$ & \texttt{\textbackslash leftrightsquigarrow} &
+$\upharpoonleft$ & \texttt{\textbackslash upharpoonleft} \\
+$\Lleftarrow$ & \texttt{\textbackslash Lleftarrow} &
+$\upharpoonright$ & \texttt{\textbackslash upharpoonright} \\
+\hline
+\end{tabular}
+\end{table}
+
+Zusätzlich stellt das Erweiterungspaket \verb!amsmath! noch einige negierte (durchgestrichene) 
+Pfeile bereit. Eine Übersicht enthält Tabelle~\ref{Tabelle_Negierte_Pfeile}.
+
+\begin{table}[h!tb]
+\centering
+\caption{Negierte Pfeile}
+\label{Tabelle_Negierte_Pfeile}       % Give a unique label
+\begin{tabular}{clcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl \\
+$\nleftarrow$ & \texttt{\textbackslash nleftarrow} & 
+$\nLeftarrow$ & \texttt{\textbackslash nLeftarrow} \\
+$\nleftrightarrow$ & \texttt{\textbackslash nleftrightarrow} &
+$\nLeftrightarrow$ & \texttt{\textbackslash nLeftrightarrow} \\
+$\nrightarrow$ & \texttt{\textbackslash nrightarrow} &
+$\nRightarrow$ & \texttt{\textbackslash nRightarrow} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Sonstige mathematische Zeichen}
+
+Tabelle~\ref{Tabelle_Sonstige_Zeichen1} präsentiert weitere
+Symbole aller Art, die dem Bereich der mathematischen Zeichen zugeordnet werden können. Einige dieser Zeichen 
+sind Teil des Erweiterungspakets \verb!amsmath!.
+
+\begin{table}[h!tb]
+\centering
+\caption{Sonstige mathematische Zeichen}
+\label{Tabelle_Sonstige_Zeichen1}       % Give a unique label
+\begin{tabular}{clclcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl  \\
+\hline
+$\aleph$ & \texttt{\textbackslash aleph} & 
+$\flat$ & \texttt{\textbackslash flat} \\
+$\neg$ & \texttt{\textbackslash neg} &
+$\angle$ & \texttt{\textbackslash angle} \\
+$\forall$ & \texttt{\textbackslash forall} &
+$\partial$ & \texttt{\textbackslash partial}\\
+$\backslash$ & \texttt{\textbackslash backslash} & 
+$\hbar$ & \texttt{\textbackslash hbar} \\
+$\prime$ & \texttt{\textbackslash prime} &
+$\bot$ & \texttt{\textbackslash bot} \\
+$\heartsuit$ & \texttt{\textbackslash heartsuit} & 
+$\Re$ & \texttt{\textbackslash Re}\\
+$\clubsuit$ & \texttt{\textbackslash clubsuit} & 
+$\imath$ & \texttt{\textbackslash imath} \\
+$\spadesuit$ & \texttt{\textbackslash spadesuit} &
+$\diamondsuit$ & \texttt{\textbackslash diamondsuit} \\
+$\infty$ & \texttt{\textbackslash infty} &
+$\surd$ & \texttt{\textbackslash surd}\\
+$\ell$ & \texttt{\textbackslash ell} & 
+$\jmath$ & \texttt{\textbackslash diamondsuit} \\
+$\top$ & \texttt{\textbackslash top} &
+$\emptyset$ & \texttt{\textbackslash emptyset} \\
+$\nabla$ & \texttt{\textbackslash nabla} &
+$\triangle$ & \texttt{\textbackslash triangle}\\
+$\exists$ & \texttt{\textbackslash exists} & 
+$\natural$ & \texttt{\textbackslash natural} \\
+$\wp$ & \texttt{\textbackslash wp} &
+$\Im$ & \texttt{\textbackslash Im} \\ 
+$\sharp$ & \texttt{\textbackslash sharp}&
+$\|$ & \texttt{\textbackslash |}\\
+$\backprime$ & \texttt{\textbackslash backprime} & 
+$\Diamond$ & \texttt{\textbackslash Diamond} oder \texttt{\textbackslash lozenge} \\
+$\Bbbk$ & \texttt{\textbackslash Bbbk} &
+$\eth$ & \texttt{\textbackslash eth} \\
+$\bigstar$ & \texttt{\textbackslash bigstar} &
+$\Finv$ & \texttt{\textbackslash Finv} \\
+$\blacksquare$ & \texttt{\textbackslash blacksquare} & 
+$\Game$ & \texttt{\textbackslash Game} \\
+$\blacklozenge$ & \texttt{\textbackslash blacklozenge} &
+$\hslash$ & \texttt{\textbackslash hslash} \\
+$\blacktriangle$ & \texttt{\textbackslash blacktriangle} &
+$\measuredangle$ & \texttt{\textbackslash measuredangle} \\
+$\blacktriangledown$ & \texttt{\textbackslash blacktriangledown}&
+$\mho$ & \texttt{\textbackslash mho} \\
+$\Box$ & \texttt{\textbackslash Box} oder \texttt{\textbackslash square}&
+$\nexists$ & \texttt{\textbackslash nexists} \\
+$\circledS$ & \texttt{\textbackslash circledS} &
+$\sphericalangle$ & \texttt{\textbackslash sphericalangle}\\
+$\complement$ & \texttt{\textbackslash complement} &
+$\triangledown$ & \texttt{\textbackslash triangledown} \\
+$\diagdown$ & \texttt{\textbackslash diagdown} &
+$\varnothing$ & \texttt{\textbackslash varnothing} \\
+$\diagup$ & \texttt{\textbackslash diagup} &
+$\vartriangle$ & \texttt{\textbackslash vartriangle} \\ 
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Mathematische Funktionen}
+
+In der Literatur werden mathematische Funktionen üblicherweise nicht -- wie
+die Namen von Variablen -- kursiv geschrieben, sondern mit aufrechter Roman-Schrift gesetzt. Eine Übersicht über 
+mathematische
+Funktionen und deren Befehl zeigt Tabelle~\ref{Tabelle_Mathematische_Funktionen}.
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Mathematische Funktionen}
+\label{Tabelle_Mathematische_Funktionen}       % Give a unique label
+\begin{tabular}{clclcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl & Zeichen & Befehl \\
+\hline
+$\arccos$ & \texttt{\textbackslash arccos} & 
+$\exp$ & \texttt{\textbackslash exp} & 
+$\max$ & \texttt{\textbackslash max} \\
+$\arcsin$  & \texttt{\textbackslash arcsin} & 
+$\gcd$ & \texttt{\textbackslash gcd} & 
+$\min$ & \texttt{\textbackslash min} \\
+$\arctan$ & \texttt{\textbackslash arctan} & 
+$\hom$ & \texttt{\textbackslash hom} & 
+$\bmod$ & \texttt{\textbackslash bmod} \\
+$\arg$ & \texttt{\textbackslash arg} & 
+$\inf$ & \texttt{\textbackslash inf} & 
+$\mod$ & \texttt{\textbackslash mod} \\
+$\cos$ & \texttt{\textbackslash cos} & 
+$\ker$ & \texttt{\textbackslash ker} & 
+$\Pr$ & \texttt{\textbackslash Pr} \\
+$\cosh$ & \texttt{\textbackslash cosh} & 
+$\lg$ & \texttt{\textbackslash lg} & 
+$\sec$ & \texttt{\textbackslash sec} \\
+$\cot$ & \texttt{\textbackslash cot} & 
+$\lim$ & \texttt{\textbackslash lim} & 
+$\sin$ & \texttt{\textbackslash sin} \\
+$\coth$ & \texttt{\textbackslash coth} & 
+$\liminf$ & \texttt{\textbackslash liminf} & 
+$\sinh$ & \texttt{\textbackslash sinh} \\
+$\csc$ & \texttt{\textbackslash csc} &
+$\limsup$ & \texttt{\textbackslash limsup} & 
+$\sup$ & \texttt{\textbackslash sup} \\
+$\deg$ & \texttt{\textbackslash deg} & 
+$\ln$ & \texttt{\textbackslash ln} & 
+$\tan$ & \texttt{\textbackslash tan} \\
+$\det$ & \texttt{\textbackslash det} & 
+$\log$ & \texttt{\textbackslash log} & 
+$\tanh$ & \texttt{\textbackslash tanh} \\
+$\dim$ & \texttt{\textbackslash dim} & & & & \\
+\hline
+\end{tabular}
+\index[cmd]{\texttt{\textbackslash arccos}}
+\index[cmd]{\texttt{\textbackslash exp}}
+\index[cmd]{\texttt{\textbackslash max}}
+\index[cmd]{\texttt{\textbackslash arcsin}} 
+\index[cmd]{\texttt{\textbackslash gcd}}
+\index[cmd]{\texttt{\textbackslash min}}
+\index[cmd]{\texttt{\textbackslash arctan}}
+\index[cmd]{\texttt{\textbackslash hom}}
+\index[cmd]{\texttt{\textbackslash bmod}}
+\index[cmd]{\texttt{\textbackslash arg}}
+\index[cmd]{\texttt{\textbackslash inf}}
+\index[cmd]{\texttt{\textbackslash mod}}
+\index[cmd]{\texttt{\textbackslash cos}}
+\index[cmd]{\texttt{\textbackslash ker}}
+\index[cmd]{\texttt{\textbackslash Pr}}
+\index[cmd]{\texttt{\textbackslash cosh}}
+\index[cmd]{\texttt{\textbackslash lg}}
+\index[cmd]{\texttt{\textbackslash sec}}
+\index[cmd]{\texttt{\textbackslash cot}}
+\index[cmd]{\texttt{\textbackslash lim}}
+\index[cmd]{\texttt{\textbackslash sin}}
+\index[cmd]{\texttt{\textbackslash coth}}
+\index[cmd]{\texttt{\textbackslash liminf}}
+\index[cmd]{\texttt{\textbackslash sinh}}
+\index[cmd]{\texttt{\textbackslash csc}}
+\index[cmd]{\texttt{\textbackslash limsup}} 
+\index[cmd]{\texttt{\textbackslash sup}}
+\index[cmd]{\texttt{\textbackslash deg}}
+\index[cmd]{\texttt{\textbackslash ln}} 
+\index[cmd]{\texttt{\textbackslash tan}}
+\index[cmd]{\texttt{\textbackslash det}}
+\index[cmd]{\texttt{\textbackslash log}}
+\index[cmd]{\texttt{\textbackslash tanh}}
+\index[cmd]{\texttt{\textbackslash dim}}
+\end{table}
+
+Der Eintrag $\gcd$ in Tabelle~\ref{Tabelle_Mathematische_Funktionen} entspricht dem 
+deutschen ggT (größter gemeinsamer Teiler) und das $\mod$ nach 
+rechts eingezogen ist, ist kein Druckfehler, sondern eine Eigenheit des \LaTeX-Compilers.
+
+
+\subsection{Akzente in Formeln}
+
+
+Auch in einer mathematischen Umgebung ist es 
+möglich, Akzente zu verwenden. Die in Tabelle~\ref{Tabelle_Akzente_Formeln} 
+gezeigten Akzente unterscheiden sich von denen im Fließtext.
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Akzente in Formeln}
+\label{Tabelle_Akzente_Formeln}       % Give a unique label
+\begin{tabular}{clclcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl & Zeichen & Befehl \\
+\hline
+$\acute{a}$ & \texttt{\textbackslash acute\{a\}} & 
+$\dot{a}$ & \texttt{\textbackslash dot\{a\}} &
+$\hat{a}$ & \texttt{\textbackslash hat\{a\}} \\
+$\bar{a}$ & \texttt{\textbackslash bar\{a\}} &
+$\ddot{a}$ & \texttt{\textbackslash ddot\{a\}} &
+$\tilde{a}$ & \texttt{\textbackslash tilde\{a\}} \\
+$\breve{a}$ & \texttt{\textbackslash breve\{a\}} &
+$\grave{a}$ & \texttt{\textbackslash grave\{a\}} &
+$\vec{a}$ & \texttt{\textbackslash vec\{a\}} \\
+$\check{a}$ & \texttt{\textbackslash check\{a\}} &
+  & \\
+\hline
+\end{tabular}
+\index[cmd]{\texttt{\textbackslash acute}}
+\index[cmd]{\texttt{\textbackslash dot}}
+\index[cmd]{\texttt{\textbackslash har}}
+\index[cmd]{\texttt{\textbackslash bar}}
+\index[cmd]{\texttt{\textbackslash ddot}}
+\index[cmd]{\texttt{\textbackslash tilde}}
+\index[cmd]{\texttt{\textbackslash breve}}
+\index[cmd]{\texttt{\textbackslash grave}}
+\index[cmd]{\texttt{\textbackslash vec}}
+\index[cmd]{\texttt{\textbackslash check}}
+\end{table}
+
+Doppelakzente sind mit den in Tabelle~\ref{Tabelle_Akzente_Formeln} gezeigten
+Befehlen auch realisierbar, wie Tabelle~\ref{Tabelle_Doppelakzente_Formeln} zeigt.
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Doppelakzente in Formeln}
+\label{Tabelle_Doppelakzente_Formeln}       % Give a unique label
+\begin{tabular}{clcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl  \\
+\hline
+$\acute{\acute{a}}$ & \texttt{\textbackslash acute\{\textbackslash acute\{a\}\}} & 
+$\ddot{\ddot{a}}$ & \texttt{\textbackslash ddot\{\textbackslash ddot\{a\}\}} \\
+$\bar{\bar{a}}$ & \texttt{\textbackslash bar\{\textbackslash bar\{a\}\}} &
+$\grave{\grave {a}}$ & \texttt{\textbackslash grave\{\textbackslash grave\{a\}\}} \\
+$\breve{\breve {a}}$ & \texttt{\textbackslash breve\{\textbackslash breve\{a\}\}} &
+$\hat{\hat {a}}$ & \texttt{\textbackslash hat\{\textbackslash hat\{a\}\}} \\
+$\check{\check {a}}$ & \texttt{\textbackslash check\{\textbackslash check\{a\}\}} &
+$\tilde{\tilde {a}}$ & \texttt{\textbackslash tilde\{\textbackslash tilde\{a\}\}} \\
+$\dot{\dot {a}}$ & \texttt{\textbackslash dot\{\textbackslash dot\{a\}\}} &
+$\vec{\vec {a}}$ & \texttt{\textbackslash vec\{\textbackslash vec\{a\}\}} \\
+\hline
+\end{tabular}
+\index[cmd]{\texttt{\textbackslash acute}}
+\index[cmd]{\texttt{\textbackslash ddot}}
+\index[cmd]{\texttt{\textbackslash bar}}
+\index[cmd]{\texttt{\textbackslash grave}}
+\index[cmd]{\texttt{\textbackslash breve}}
+\index[cmd]{\texttt{\textbackslash hat}}
+\index[cmd]{\texttt{\textbackslash check}}
+\index[cmd]{\texttt{\textbackslash tilde}}
+\index[cmd]{\texttt{\textbackslash dot}}
+\index[cmd]{\texttt{\textbackslash vec}}
+\end{table}
+
+Zusätzlich zu den in diesem Abschnitt 
+vorgestellten Akzenten, stellt das Erweiterungspaket \verb!amsmath! 
+die Befehle \verb!\dddot!\index[cmd]{\texttt{\textbackslash dddot}} 
+und \verb!\ddddot!\index[cmd]{\texttt{\textbackslash ddddot}} zur Verfügung, die 
+dreifache bzw. vierfache Punktakzente erzeugen (siehe Tabelle~\ref{Tabelle_Akzente_amsmath}). 
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Dreifache bzw. vierfache Punktakzente}
+\label{Tabelle_Akzente_amsmath}       % Give a unique label
+\begin{tabular}{clcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl  \\
+\hline
+$\dddot{a}$ & \texttt{\textbackslash dddot\{a\}} & 
+$\ddddot{a}$ & \texttt{\textbackslash ddddot\{a\}} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Über- und Unterstreichungen}
+\index{Unterstreichungssymbole}
+\index{Überstreichungssymbole} 
+
+Zum Satz verschiedener Über- und Unterstreichungen
+existiert eine Reihe von Befehlen, die Tabelle~\ref{Tabelle_Ueberstreichungen_Unterstreichungen} zeigt. 
+Überstreichungen realisieren die Befehle
+\verb!\overline!\index[cmd]{\texttt{\textbackslash overline}}, 
+\verb!\overbrace!\index[cmd]{\texttt{\textbackslash overbrace}}, 
+\verb!\widehat!\index[cmd]{\texttt{\textbackslash widehat}} und
+\verb!\widetilde!\index[cmd]{\texttt{\textbackslash widetilde}}. 
+Für Unterstreichungen stehen 
+\verb!\underline!\index[cmd]{\texttt{\textbackslash underline}} und
+\verb!\underbrace!\index[cmd]{\texttt{\textbackslash underbrace}} zur Verfügung.
+
+\begin{table}[h!tb]
+\centering
+\caption{Über- und Unterstreichungen in Formeln}
+\label{Tabelle_Ueberstreichungen_Unterstreichungen}       % Give a unique label
+\begin{tabular}{clcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl  \\
+\hline
+$\overline{abc}$ & \texttt{\textbackslash overline\{abc\}} & 
+$\underline{abc}$ & \texttt{\textbackslash underline\{abc\}} \\
+$\overbrace{abc}$ & \texttt{\textbackslash overbrace\{abc\}} &
+$\underbrace{abc}$ & \texttt{\textbackslash underbrace\{abc\}} \\
+$\widehat{abc}$ & \texttt{\textbackslash widehat\{abc\}} &
+$\widetilde{abc}$ & \texttt{\textbackslash widetilde\{abc\}} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+Bei diesen Befehlen muss der Inhalt, der über- oder unterstrichen
+werden soll, in geschweiften Klammern als Argument angegeben sein. 
+
+Die Breite der Über- und Unterstreichungssymbole
+legt der \LaTeX-Compiler, abhängig von der Breite der zu über- oder unterstreichenden Inhalte, automatisch fest.
+Es ist auch möglich, die
+Befehle aus Tabelle~\ref{Tabelle_Ueberstreichungen_Unterstreichungen} zu verschachteln, und so Symbole 
+oder mathematische Inhalte mit mehreren dieser
+Über- oder Unterstreichungssymbole zu versehen, wie das folgende Beispiel zeigt:
+
+\begin{minipage}[c]{.3\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\( \overbrace{abc\underline{def\overline{gih}}jkl} \)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.68\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=overbracebeispiel, style=customlatex]
+\( \overbrace{abc\underline{def\overline{gih}}jkl} \)
+\end{lstlisting}
+\end{minipage}
+
+
+
+Mit Hilfe der Befehle aus Tabelle~\ref{Tabelle_Ueberstreichungen_Unterstreichungen} 
+ist es auch möglich, Texte oder mathematische Inhalte über bzw. unter Inhalten zu setzen.
+Im folgenden Beispiel werden Zeichen \textsl{unter} einen Inhalt gesetzt:
+
+
+\[ x_1 * \underbrace{x_2 * x_3}_{2x_2} * 
+         \underbrace{x_4 * x_5 * x_6 * x_7}_{2^2x_4} * 
+         \underbrace{x_8 * \ldots * x_{15}}_{2^3 x_8} * \ldots \]
+
+
+\begin{lstlisting}[label=underbracebeispiel, style=customlatex]
+\[ x_1 * \underbrace{x_2 * x_3}_{2x_2} * 
+         \underbrace{x_4 * x_5 * x_6 * x_7}_{2^2x_4} * 
+         \underbrace{x_8 * \ldots * x_{15}}_{2^3 x_8} * \ldots \]
+\end{lstlisting}
+
+Im folgenden Beispiel wird ein Zeichen \textsl{über} einen Inhalt gesetzt:
+
+\begin{minipage}[c]{.3\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\( \overbrace{1, x-1, x^2-1, x^3-1}^{4} \)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.68\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=overbracebeispiel2, style=customlatex]
+\( \overbrace{1, x-1, x^2-1, x^3-1}^{4} \)
+\end{lstlisting}
+\end{minipage}
+
+
+Mit Ausnahme des Befehls \verb!\underline! funktionieren die in diesem Abschnitt vorgestellten Befehle nur innerhalb mathematischer Umgebungen.
+
+\subsection{Pfeile über und unter Formeln}
+
+Das setzen von Pfeilen über oder unter 
+mathematische Inhalte geschieht mit den Befehlen 
+\verb!\overleftarrow!\index[cmd]{\texttt{\textbackslash overleftarrow}} bzw. 
+\verb!\overrightarrow!\index[cmd]{\texttt{\textbackslash overrightarrow}} 
+für Pfeile über Inhalten und 
+\verb!\underleftarrow!\index[cmd]{\texttt{\textbackslash underleftarrow}} bzw. 
+\verb!\underrightarrow!.\index[cmd]{\texttt{\textbackslash underrightarrow}} für 
+Pfeile unter Inhalten
+
+
+\begin{boxedminipage}{\textwidth}
+\texttt{\textbackslash overleftarrow[{\textsl{Inhalt}}]} bzw. \texttt{\textbackslash overrightarrow[{\textsl{Inhalt}}]}\\
+\texttt{\textbackslash underleftarrow[{\textsl{Inhalt}}]} bzw. \texttt{\textbackslash underrightarrow[{\textsl{Inhalt}}]}
+\end{boxedminipage}
+
+
+Die Verschaltung der in diesem Abschnitt vorgestellten Befehle ist problemlos möglich.
+Die Größe der Pfeile legt der \LaTeX-Compiler selbstständig fest.
+
+\begin{minipage}[c]{.25\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\( \{\varphi(\overrightarrow{X})\}
+     \beta\{\psi(\overrightarrow{XY})\} \)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.73\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=overrightarrowbeispiel, style=customlatex]
+\( \{\varphi(\overrightarrow{X})\}
+     \beta\{\psi(\overrig7htarrow{XY})\} \)
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}[c]{.25\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\( \overrightarrow{\overrightarrow{X_\delta aY_\beta h} = 
+   \underrightarrow{X_\delta aY_\beta h}} \)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.73\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=underrightarrowbeispiel, style=customlatex]
+\( \overrightarrow{\overrightarrow{X_\delta aY_\beta h} = 
+   \underrightarrow{X_\delta aY_\beta h}} \)
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}[c]{.25\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\( \overrightarrow{\underrightarrow{q X_{\overleftarrow{\delta\gamma}} 
+                                    a Y_{\overleftarrow{\beta\gamma}}h}} \)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.73\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=overleftarrowbeispiel, style=customlatex]
+\( \overrightarrow{\underrightarrow{
+   qX_{\overleftarrow{\delta\gamma}} 
+   aY_{\overleftarrow{\beta\gamma}}h}} \)
+\end{lstlisting}
+\end{minipage}
+
+
+\subsection{Die Größe von Klammern anpassen}
+\index{Klammer!Größe}
+
+Ist eine Klammer, die zum Beispiel einen Bruch oder eine Matrix umschließt, zu klein, kann deren 
+Größe automatisch mit den Befehlen 
+\verb!\left! und\index[cmd]{\texttt{\textbackslash left}} 
+\verb!\right!\index[cmd]{\texttt{\textbackslash right}} 
+angepasst werden. Diese Befehle werden vor eine öffnende oder schließende Klammer oder vor einen Befehl 
+zum Satz eines anderen Begrenzungssymbols gesetzt.
+
+Die Anpassung kann auch manuell durch ein Voranstellen der Befehle 
+\verb!\big!,\index[cmd]{\texttt{\textbackslash big}}  
+\verb!\Big!,
+\verb!\bigg! und\index[cmd]{\texttt{\textbackslash bigg}}  
+\verb!\Bigg! vorgenommen werden.
+
+Eine Übersicht, wie sich 
+diese Befehle auf die Größe der Klammern 
+auswirken, enthält Tabelle~\ref{Tabelle_Klammern_Groessenanpassungen1} und Tabelle~\ref{Tabelle_Klammern_Groessenanpassungen2}.
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Manuelle Größenanpassung der Klammern (Teil 1)}
+\label{Tabelle_Klammern_Groessenanpassungen1}       % Give a unique label
+\begin{tabular}{lcccccccccccccccc}
+\hline
+& & & & & & & & & & & & & & & &  \\
+\texttt{\textbackslash big} & $\big($ & $\big)$ & $\big[$ & $\big]$ & 
+$\big\{$ & $\big\}$ & $\big|$ & $\big\|$ & 
+$\big\lfloor$ & $\big\rfloor$ & $\big\lceil$ & $\big\rceil$ &
+$\big/$ & $\big\backslash$ & $\big\langle$ & $\big\rangle$  \\
+& & & & & & & & & & & & & & & &  \\
+\texttt{\textbackslash Big} & $\Big($ & $\Big)$ & $\Big[$ & $\Big]$ & 
+$\Big\{$ & $\Big\}$ & $\Big|$ & $\Big\|$ & 
+$\Big\lfloor$ & $\Big\rfloor$ & $\Big\lceil$ & $\Big\rceil$ &
+$\Big/$ & $\Big\backslash$ & $\Big\langle$ & $\Big\rangle$  \\
+& & & & & & & & & & & & & & & &  \\
+\texttt{\textbackslash bigg} & $\bigg($ & $\bigg)$ & $\bigg[$ & $\bigg]$ & 
+$\bigg\{$ & $\bigg\}$ & $\bigg|$ & $\bigg\|$ & 
+$\bigg\lfloor$ & $\bigg\rfloor$ & $\bigg\lceil$ & $\bigg\rceil$ &
+$\bigg/$ & $\bigg\backslash$ & $\bigg\langle$ & $\bigg\rangle$ \\
+& & & & & & & & & & & & & & & &  \\
+\texttt{\textbackslash Bigg} & $\Bigg($ & $\Bigg)$ & $\Bigg[$ & $\Bigg]$ & 
+$\Bigg\{$ & $\Bigg\}$ & $\Bigg|$ & $\Bigg\|$ & 
+$\Bigg\lfloor$ & $\Bigg\rfloor$ & $\Bigg\lceil$ & $\Bigg\rceil$ &
+$\Bigg/$ & $\Bigg\backslash$ & $\Bigg\langle$ & $\Bigg\rangle$  \\
+& & & & & & & & & & & & & & & &  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!tb]
+\centering
+\caption{Manuelle Größenanpassung der Klammern (Teil 2)}
+\label{Tabelle_Klammern_Groessenanpassungen2}       % Give a unique label
+\begin{tabular}{lcccccc}
+\hline
+& & & & & &   \\
+\texttt{\textbackslash big} & $\big\uparrow$ & $\big\Uparrow$ &  
+$\big\downarrow$ & $\big\Downarrow$ & $\big\updownarrow$ & $\big\Updownarrow$  \\
+& & & & & &   \\
+\texttt{\textbackslash Big} & $\Big\uparrow$ & $\Big\Uparrow$ &  
+$\Big\downarrow$ & $\Big\Downarrow$ & $\Big\updownarrow$ & $\Big\Updownarrow$  \\
+& & & & & &   \\
+\texttt{\textbackslash bigg} & $\bigg\uparrow$ & $\bigg\Uparrow$ &  
+$\bigg\downarrow$ & $\bigg\Downarrow$ & $\bigg\updownarrow$ & $\bigg\Updownarrow$ \\
+& & & & & &   \\
+\texttt{\textbackslash Bigg} & $\Bigg\uparrow$ & $\Bigg\Uparrow$ &  
+$\Bigg\downarrow$ & $\Bigg\Downarrow$ & $\Bigg\updownarrow$ & $\Bigg\Updownarrow$ \\
+& & & & & &   \\
+\hline
+\end{tabular}
+\end{table}
+
+Tabelle~\ref{Tabelle_Klammern_Befehle} enthält eine Übersicht über die 
+Klammern und Begrenzungssymbole aus den Tabellen~\ref{Tabelle_Klammern_Groessenanpassungen1} und \ref{Tabelle_Klammern_Groessenanpassungen2} und die Befehle, mit denen diese erzeugt werden.
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Befehle um unterschiedliche Klammersymbole zu erzeugen}
+\label{Tabelle_Klammern_Befehle}       % Give a unique label
+\begin{tabular}{clcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl \\
+\hline
+$($ & \texttt{)}  & 
+$)$ & \texttt{(}  \\
+$[$ & \texttt{]}  &
+$]$ & \texttt{[}  \\
+$\{$ & \texttt{\textbackslash \{} &
+$\}$ & \texttt{\textbackslash \}} \\
+$|$ & \texttt{|} &
+$\|$ & \texttt{\textbackslash |} \\
+$\lfloor$ & \texttt{\textbackslash lfloor} &
+$\rfloor$ & \texttt{\textbackslash rfloor} \\ 
+$\lceil$ & \texttt{\textbackslash lceil} &
+$\rceil$ & \texttt{\textbackslash rceil} \\
+$/$ & \texttt{/} &  
+$\backslash$ & \texttt{\textbackslash backslash} \\
+$\langle$ & \texttt{\textbackslash langle} &
+$\rangle$ & \texttt{\textbackslash rangle} \\  
+$\uparrow$ & \texttt{\textbackslash uparrow} &
+$\Uparrow$ & \texttt{\textbackslash Uparrow} \\
+$\downarrow$ & \texttt{\textbackslash downarrow} &  
+$\Downarrow$ & \texttt{\textbackslash Downarrow} \\
+$\updownarrow$ & \texttt{\textbackslash updownarrow} &
+$\Updownarrow$ & \texttt{\textbackslash Updownarrow}  \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+\subsection{Matrizen und Felder}
+\index{Matrizen} 
+
+Das Setzen von \textsl{Matrizen} geschieht mit der Umgebung
+\verb!array!\index[cmd]{\texttt{array}}. 
+Die Definition der Ausrichtung der einzelnen Spalten geschieht mit 
+Spaltenformatierungseinträgen, analog zur Umgebung \verb!tabular! (siehe Kapitel~\ref{Kapitel_Tabellen}).
+
+\begin{boxedminipage}{\textwidth}
+	\texttt{\textbackslash begin\{array\}[}\textsl{Ausrichtung}\texttt{]\{}\textsl{Präambel}\texttt{\}} \\
+	\texttt{\textbackslash end\{array\}} 
+\end{boxedminipage}
+
+Das folgende Beispiel zeigt eine Matrix, die mit der Umgebung
+\verb!array! gesetzt wurde:
+
+
+\begin{minipage}[c]{.38\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\(
+\left(\begin{array}{ccccc}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1x} \\ 
+a_{21} & a_{22} & a_{23} & \cdots & a_{2x} \\ 
+a_{31} & a_{32} & a_{33} & \cdots & a_{3x} \\ 
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{y1} & a_{y2} & a_{y3} & \cdots & a_{yx}
+\end{array}\right)
+\)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=arraybeispiel, style=customlatex]
+\(
+\left(\begin{array}{ccccc}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1x} \\ 
+a_{21} & a_{22} & a_{23} & \cdots & a_{2x} \\ 
+a_{31} & a_{32} & a_{33} & \cdots & a_{3x} \\ 
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{y1} & a_{y2} & a_{y3} & \cdots & a_{yx}
+\end{array}\right)
+\)
+\end{lstlisting}
+\end{minipage}
+
+\textsl{Auslassungspunkte}\index{Auslassungspunkte} werden, wie im Beispiel gezeigt, 
+nicht einzeln und per Hand gesetzt, sondern mit Hilfe geeigneter Befehle realisiert.
+Eine Übersicht dieser Befehle enthält Tabelle~\ref{Tabelle_Befehle}.
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Befehle um Auslassungspunkte zu setzen}
+\label{Tabelle_Befehle}       % Give a unique label
+\begin{tabular}{clclclcl}
+\hline
+Zeichen & Befehl & Zeichen & Befehl & Zeichen & Befehl & Zeichen & Befehl \\
+\hline
+$\ldots$ & \texttt{\textbackslash ldots} & 
+$\cdots$ & \texttt{\textbackslash cdots} &
+$\ddots$ & \texttt{\textbackslash ddots} &
+$\vdots$ & \texttt{\textbackslash vdots} \\
+$.$ & \texttt{.} &
+$:$ & \texttt{:} &
+$\cdot$ & \texttt{\textbackslash cdot} &
+$\dot{}$ & \texttt{\textbackslash dot\{\}} \\
+\hline
+\end{tabular}
+\end{table}
+
+Innerhalb einer \verb!array!-Umgebung können sich weitere 
+\verb!array!-Umgebungen befinden. Die Funktionsweise ist vergleichbar mit 
+geschachtelten Tabellen.
+
+Das folgende Beispiel zeigt zwei geschachtelte \verb!array!-Umgebungen:
+
+
+\begin{minipage}[c]{.38\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\(
+  \left( \begin{array}{c}
+  \left| \begin{array}{cc}
+  a & 1 \\ b & 2 \\ c & 3 
+  \end{array}\right| \\
+  x^{y} \\
+  \sqrt[y]{x-1}
+  \end{array}\right)
+\)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=arraybeispiel2, style=customlatex]
+\(
+  \left( \begin{array}{c}
+  \left| \begin{array}{cc}
+  a & 1 \\ b & 2 \\ c & 3 
+  \end{array}\right| \\
+  x^{y} \\
+  \sqrt[y]{x-1}
+  \end{array}\right)
+\)
+\end{lstlisting}
+\end{minipage}
+
+
+\subsection{Mengensymbole}
+% \newfont{\mengen}{dsrom10}
+\index{Mengensymbol}
+
+
+Für Mengensymbole existiert der Befehl \verb!\mathbb!\index[cmd]{\texttt{\textbackslash mathbb}}
+(siehe Tabelle~\ref{Tabelle_Mengensymbole}).
+
+
+\fbox{\texttt{\textbackslash mathbb\{}\textsl{Zeichen}\texttt{\}}}
+
+
+\begin{table}[h!tb]
+\centering
+\caption{Befehle um Mengensymbole zu setzen}
+\label{Tabelle_Mengensymbole}       % Give a unique label
+\begin{tabular}{clclcl}
+\hline
+Zeichen & Bedeutung & Befehl  \\
+\hline
+\(\mathbb{N}\) & \textsl{natürliche Zahlen}    & \texttt{\textbackslash mathbb\{N\}} \\
+\(\mathbb{Z}\) & \textsl{ganze Zahlen}         & \texttt{\textbackslash mathbb\{Z\}} \\
+\(\mathbb{Q}\) & \textsl{rationale Zahlen}     & \texttt{\textbackslash mathbb\{Q\}} \\
+\(\mathbb{I}\) & \textsl{irrationale Zahlen}   & \texttt{\textbackslash mathbb\{I\}} \\
+\(\mathbb{A}\) & \textsl{algebraische Zahlen}  & \texttt{\textbackslash mathbb\{A\}} \\
+\(\mathbb{R}\) & \textsl{reelle Zahlen}        & \texttt{\textbackslash mathbb\{R\}} \\
+\(\mathbb{C}\) & \textsl{komplexe Zahlen}      & \texttt{\textbackslash mathbb\{C\}} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Normaler Text in Formeln}
+
+Soll ein \glqq normaler\grqq\ Text innerhalb einer
+mathematischen Umgebung gesetzt werden, muss diese nicht zwingend verlassen werden.
+Eine einfache Möglichkeit ist die Verwendung des Befehls \verb!\mbox!\index[cmd]{\texttt{\textbackslash mbox}}.
+
+\fbox{\texttt{\textbackslash mbox\{}\textsl{Text}\texttt{\}}}
+
+Der zu setzende Text wird dem Befehl in geschweiften 
+Klammern übergeben. 
+
+Das folgende Beispiel zeigt die Arbeitsweise:
+
+
+\begin{minipage}[c]{.38\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\( M_i\cap M_j = \emptyset
+   \quad\mbox{falls}\quad i\not=j \)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=mboxbeispiel, style=customlatex]
+\( M_i\cap M_j = \emptyset
+   \quad\mbox{falls}\quad i\not=j \)
+\end{lstlisting}
+\end{minipage}
+
+
+
+Wie das Beispiel zeigt, kann es nützlich sein,
+um die \verb!\mbox! horizontale Abstände einzufügen.
+Eine Möglichkeit, solche Abstände einzufügen, ist die Verwendung der Befehle 
+\verb!\quad! und \verb!\qquad! (siehe Abschnitt~\ref{Abschnitt:hspace}).
+
+\fbox{\texttt{\textbackslash quad}}
+
+Der Befehl \verb!\quad!\index[cmd]{\texttt{\textbackslash quad}}  
+fügt einen horizontalen 
+Abstand ein, der etwas breiter ist
+als ein gewöhnlicher Wortabstand, und der 
+Befehl \verb!\qquad!\index[cmd]{\texttt{\textbackslash qquad}}  
+fügt einen Abstand 
+ein, der doppelt so breit ist wie
+ein von \verb!\quad! erzeugter.
+
+\fbox{\texttt{\textbackslash qquad}}
+
+
+
+\subsection{Mathematische Inhalte einrahmen}
+
+Das Einrahmen mathematischer Inhalte kann mit dem 
+Befehl \verb!\boxed!\index[cmd]{\texttt{\textbackslash boxed}}  
+aus dem Erweiterungspaket \verb!amsmath! 
+realisiert werden. Der Befehl zieht einen Rahmen 
+um die Inhalte, die er in geschweiften
+Klammern als Argument übergeben bekommt. 
+
+\fbox{\texttt{\textbackslash boxed\{\textsl{Inhalte}\}}}
+
+Der Befehl \verb!\boxed!\index[cmd]{\texttt{\textbackslash boxed}}
+verhält sich im 
+Grunde genau so wie der 
+Befehl \verb!\fbox!\index[cmd]{\texttt{\textbackslash fbox}} 
+(siehe Abschnitt~\ref{Abschnitt_Boxen}).
+Der einzige Unterschied ist, das \verb!\boxed! nur
+in mathematischen Umgebungen funktioniert.
+
+
+
+\begin{minipage}[c]{.38\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\( \boxed{\sqrt[\alpha]{(a*b*c)^2}} \)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=boxedbeispiel, style=customlatex]
+\( \boxed{\sqrt[\alpha]{(a*b*c)^2}} \)
+\end{lstlisting}
+\end{minipage}
+
+
+Eine weitere Möglichkeit, um Formeln 
+einzurahmen, ist die Verwendung des bereits bekannten Befehls \verb!\fbox!.
+Dieser Befehl funktioniert zwar nur außerhalb mathematischer Umgebungen,
+es ist aber möglich, auch eingebettete Formeln damit einzurahmen.
+
+
+\begin{minipage}[c]{.38\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\fbox{\( a^{2} + b^{2} = c^{2} \)}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=fboxbeispiel, style=customlatex]
+\fbox{\( a^{2} + b^{2} = c^{2} \)}
+\end{lstlisting}
+\end{minipage}
+
+
+\subsection{Ein paar Formeln zum üben\dots}
+
+
+Dieser Abschnitt enthält einige Formeln zum üben. 
+
+\begin{minipage}[c]{.38\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\(
+  \frac{{3(x+2)^{2}}-(-2)*{2^{2^{2}-2}}}{3x+6} 
+\)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=formelbeispiel1, style=customlatex]
+\(
+  \frac{{3(x+2)^{2}}-(-2)*{2^{2^{2}-2}}}{3x+6} 
+\)
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}[c]{.38\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\(
+  \frac{-2^{3^{2}}+(2^{3})^{2}x}{(2^{2})^{3}} 
+\)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=formelbeispiel2, style=customlatex]
+\(
+  \frac{-2^{3^{2}}+(2^{3})^{2}x}{(2^{2})^{3}} 
+\)
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}[c]{.38\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\(
+  \sqrt[3]{\Biggl(\frac{
+  \frac{x^{4}-3x^{2}}{(x-7)}+e^{x^{2}}} 
+  {\sqrt[]{\sin(x^{7}-x^{3})}}\Biggr)^{2}} 
+\)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=formelbeispiel3, style=customlatex]
+\(
+  \sqrt[3]{\Biggl(\frac{
+  \frac{x^{4}-3x^{2}}{(x-7)}+e^{x^{2}}} 
+  {\sqrt[]{\sin(x^{7}-x^{3})}}\Biggr)^{2}} 
+\)
+\end{lstlisting}
+\end{minipage}
+
+
+\begin{minipage}[c]{.38\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\(
+  A(x) = \sum_{j=0}^{n-1} b_{j} y^{j}
+\)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=formelbeispiel4, style=customlatex]
+\(
+  A(x) = \sum_{j=0}^{n-1} b_{j} y^{j}
+\)
+\end{lstlisting}
+\end{minipage}
+
+
+\begin{minipage}[c]{.38\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\(
+  \sin z = \sum_{n=0}^{\infty}(-1)^{n}
+  \frac{z^{2n + 1}}{(2n + 1)!} 
+\)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=formelbeispiel5, style=customlatex]
+\(
+  \sin z = \sum_{n=0}^{\infty}(-1)^{n}
+  \frac{z^{2n + 1}}{(2n + 1)!}  
+\)
+\end{lstlisting}
+\end{minipage}
+
+
+\begin{minipage}[c]{.38\textwidth}
+\setlength{\parskip}{1em}
+\centering
+\(
+  \cos z = \sum_{n=0}^{\infty}(-1)^n \frac{z^{2n}}{(2n)!} 
+\)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\textwidth}
+\setlength{\parskip}{1em}
+\begin{lstlisting}[label=formelbeispiel6, style=customlatex]
+\(
+  \cos z = \sum_{n=0}^{\infty}(-1)^n \frac{z^{2n}}{(2n)!} 
+\)
+\end{lstlisting}
+\end{minipage}
+
+
+\[
+  \sum_{k=1}^{n}e^{ikx} = e^{ix}*\frac{1-e^{inx}}{1-e^{ix}} =
+  \frac{\sin\frac{nx}{2}}{\sin\frac{x}{2}} * e^{i(n+1)
+  \frac{x}{2}}\enskip(x\neq 2n\pi)
+\]
+
+
+\begin{lstlisting}[label=formelbeispiel7, style=customlatex]
+\[
+  \sum_{k=1}^{n}e^{ikx} = e^{ix}*\frac{1-e^{inx}}{1-e^{ix}} =
+  \frac{\sin\frac{nx}{2}}{\sin\frac{x}{2}} * e^{i(n+1)
+  \frac{x}{2}}\enskip(x\neq 2n\pi)
+\]
+\end{lstlisting}
+
+
+
+
+
+
+\[
+\int\frac{ct}{(t^{2} + a^{2})}dt = \left\{
+\begin{array}{lr}
+  \frac{c}{2}ln(t^{2} + a^{2})          & n=1 \\
+- \frac{c}{2(n-1)(t^{2} + a^{2})^{n-1}} & n\geq 0
+\end{array}
+\right.
+\]
+
+
+\begin{lstlisting}[label=formelbeispiel8, style=customlatex]
+\[
+\int\frac{ct}{(t^{2} + a^{2})}dt = \left\{
+\begin{array}{lr}
+  \frac{c}{2}ln(t^{2} + a^{2})          & n=1 \\
+- \frac{c}{2(n-1)(t^{2} + a^{2})^{n-1}} & n\geq 0
+\end{array}
+\right.
+\]
+\end{lstlisting}
+
+
+
+
+
+
+\[
+\frac{u^{h}_{i,j+1}-u^{h}_{i,j}}{\triangle t} = 
+\frac{u^{h}_{i+1,j}-2u^{h}_{i,j}+u^{h}_{i-1,j}}{(\triangle x)^{2}}
+\]
+
+\begin{lstlisting}[label=formelbeispiel9, style=customlatex]
+\(
+\frac{u^{h}_{i,j+1}-u^{h}_{i,j}}{\triangle t} = 
+\frac{u^{h}_{i+1,j}-2u^{h}_{i,j}+u^{h}_{i-1,j}}{(\triangle x)^{2}}
+\)
+\end{lstlisting}
+
+
+
+
+\[
+s\in G \Longrightarrow \langle s\rangle\subseteq 
+G\quad\mbox{ist Untergruppe}\quad\stackrel{\mbox{\scriptsize{Satz}}}
+{\Longrightarrow}\quad |\langle s\rangle|\big| |G|
+\]
+
+
+\begin{lstlisting}[label=formelbeispiel10, style=customlatex]
+\[
+s\in G \Longrightarrow \langle s\rangle\subseteq 
+G\quad\mbox{ist Untergruppe}\quad\stackrel{\mbox{\scriptsize{Satz}}}
+{\Longrightarrow}\quad |\langle s\rangle|\big| |G|
+\]
+\end{lstlisting}
