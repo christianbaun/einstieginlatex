@@ -479,6 +479,7 @@ beeinflusst. Auch diese beiden Befehle müssen in der Präambel der \LaTeX-Quell
 \texttt{\textbackslash renewcommand\{\textbackslash headrulewidth\}}\{\textsl{Wert}\} \\
 \texttt{\textbackslash renewcommand\{\textbackslash footrulewidth\}}\{\textsl{Wert}\} 
 \end{boxedminipage}
+\index[cmd]{\texttt{\textbackslash renewcommand}}
 
 Sollen die Linen unter der Kopfzeile und über der Fußzeile gar nicht erscheinen, so kann die Strichbreite einfach auf einen Wert \verb!0pt! gesetzt werden.
 
@@ -661,6 +662,7 @@ Standardmäßig hat \verb!\baselinestretch!\index[cmd]{\texttt{\textbackslash ba
 den Wert \verb!1!. Die Zuweisung eines neuen Werts geschieht folgenderweise:
 
 \fbox{\texttt{\textbackslash renewcommand\{\textbackslash baselinestretch\}\{\textsl{Faktor}\}}}
+\index[cmd]{\texttt{\textbackslash renewcommand}}
 
 Wird der Wert des Längenbefehls \verb!\baselinestretch! 
 in der Präambel geändert, gilt
@@ -1459,9 +1461,9 @@ Einträge für das Indexregister mit dem Befehl \verb!\index! definiert sein.
 \texttt{\textbackslash index\{}\textsl{Indexeintrag}\texttt{\}} 
 \end{boxedminipage}
 
-Zusätzlich muss in der Präambel des Dokuments der Befehl \verb!\makeindex!\index[cmd]{\texttt{\textbackslash makeindex}}  stehen
+Zusätzlich muss in der Präambel des Dokuments der Befehl \verb!\makeindex!\index[cmd]{\texttt{\textbackslash makeindex}} stehen
 und an der Stelle im Dokument, an der das Indexregister erscheinen soll, 
-ist der Befehl \verb!\printindex!\index[cmd]{\texttt{\textbackslash printindex}}  nötig.
+ist der Befehl \verb!\printindex!\index[cmd]{\texttt{\textbackslash printindex}} nötig.
 
 
 \begin{boxedminipage}{\textwidth}
@@ -1477,14 +1479,14 @@ Nachdem die Quelldatei vom \LaTeX-Compiler abgearbeitet wurde\dots
 \textbf{1)} \verb!pdflatex dateiname.tex!
 
 erzeugt der \LaTeX-Compiler eine Datei 
-\verb!dateiname.idx!, die 
+\verb!dateiname.idx!\index{\texttt{idx}-Datei}, die 
 die Einträge für das Indexregister 
 enthält. Anschließend muss ein Durchlauf des Programms
 \verb!makeindex! folgen:
 
 \textbf{2)} \verb!makeindex dateiname.idx!
 
-Das Programm \verb!makeindex! legt eine Datei \verb!dateiname.ind! an, 
+Das Programm \verb!makeindex! legt eine Datei \verb!dateiname.ind!\index{\texttt{ind}-Datei} an, 
 die ebenfalls alle Einträge für das Indexregister enthält,
 aber im Gegensatz zu \verb!dateiname.idx! sind die Einträge hier
 alphabetisch sortiert und die Seitenzahlen beigefügt.

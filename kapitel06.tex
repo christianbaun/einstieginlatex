@@ -22,7 +22,7 @@ begin\{tabular\}[}\textsl{Position}\texttt{]\{}\textsl{Spalten}\texttt{\}\textsl
 In der ersten Zeile der Tabellendefinition,\index{Tabellendefinition} 
 der sogenannten Tabellenpräambel\index{Tabellenpräambel} 
 (das ist die Zeile mit 
-dem \verb!\begin{tabular}!) ist die Anzahl der Spalten (\textsl{Spalten}) 
+dem \verb!\begin{tabularx}!) ist die Anzahl der Spalten (\textsl{Spalten}) 
 und die Ausrichtung der Tabelle (\textsl{Position}) 
 definiert. Die Ausrichtung ist allerdings ein optionaler Parameter.
 
@@ -427,6 +427,84 @@ x1y3 & x2y3 & x3y3 \\
 \end{tabularx}
 \end{lstlisting}
 
+\section{Tabellen als Gleitobjekte}
+\label{sec:tabellen_gleitobjekte}
+\index{Tabellen!Gleitobjekt}
+\index{Gleitobjekt}
+\index[cmd]{\texttt{\textbackslash table}}
+
+Meist ist es sinnvoll, Tabellen mit der Umgebung \verb!table! zu umschließen. Dadurch werden sie zu sogenannten Gleitobjekten. Vorteile von Gleitobjekten sind die automatisierte Positionierung sowie die Möglichkeit Tabellenüberschriften und Bezeichner zuweisen zu können. Ein mögliches Beispiel ist:
+
+\begin{Verbatim}[frame=single]
+\begin{table}[htb]
+\caption{Hier ist die Tabellenüberschrift definiert}
+\label{tab:eindeutiger_bezeichner}
+\begin{tabular}{Spaltenformatierungseintrag}
+...
+\end{tabular}
+\end{table}
+\end{Verbatim}
+
+Außer \verb!table!-Gleitobjekten gibt es unter anderem auch \verb!figure!-Gleitobjekte (siehe Abschnitt~\ref{sec:bilder_gleitobjekte}). Der \LaTeX-Compiler wird nie die Reihenfolge von Gleitumgebungen einer Sorte ändern. Gibt es in einem Dokument beispielsweise mehrere \verb!table!-Gleitobjekte, bleibt deren Reihenfolge im Dokument immer gleich.
+
+In eckigen Klammern kann der Umgebung \verb!table! ein Platzierungsparameter übergeben werden. 
+Dieser Parameter kann folgende Zeichen in beliebiger Reihenfolge enthalten:
+
+\begin{itemize}
+	\item \texttt{h}: Das Gleitobjekt darf an dieser Stelle  (\textsl{here}) im Quelltext platziert werden.
+	\item \texttt{t}: Das Gleitobjekt darf am oberen Bereich (\textsl{top}) des Textfeldes platziert werden.
+	\item \texttt{b}: Das Gleitobjekt darf am unteren Bereich (\textsl{bottom}) des Textfeldes platziert werden.
+	\item \texttt{p}: Das Gleitobjekt darf auf einer eigenen Seite für Gleitobjekte platziert werden.
+\end{itemize}
+
+Gibt ein Autor dem \LaTeX-Compiler alle Freiheiten bei der Positionierung eines \verb!figure!-Gleitobjekts, hat der Platzierungsparameter die Form \verb|[htbp]|.
+
+Sind mehrere Zeichen angegeben, platziert der \LaTeX-Compiler das Gleitobjekt da, wo es am besten passt.
+Mit dem Empfehlungsparameter \verb|!| kann ein Autor einem bestimmten Positionierungswunsch mehr Gewicht geben. Ein Beispiel für den Einsatz des Empfehlungsparameters ist \verb|[h!tbp]|.
+Die endgültige Positionierung eines Gleitobjekts hängt unter anderem davon ab, wie viele Gleitumgebungen in einen bestimmten Bereich des Dokuments vorkommen, wie groß diese im einzelnen sind und wo sie positioniert werden dürfen. 
+
+Der in diesem Dokument häufig verwendete Platzierungsparameter \verb|[H]| erzwingt die Platzierung an der Stelle im Fließtext, wo das Gleitobjekt vorkommt. Der Parameter stammt aus dem Erweiterungspaket \verb|float|, das mit dem Befehl \verb|\usepackage{float}| in der Präambel der Quelldatei eingebunden werden kann.
+
+Das Verhalten des \LaTeX-Compilers bzgl. der Positionierung von Gleitobjekten ist in der Literatur umfangreich dokumentiert (u.a. bei~\cite{Gleitobjekte_TeXwelt}) und kann auf vielfältige Art und Weise, unter anderem mit den Längenbefehlen 
+\verb|\totalnumber|\index[cmd]{\texttt{\textbackslash totalnumber}}, 
+\verb|\topnumber|\index[cmd]{\texttt{\textbackslash topnumber}}, 
+\verb|\bottomnumber|\index[cmd]{\texttt{\textbackslash bottomnumber}}, 
+\verb|\topfraction|\index[cmd]{\texttt{\textbackslash topfraction}}
+und \verb|\textfraction|\index[cmd]{\texttt{\textbackslash textfraction}}
+beeinflusst werden (siehe Tabelle~\ref{tab:LängenbefehleGleitumgebungen}). 
+
+
+\begin{table}[h!tb]
+	\centering
+	\caption{Auswahl an Längenbefehlen zur Beeinflussung der Positionierung von Gleitobjekten}
+	\label{tab:LängenbefehleGleitumgebungen}
+    \begin{tabularx}{\textwidth}{lXc}
+		\hline
+		\textbf{Befehl} & \textbf{Bedeutung}  & \textbf{Standardwert} \\
+		\hline
+		\texttt{\textbackslash totalnumber}  & Maximale Anzahl von Gleitumgebungen auf einer Seite (nicht einer eigenen Seite für Gleitobjekte). & \texttt{3}    \\
+		\texttt{\textbackslash topnumber}    & Maximale Anzahl von Gleitumgebungen am oberen Bereich (\textsl{top}) des Textfeldes. & \texttt{2}    \\ 
+		\texttt{\textbackslash bottomnumber}  & Maximale Anzahl von Gleitumgebungen am unteren Bereich (\textsl{bottom}) des Textfeldes.  & \texttt{1}   \\
+		\texttt{\textbackslash topfraction}   & Maximale Größe des oberen Bereichs (\textsl{top}) des Textfeldes. & \texttt{0.7} \\ 
+		\texttt{\textbackslash textfraction}  & Maximale Größe des unteren Bereichs (\textsl{bottom}) des Textfeldes.  & \texttt{0.3}  \\ 
+		\hline
+	\end{tabularx}
+\end{table}
+
+Die Werte der in Tabelle~\ref{tab:LängenbefehleGleitumgebungen} gezeigten Längenbefehlen kann mit dem Befehl
+\verb|\renewcommand|\index[cmd]{\texttt{\textbackslash renewcommand}} geändert werden. Folgendes Beispiel Ändert das Verhalten des \LaTeX-Compilers dahingehend, das bis zu fünf Gleitumgebungen pro Seite positioniert werden:
+
+\begin{boxedminipage}{\textwidth}
+	\texttt{\textbackslash renewcommand\{\textbackslash totalnumber\}}\{5\} 
+\end{boxedminipage}
+
+
+\section{Auf Tabellen referenzieren und Tabellenüberschriften definieren}
+\label{sec:tabellen_referenzieren}
+
+Befindet sich eine Tabelle innerhalb eines \verb!table!-Gleitobjekts, kann der Tabelle mit dem Befehl \verb!\label{!\textsl{Name}\verb!}! ein Bezeichner zugewiesen werden. In diesem Fall kann an jeder beliebigen Stelle im Dokument mit dem Befehl \verb!\ref{!\textsl{Name}\verb!}! auf die Tabelle verwiesen werden.
+
+Mit dem Befehl \verb!\caption{!\textsl{Tabellenüberschrift}\verb!}!\index[cmd]{\texttt{\textbackslash caption}} geschieht die Definition der Tabellenüberschrift\index{Tabellenüberschrift}. Auch diese Fähigkeit setzt die Einbettung der Tabelle in einem \verb!table!-Gleitobjekt voraus. 
 
 \section{Farbige Tabellen}
 \index{Tabellen!Farben}

@@ -65,21 +65,34 @@ Im Beispiel in Abbildung~\ref{Beispiel_includegraphics2} ist das Linux-Maskottch
 \label{Beispiel_includegraphics2}
 \end{figure}
 
-% !!! Hier noch den Abschnitt von Figure einfügen !!!
+\section{Bilder als Gleitobjekte}
+\label{sec:bilder_gleitobjekte}
+\index{Abbildungen!Gleitobjekt}
+\index{Bilder!Gleitobjekt}
+\index{Grafiken!Gleitobjekt}
+\index{Gleitobjekt}
+\index[cmd]{\texttt{\textbackslash figure}}
 
-Meist ist es sinnvoll Abbildungen mit der Umgebung \verb!figure! zu umschließen. Dadurch werden sie zu sogenannten Gleitobjekten. Vorteile von Gleitobjekten sind die automatisierte Positionierung sowie die Möglichkeit Bildunterschriften und Bezeichner zuweisen zu können. Ein mögliches Beispiel ist:
+Meist ist es sinnvoll, Abbildungen mit der Umgebung \verb!figure! zu umschließen. Dadurch werden sie zu sogenannten Gleitobjekten. Vorteile von Gleitobjekten sind die automatisierte Positionierung sowie die Möglichkeit Bildunterschriften und Bezeichner zuweisen zu können. Ein mögliches Beispiel ist:
 
 \begin{Verbatim}[frame=single]
-\begin{figure}[H]
+\begin{figure}[htb]
 \includegraphics[width=7cm]{Dateiname}
 \caption{Hier ist die Bildunterschrift definiert}
 \label{fig:eindeutiger_bezeichner}
 \end{figure}
 \end{Verbatim}
 
-Ist einer Abbildung mit dem Befehl \verb!\label{!\textsl{Name}\verb!}! ein Bezeichner zugewiesen, kann an jeder beliebigen Stelle im Dokument mit dem Befehl \verb!\ref{!\textsl{Name}\verb!}! darauf verwiesen werden.
+Außer \verb!figure!-Gleitobjekten gibt es unter anderem auch \verb!table!-Gleitobjekte (siehe Abschnitt~\ref{sec:tabellen_gleitobjekte}). deren Platzierungsparameter innerhalb der eckigen Klammern sind identisch und auf Seite~\pageref{sec:tabellen_gleitobjekte} ausführlich beschrieben.
 
-Mit dem Befehl \verb!\caption{!\textsl{Bildunterschrift}\verb!}!\index[cmd]{\texttt{\textbackslash caption}} geschieht die Definition der Bildunterschrift. 
+
+\section{Auf Bilder referenzieren und Bildunterschriften definieren}
+\label{sec:bilder_referenzieren}
+
+Befindet sich eine Abbildung innerhalb eines \verb!figure!-Gleitobjekts, kann der Abbildung mit dem Befehl \verb!\label{!\textsl{Name}\verb!}! ein Bezeichner zugewiesen werden. In diesem Fall kann an jeder beliebigen Stelle im Dokument mit dem Befehl \verb!\ref{!\textsl{Name}\verb!}! auf die Abbildung verwiesen werden.
+
+Mit dem Befehl \verb!\caption{!\textsl{Bildunterschrift}\verb!}!\index[cmd]{\texttt{\textbackslash caption}} geschieht die Definition der Bildunterschrift\index{Bildunterschrift}. Auch diese Fähigkeit setzt die Einbettung der Abbildung in einem \verb!figure!-Gleitobjekt voraus. 
+
 
 \section{Pfade der Bilddateien definieren}
 
