@@ -1,3 +1,5 @@
+[![License: CC BY-NC-SA 3.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+
 # Ein Einstieg in LaTeX
 
 Das Ziel dieses Werks ist es, eine kompakte und gut verständliche Einführung zum Thema zu liefern. 
